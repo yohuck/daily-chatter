@@ -9,9 +9,8 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
-import TopicsLayout from 'src/layouts/TopicsLayout'
-
 import MainLayout from 'src/layouts/MainLayout'
+import TopicsLayout from 'src/layouts/TopicsLayout'
 
 const Routes = () => {
   return (
@@ -23,8 +22,8 @@ const Routes = () => {
         <Route path="/topics" page={TopicTopicsPage} name="topics" />
       </Set>
       <Set wrap={MainLayout}>
-        <Route path="/about" page={AboutPage} name="about" />
         <Route path="/" page={HomePage} name="home" />
+        <Route path="/about" page={AboutPage} name="about" />
         <Route notfound page={NotFoundPage} />
       </Set>
     </Router>
