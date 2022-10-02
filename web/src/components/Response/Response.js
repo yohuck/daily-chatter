@@ -6,9 +6,9 @@ const formattedDate = (datetime) => {
 
 const Response = ({ response }) => {
   return (
-    <div className="rounded-lg bg-sky-100  p-8 shadow">
-      <header className="flex justify-between">
-        <h2 className="font-bold text-sky-700">{response.title}</h2>
+    <div className=" m-2 w-96 rounded-lg bg-sky-100 p-8 shadow">
+      <header className="center flex justify-between gap-5">
+        <h2 className="break-words font-bold text-sky-700">{response.title}</h2>
         <div className="icons flex gap-2">
           <svg
             className="h-6 w-6 flex-none fill-red-500 stroke-gray-800 stroke-2"
