@@ -16,16 +16,16 @@ const DELETE_TOPIC_MUTATION = gql`
 
 const MAX_STRING_LENGTH = 150
 
-const formatEnum = (values) => {
-  if (values) {
-    if (Array.isArray(values)) {
-      const humanizedValues = values.map((value) => humanize(value))
-      return humanizedValues.join(', ')
-    } else {
-      return humanize(values)
-    }
-  }
-}
+// const formatEnum = (values) => {
+//   if (values) {
+//     if (Array.isArray(values)) {
+//       const humanizedValues = values.map((value) => humanize(value))
+//       return humanizedValues.join(', ')
+//     } else {
+//       return humanize(values)
+//     }
+//   }
+// }
 
 const truncate = (value) => {
   const output = value?.toString()
@@ -35,9 +35,9 @@ const truncate = (value) => {
   return output ?? ''
 }
 
-const jsonTruncate = (obj) => {
-  return truncate(JSON.stringify(obj, null, 2))
-}
+// const jsonTruncate = (obj) => {
+//   return truncate(JSON.stringify(obj, null, 2))
+// }
 
 const timeTag = (datetime) => {
   return (
@@ -49,9 +49,9 @@ const timeTag = (datetime) => {
   )
 }
 
-const checkboxInputTag = (checked) => {
-  return <input type="checkbox" checked={checked} disabled />
-}
+// const checkboxInputTag = (checked) => {
+//   return <input type="checkbox" checked={checked} disabled />
+// }
 
 const TopicsList = ({ topics }) => {
   const [deleteTopic] = useMutation(DELETE_TOPIC_MUTATION, {
