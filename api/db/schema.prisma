@@ -17,3 +17,12 @@ model Topic {
   title       String @unique
   description String
 }
+
+// model User {
+//   id Int @id @default(autoincrement())
+//   username String @unique
+//   name String
+//   password String
+//   topics
+
+// }
