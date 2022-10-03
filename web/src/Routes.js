@@ -9,9 +9,8 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
-import TopicsLayout from 'src/layouts/TopicsLayout'
-
 import MainLayout from 'src/layouts/MainLayout'
+import TopicsLayout from 'src/layouts/TopicsLayout'
 
 const Routes = () => {
   return (
@@ -30,5 +29,7 @@ const Routes = () => {
     </Router>
   )
 }
+
+// will it render
 
 export default Routes
