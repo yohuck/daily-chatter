@@ -2,12 +2,17 @@ import { Link, routes } from '@redwoodjs/router'
 
 const MainLayout = ({ children }) => {
   return (
-    <div className="bg-gradient-to-r from-yellow-400 to-yellow-400 font-mono">
-      <header className="sticky top-0 w-full border-b-4 border-black bg-gradient-to-r from-emerald-500 to-teal-500 box-decoration-slice px-7 py-1 text-center ">
-        <h1 className="text-6xl font-black text-black">Pennywrite</h1>
-        <p className="text-xl text-black">What are your thoughts worth?</p>
+    <div className=" bg-gradient-to-r from-emerald-500 to-emerald-700 font-mono ">
+      <header className="sticky top-0 flex w-full justify-between px-2 py-1 text-left bg-yellow-400 mb-6 z-50">
+        <div className=" m-2 flex flex items-center rounded-lg bg-sky-100 p-2 shadow hover:bg-yellow-100 ">
+          <div className=" flex flex-col">
+            {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
+            <i className="fa-duotone fa-coin fa-2x p-1 text-emerald-500"></i>
+          </div>
+        </div>
+
         <nav>
-          <ul>
+          <ul className="flex flex-col">
             <li className="">
               <Link to={routes.home()}>Home</Link>
             </li>

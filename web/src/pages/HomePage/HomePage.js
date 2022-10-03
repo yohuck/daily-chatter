@@ -33,22 +33,24 @@ const HomePage = () => {
     <>
       <MetaTags title="Home" description="Home page" />
 
-      <main>
-        <article className="flex  flex-wrap justify-center">
-          <Response response={response} />
-          <Response response={response2} />
-          <Response response={response3} />
-          <Response response={response4} />
-          <Response response={response5} />
-          <Response response={response} />
-          <Response response={response2} />
-          <Response response={response3} />
-          <Response response={response4} />
-          <Response response={response5} />
-          <Response response={response} />
-          <Response response={response2} />
-          <Response response={response3} />
-        </article>
+      <main className="flex justify-center">
+        <div className="container flex justify-center">
+          <article className="flex flex-wrap justify-center">
+            <Response response={response} />
+            <Response response={response2} />
+            <Response response={response3} />
+            <Response response={response4} />
+            <Response response={response5} />
+            <Response response={response} />
+            <Response response={response2} />
+            <Response response={response3} />
+            <Response response={response4} />
+            <Response response={response5} />
+            <Response response={response} />
+            <Response response={response2} />
+            <Response response={response3} />
+          </article>
+        </div>
       </main>
     </>
   )
