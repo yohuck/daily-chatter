@@ -1,10 +1,19 @@
 import { Form, TextAreaField, TextField, Submit } from '@redwoodjs/forms'
-import { Link, routes } from '@redwoodjs/router'
-import { MetaTags } from '@redwoodjs/web'
+import { MetaTags, useMutation } from '@redwoodjs/web'
+
+const CREATE_MESSAGE = gql`
+  mutation CreateMessageMutation($input: CreateMessageInput!) {
+    createMessage(input: $input) {
+      id
+    }
+  }
+`
 
 const ContactPage = () => {
+  const [create, { loading, error }] = useMutation(CREATE_MESSAGE)
   const onSubmit = (data) => {
     console.log(data)
+    create({ variables: { input: data } })
   }
 
   return (
@@ -30,11 +39,11 @@ const ContactPage = () => {
           <label htmlFor="message">Message</label>
           <TextAreaField
             className="m-2 w-80 resize-none rounded-lg bg-amber-50 shadow "
-            name="message"
+            name="messageContent"
             rows="8"
           />
 
-          <Submit>
+          <Submit disabled={loading}>
             <i className="fa-solid fa-paper-plane hover:text-gray-500"></i>
           </Submit>
         </Form>
