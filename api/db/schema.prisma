@@ -1,5 +1,6 @@
+//change the provider to 'mySql' to use mysql.
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -8,9 +9,51 @@ generator client {
   binaryTargets = "native"
 }
 
+
+
+model User {
+  id Int @id @default(autoincrement())
+  username String @unique
+  email String  @unique
+  password String
+  posts Post[]
+  votes Vote[]
+  admin Boolean
+  userId Int
+}
+
+
+model Post {
+  id Int @id @default(autoincrement())
+  content String
+  userId Int
+  postingUser User @relation(fields: [userId], references: [id])
+  postTopic Topic @relation(fields: [topicId], references: [id])
+  votes Vote[]
+  postId Int
+  topicId Int
+  reports Int
+
+  @@unique([postId,topicId])
+}
+
 model Topic {
   id        Int      @id @default(autoincrement())
   title     String
   description      String
   createdAt DateTime @default(now())
+  posts Post[]
 }
+model Vote {
+  id Int @id @default(autoincrement())
+  upvote Boolean
+  downvote Boolean
+  totalVotes Int
+  postVote Post @relation(fields: [postId], references: [id])
+  userTotal User @relation(fields: [userId], references: [id])
+  postId Int
+  userId Int
+
+  @@unique([postId, userId])
+}
+

@@ -28,3 +28,9 @@ export const deleteTopic = ({ id }) => {
     where: { id },
   })
 }
+
+export const Topic = {
+  posts: (_obj, { root }) => {
+    return db.topic.findUnique({ where: { id: root?.id } }).posts()
+  },
+}
