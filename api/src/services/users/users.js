@@ -1,6 +1,8 @@
 import { db } from 'src/lib/db'
 
+
 export const users = () => {
+  console.log(db)
   return db.user.findMany()
 }
 
