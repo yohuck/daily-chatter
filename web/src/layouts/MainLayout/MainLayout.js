@@ -2,7 +2,7 @@ import { Link, routes } from '@redwoodjs/router'
 
 const MainLayout = ({ children }) => {
   return (
-    <div className=" bg-gradient-to-r from-emerald-500 to-emerald-700 font-mono ">
+    <div className=" bg-gradient-to-r from-emerald-500 to-emerald-700 font-mono min-h-screen ">
       <header className="sticky top-0 z-50 mb-6 flex w-full justify-between bg-yellow-400 px-2 py-1 text-left">
         <div className="buttons flex">
           <div className=" m-2 flex flex items-center rounded-lg bg-sky-100 p-2 shadow hover:bg-yellow-100 ">
