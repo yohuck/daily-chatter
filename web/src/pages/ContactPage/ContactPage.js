@@ -23,28 +23,29 @@ const ContactPage = () => {
           </li>
         </ul>
       </nav>
-      <div className=" p-8">
+
+      <div className="m-16 flex justify-around rounded-lg bg-sky-100 shadow">
         <Form
-          className="flex min-w-[200px] flex-col gap-1 rounded-lg bg-sky-100 shadow "
+          className="flex flex-col place-items-center gap-1"
           onSubmit={onSubmit}
         >
           <label htmlFor="name">Name</label>
           <TextField
-            className="m-2 flex flex-col  rounded-lg bg-amber-50  shadow "
+            className="m-2 rounded-lg bg-amber-50  shadow "
             name="name"
           />
 
           <label htmlFor="email">Email</label>
           <TextField
-            className="m-2 flex flex-col  rounded-lg bg-amber-50 shadow "
+            className="m-2 rounded-lg bg-amber-50 shadow "
             name="email"
           />
 
           <label htmlFor="message">Message</label>
           <TextAreaField
-            className="m-2 flex flex-col rounded-lg bg-amber-50 shadow "
+            className="m-2 w-80 resize-none rounded-lg bg-amber-50 shadow "
             name="message"
-            rows="10"
+            rows="8"
           />
 
           <Submit>
