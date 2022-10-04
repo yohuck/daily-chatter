@@ -4,7 +4,7 @@ import Response from 'src/components/Response/Response'
 
 const response = {
   title: 'Low Rise? High Rise? Rise Above',
-  body: 'Let people wear whatever the fuck they want who cares',
+  body: 'Let people wear whatever the heck they want who cares',
   user: 'Huck',
 }
 const response2 = {
@@ -13,19 +13,20 @@ const response2 = {
   user: 'Leah',
 }
 const response3 = {
-  title: 'Friends in low places',
-  body: 'I for one welcome the return of low rise and the first hip bones of the season',
-  user: 'Atkins',
-}
-const response4 = {
   title: 'Both arguments have holes',
   body: 'I literally do not care how high or low your jeans are but for the love of all that is hole-y can we quit with the pre-distressed jeans?',
   user: 'Lana',
 }
-const response5 = {
+const response4 = {
   title: 'We love a Jort king',
   body: 'From cutoff capris to daisy dukes, the true form for demin is jorts. Function, fashion, and free-knees!',
   user: 'Huck',
+}
+
+const response5 = {
+  title: 'Friends in low places',
+  body: 'I for one welcome the return of low rise and the first hip bones of the season',
+  user: 'Atkins',
 }
 
 const HomePage = () => {
