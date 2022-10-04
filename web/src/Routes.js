@@ -17,7 +17,6 @@ import VotesLayout from 'src/layouts/VotesLayout'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/contact" page={ContactPage} name="contact" />
       <Set wrap={VotesLayout}>
         <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
         <Route path="/votes/{id:Int}/edit" page={VoteEditVotePage} name="editVote" />
@@ -40,6 +39,7 @@ const Routes = () => {
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />
+        <Route path="/contact" page={ContactPage} name="contact" />
       </Set>
     </Router>
   )
