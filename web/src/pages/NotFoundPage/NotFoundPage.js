@@ -38,7 +38,7 @@ export default () => (
 
     <section>
       <h1>
-        <span>404 Page Not Found</span>
+        <img src="https://http.cat/404.jpg"></img>
       </h1>
     </section>
   </main>
