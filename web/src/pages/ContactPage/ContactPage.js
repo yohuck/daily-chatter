@@ -6,22 +6,33 @@ import {
   Submit,
   FieldError,
 } from '@redwoodjs/forms'
-import { MetaTags } from '@redwoodjs/web'
+import { MetaTags, useMutation } from '@redwoodjs/web'
+
+const CREATE_MESSAGE = gql`
+  mutation CreateMessageMutation($input: CreateMessageInput!) {
+    createMessage(input: $input) {
+      id
+    }
+  }
+`
 
 const ContactPage = () => {
+  const [create, { loading, error }] = useMutation(CREATE_MESSAGE)
   const onSubmit = (data) => {
     console.log(data)
+    create({ variables: { input: data } })
   }
 
   return (
     <>
       <MetaTags title="Contact" description="Contact page" />
+
       <div className="flex items-center justify-center">
         <div className="flex w-96 justify-center rounded-lg bg-sky-100 shadow">
           <Form
             className="flex flex-col place-items-center justify-center"
             onSubmit={onSubmit}
-            config={{ mode: 'onBlur'}}
+            config={{ mode: 'onBlur' }}
           >
             <Label
               name="name"
@@ -72,7 +83,10 @@ const ContactPage = () => {
               errorClassName="m-2 w-80 resize-none rounded-lg bg-amber-50 shadow-error"
             />
             <FieldError name="message" className="text-red-500" />
-            <Submit className="m-2 flex items-center justify-center rounded-lg bg-white p-2 shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500">
+            <Submit
+              className="m-2 flex items-center justify-center rounded-lg bg-white p-2 shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500"
+              disabled={loading}
+            >
               <i className="fa-solid fa-send   hover:text-gray-500"></i>
             </Submit>
           </Form>
