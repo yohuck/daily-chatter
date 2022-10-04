@@ -77,7 +77,7 @@ const ContactPage = () => {
             </Label>
             <TextAreaField
               className="m-2 w-80 resize-none rounded-lg bg-amber-50 shadow "
-              name="message"
+              name="messageContent"
               rows="8"
               validation={{ required: true }}
               errorClassName="m-2 w-80 resize-none rounded-lg bg-amber-50 shadow-error"
