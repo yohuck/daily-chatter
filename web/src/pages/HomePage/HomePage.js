@@ -34,7 +34,8 @@ const HomePage = () => {
     <>
       <MetaTags title="Home" description="Home page" />
 
-      <main className="flex justify-center">
+      <main className="items-center flex flex-col justify-center">
+        <h1 className="text-center text-2xl font-bold mb-3">Jeans: High Rise or Low? </h1>
         <div className="container flex justify-center">
           <article className="flex flex-wrap justify-center">
             <Response response={response} />
