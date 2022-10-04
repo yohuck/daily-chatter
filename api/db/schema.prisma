@@ -1,5 +1,6 @@
+//change the provider to 'mySql' to use mysql.
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -7,6 +8,7 @@ generator client {
   provider      = "prisma-client-js"
   binaryTargets = "native"
 }
+
 
 
 model User {
@@ -54,3 +56,4 @@ model Vote {
 
   @@unique([postId, userId])
 }
+
