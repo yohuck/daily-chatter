@@ -9,15 +9,10 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
-import VotesLayout from 'src/layouts/VotesLayout'
-
-import PostsLayout from 'src/layouts/PostsLayout'
-
-import UsersLayout from 'src/layouts/UsersLayout'
-
-import TopicsLayout from 'src/layouts/TopicsLayout'
-
 import MainLayout from 'src/layouts/MainLayout'
+import PostsLayout from 'src/layouts/PostsLayout'
+import UsersLayout from 'src/layouts/UsersLayout'
+import VotesLayout from 'src/layouts/VotesLayout'
 
 const Routes = () => {
   return (
@@ -39,12 +34,6 @@ const Routes = () => {
         <Route path="/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
         <Route path="/users/{id:Int}" page={UserUserPage} name="user" />
         <Route path="/users" page={UserUsersPage} name="users" />
-      </Set>
-      <Set wrap={TopicsLayout}>
-        <Route path="/topics/new" page={TopicNewTopicPage} name="newTopic" />
-        <Route path="/topics/{id:Int}/edit" page={TopicEditTopicPage} name="editTopic" />
-        <Route path="/topics/{id:Int}" page={TopicTopicPage} name="topic" />
-        <Route path="/topics" page={TopicTopicsPage} name="topics" />
       </Set>
       <Set wrap={MainLayout}>
         <Route path="/about" page={AboutPage} name="about" />

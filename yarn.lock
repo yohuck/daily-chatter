@@ -6865,7 +6865,7 @@ __metadata:
   linkType: hard
 
 "@webpack-cli/serve@npm:^1.7.0":
-  version: 1.7.0
+  version: 1.5.2
   resolution: "@webpack-cli/serve@npm:1.7.0"
   peerDependencies:
     webpack-cli: 4.x.x
