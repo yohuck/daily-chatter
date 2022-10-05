@@ -54,9 +54,6 @@ const MainLayout = ({ children }) => {
               <Link to={routes.about()}>About</Link>
             </li>
             <li className="">
-              <Link to={routes.topics()}>Daily Topics</Link>
-            </li>
-            <li className="">
               <Link to={routes.contact()}>Contact</Link>
             </li>
           </ul>
