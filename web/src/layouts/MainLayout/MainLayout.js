@@ -1,6 +1,10 @@
+import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
 const MainLayout = ({ children }) => {
+  const { isAuthenticated, currentUser, logOut} = useAuth()
+
+  console.log(currentUser, isAuthenticated)
   return (
     <div className=" min-h-screen bg-gradient-to-r from-emerald-500 to-emerald-700 font-mono ">
       <header className="sticky top-0 z-50 mb-6 flex w-full justify-between bg-yellow-400 px-2 py-1 text-left">
@@ -29,6 +33,16 @@ const MainLayout = ({ children }) => {
               <i className="fa-duotone fa-gear fa-2x p-1 text-emerald-500"></i>
             </div>
           </div>
+          {isAuthenticated ? (
+            <div>
+              <span>Logged in {currentUser}</span>{' '}
+              <button type="button" onClick={logOut}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to={routes.login()}>Login</Link>
+          )}
         </div>
 
         <nav>

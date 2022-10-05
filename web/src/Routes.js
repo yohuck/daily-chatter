@@ -7,7 +7,7 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Router, Route, Set } from '@redwoodjs/router'
+import { Private, Router, Route, Set } from '@redwoodjs/router'
 
 import MainLayout from 'src/layouts/MainLayout'
 import PostsLayout from 'src/layouts/PostsLayout'
@@ -17,6 +17,18 @@ import VotesLayout from 'src/layouts/VotesLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
+      <Private unauthenticated="home">
+        <Set wrap={UsersLayout}>
+          <Route path="/admin/users/new" page={UserNewUserPage} name="newUser" />
+          <Route path="/admin/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
+          <Route path="/admin/users/{id:Int}" page={UserUserPage} name="user" />
+          <Route path="/admin/users" page={UserUsersPage} name="users" />
+        </Set>
+      </Private>
       <Set wrap={VotesLayout}>
         <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
         <Route path="/votes/{id:Int}/edit" page={VoteEditVotePage} name="editVote" />
@@ -35,12 +47,7 @@ const Routes = () => {
         <Route path="/posts/{id:Int}" page={PostPostPage} name="post" />
         <Route path="/posts" page={PostPostsPage} name="posts" />
       </Set>
-      <Set wrap={UsersLayout}>
-        <Route path="/users/new" page={UserNewUserPage} name="newUser" />
-        <Route path="/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
-        <Route path="/users/{id:Int}" page={UserUserPage} name="user" />
-        <Route path="/users" page={UserUsersPage} name="users" />
-      </Set>
+
       <Set wrap={MainLayout}>
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/posts" page={PostPostsPage} name="posts" />

@@ -14,12 +14,23 @@ model User {
   username String  @unique
   email    String  @unique
   password String
+  hashedPassword String @default("password")
+  salt String @default("salt")
   posts    Post[]
   votes    Vote[]
   admin    Boolean
   userId   Int
 }
 
+model Account {
+  id                  Int       @id @default(autoincrement())
+  name                String?
+  email               String    @unique
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+}
 model Post {
   id          Int    @id @default(autoincrement())
   content     String

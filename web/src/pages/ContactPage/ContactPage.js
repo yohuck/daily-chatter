@@ -69,7 +69,7 @@ const ContactPage = () => {
             />
             <FieldError name="email" className="text-red-500" />
             <Label
-              name="message"
+              name="messageContent"
               className="font-bold"
               errorClassName="text-red-500"
             >
@@ -82,7 +82,7 @@ const ContactPage = () => {
               validation={{ required: true }}
               errorClassName="m-2 w-80 resize-none rounded-lg bg-amber-50 shadow-error"
             />
-            <FieldError name="message" className="text-red-500" />
+            <FieldError name="messageContent" className="text-red-500" />
             <Submit
               className="m-2 flex items-center justify-center rounded-lg bg-white p-2 shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500"
               disabled={loading}
