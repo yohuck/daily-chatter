@@ -1,6 +1,8 @@
 import { MetaTags } from '@redwoodjs/web'
 
 import Response from 'src/components/Response/Response'
+import TopicsCell from 'src/components/Topic/TopicsCell'
+import TopicsLayout from 'src/layouts/TopicsLayout/TopicsLayout'
 
 const response = {
   title: 'Low Rise? High Rise? Rise Above',
@@ -34,8 +36,14 @@ const HomePage = () => {
     <>
       <MetaTags title="Home" description="Home page" />
 
-      <main className="items-center flex flex-col justify-center">
-        <h1 className="text-center text-2xl font-bold mb-3">Jeans: High Rise or Low? </h1>
+      <main className="flex flex-col items-center justify-center">
+        <TopicsLayout>
+          {' '}
+          <TopicsCell></TopicsCell>
+        </TopicsLayout>
+        <h1 className="mb-3 text-center text-2xl font-bold">
+          Jeans: High Rise or Low?{' '}
+        </h1>
         <div className="container flex justify-center">
           <article className="flex flex-wrap justify-center">
             <Response response={response} />

@@ -3,7 +3,7 @@ import { Toaster } from '@redwoodjs/web/toast'
 
 const TopicsLayout = ({ children }) => {
   return (
-    <div className="rw-scaffold">
+    <div>
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
       <header className="rw-header">
         <h1 className="rw-heading rw-heading-primary">

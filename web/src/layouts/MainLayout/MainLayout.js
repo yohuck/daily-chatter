@@ -1,6 +1,7 @@
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
+import TopicsLayout from '../TopicsLayout/TopicsLayout'
 const MainLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
 
@@ -54,12 +55,17 @@ const MainLayout = ({ children }) => {
               <Link to={routes.about()}>About</Link>
             </li>
             <li className="">
+              <Link to={routes.topics()}>Topics</Link>
+            </li>
+            <li className="">
               <Link to={routes.contact()}>Contact</Link>
             </li>
           </ul>
         </nav>
       </header>
-      <main>{children}</main>
+      <main>
+        {children} <TopicsLayout />
+      </main>
     </div>
   )
 }
