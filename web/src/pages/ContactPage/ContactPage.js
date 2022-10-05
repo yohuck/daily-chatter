@@ -69,7 +69,7 @@ const ContactPage = () => {
             />
             <FieldError name="email" className="text-red-500" />
             <Label
-              name="message"
+              name="messageContent"
               className="font-bold"
               errorClassName="text-red-500"
             >
