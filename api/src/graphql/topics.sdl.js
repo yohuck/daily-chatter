@@ -8,8 +8,8 @@ export const schema = gql`
   }
 
   type Query {
-    topics: [Topic!]! @requireAuth
-    topic(id: Int!): Topic @requireAuth
+    topics: [Topic!]! @skipAuth
+    topic(id: Int!): Topic @skipAuth
   }
 
   input CreateTopicInput {
@@ -23,8 +23,8 @@ export const schema = gql`
   }
 
   type Mutation {
-    createTopic(input: CreateTopicInput!): Topic! @requireAuth
-    updateTopic(id: Int!, input: UpdateTopicInput!): Topic! @requireAuth
-    deleteTopic(id: Int!): Topic! @requireAuth
+    createTopic(input: CreateTopicInput!): Topic! @skipAuth
+    updateTopic(id: Int!, input: UpdateTopicInput!): Topic! @skipAuth
+    deleteTopic(id: Int!): Topic! @skipAuth
   }
 `
