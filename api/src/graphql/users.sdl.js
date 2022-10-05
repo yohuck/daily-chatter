@@ -2,12 +2,14 @@ export const schema = gql`
   type User {
     id: Int!
     username: String!
-    email: String!
-    password: String!
-    posts: [Post]!
-    votes: [Vote]!
-    admin: Boolean!
-    userId: Int!
+    email: String?
+    hashedPassword: String?
+    salt: String?
+    password: String?
+    posts: [Post]?
+    votes: [Vote]?
+    admin: Boolean?
+    userId: Int?
   }
 
   type Query {
