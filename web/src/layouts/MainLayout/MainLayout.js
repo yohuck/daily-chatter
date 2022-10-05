@@ -2,7 +2,7 @@ import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
 const MainLayout = ({ children }) => {
-  const { isAuthenticated, currentUser, logOut} = useAuth()
+  const { isAuthenticated, currentUser, logOut } = useAuth()
 
   console.log(currentUser, isAuthenticated)
   return (
@@ -33,6 +33,14 @@ const MainLayout = ({ children }) => {
               <i className="fa-duotone fa-gear fa-2x p-1 text-emerald-500"></i>
             </div>
           </div>
+          <Link to={routes.submitResponse()}>
+            <div className=" m-2 flex flex items-center rounded-lg bg-sky-100 p-2 shadow hover:bg-yellow-100 ">
+              <div className=" flex flex-col">
+                {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
+                <i className="fa-duotone fa-pencil fa-2x p-1 text-emerald-500"></i>
+              </div>
+            </div>
+          </Link>
           {isAuthenticated ? (
             <div>
               <span>Logged in {currentUser}</span>{' '}
