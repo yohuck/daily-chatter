@@ -23,6 +23,12 @@ const Routes = () => {
         <Route path="/votes/{id:Int}" page={VoteVotePage} name="vote" />
         <Route path="/votes" page={VoteVotesPage} name="votes" />
       </Set>
+      <Set wrap={VotesLayout}>
+        <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
+        <Route path="/votes/{id:Int}/edit" page={VoteEditVotePage} name="editVote" />
+        <Route path="/votes/{id:Int}" page={VoteVotePage} name="vote" />
+        <Route path="/votes" page={VoteVotesPage} name="votes" />
+      </Set>
       <Set wrap={PostsLayout}>
         <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
         <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
@@ -37,6 +43,9 @@ const Routes = () => {
       </Set>
       <Set wrap={MainLayout}>
         <Route path="/about" page={AboutPage} name="about" />
+        <Route path="/posts" page={PostPostsPage} name="posts" />
+        <Route path="/topics" page={TopicTopicsPage} name="topics" />
+        <Route path="/topics/newTopic" page={TopicNewTopicPage} name="topics" />
         <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />
         <Route path="/contact" page={ContactPage} name="contact" />
