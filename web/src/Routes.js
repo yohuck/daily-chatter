@@ -11,12 +11,19 @@ import { Private, Router, Route, Set } from '@redwoodjs/router'
 
 import MainLayout from 'src/layouts/MainLayout'
 import PostsLayout from 'src/layouts/PostsLayout'
+import TopicsLayout from 'src/layouts/TopicsLayout'
 import UsersLayout from 'src/layouts/UsersLayout'
 import VotesLayout from 'src/layouts/VotesLayout'
 
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={TopicsLayout}>
+        <Route path="/topics/new" page={TopicNewTopicPage} name="newTopic" />
+        <Route path="/topics/{id:Int}/edit" page={TopicEditTopicPage} name="editTopic" />
+        <Route path="/topics/{id:Int}" page={TopicTopicPage} name="topic" />
+        <Route path="/topics" page={TopicTopicsPage} name="topics" />
+      </Set>
       <Route path="/login" page={LoginPage} name="login" />
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
