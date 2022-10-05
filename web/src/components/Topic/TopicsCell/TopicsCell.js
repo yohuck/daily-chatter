@@ -30,5 +30,6 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ topics }) => {
+  console.log('success')
   return <Topics topics={topics} />
 }
