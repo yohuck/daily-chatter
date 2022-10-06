@@ -10,32 +10,36 @@ generator client {
 }
 
 model User {
-  id                  Int       @id @default(autoincrement())
-  username            String?   @unique
-  email               String    @unique
+  id                  Int        @id @default(autoincrement())
+  username            String?    @unique
+  email               String?    @unique
   hashedPassword      String
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
-  roles               String    @default("user")
-  Post                Post[]
-  Vote                Vote[]
+  roles               String     @default("user")
+  posts               Post[]
+  responseList        Response[]
+  votes               Vote[]
 }
 
+// Post is within categories
 model Post {
-  id          Int    @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   content     String
   userId      Int
-  postingUser User   @relation(fields: [userId], references: [id])
-  postTopic   Topic  @relation(fields: [topicId], references: [id])
-  votes       Vote[]
+  postingUser User       @relation(fields: [userId], references: [id])
+  postTopic   Topic      @relation(fields: [topicId], references: [id])
+  responses   Response[]
   postId      Int
   topicId     Int
   reports     Int
+  Vote        Vote[]
 
   @@unique([topicId, userId])
 }
 
+//Topics are categories
 model Topic {
   id          Int      @id @default(autoincrement())
   title       String
@@ -44,19 +48,36 @@ model Topic {
   posts       Post[]
 }
 
+//responses are on Posts
+model Response {
+  id            Int      @id @default(autoincrement())
+  postId        Int
+  postResponse  Post     @relation(fields: [postId], references: [id])
+  responseTitle String
+  responseText  String
+  votes         Vote[]
+  createdAt     DateTime @default(now())
+  User          User?    @relation(fields: [userId], references: [id])
+  userId        Int?
+}
+
+//Votes are on Responses
 model Vote {
-  id             Int     @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   upvote         Boolean
   downvote       Boolean
   totalUpVotes   Int
   totalDownVotes Int
+  superVotes     Int
   totalVotes     Int
-  postVote       Post    @relation(fields: [postId], references: [id])
-  userTotal      User    @relation(fields: [userId], references: [id])
+  responseVote   Response @relation(fields: [responseId], references: [id])
+  userTotal      User     @relation(fields: [userId], references: [id])
+  responseId     Int
   postId         Int
   userId         Int
+  Post           Post     @relation(fields: [postId], references: [id])
 
-  @@unique([postId, userId])
+  @@unique([postId, userId, responseId])
 }
 
 model Message {

@@ -4,33 +4,42 @@ export const standard = defineScenario({
       data: {
         upvote: true,
         downvote: true,
-        totalVotes: 3345246,
-        postVote: {
+        totalUpVotes: 6078066,
+        totalDownVotes: 3967327,
+        superVotes: 5587568,
+        totalVotes: 257941,
+        responseVote: {
           create: {
-            content: 'String',
-            postId: 9168647,
-            reports: 1474465,
-            postingUser: {
+            responseTitle: 'String',
+            responseText: 'String',
+            postResponse: {
               create: {
-                username: 'String1073495',
-                email: 'String300352',
-                password: 'String',
-                admin: true,
-                userId: 5671690,
+                content: 'String',
+                postId: 174673,
+                reports: 4968726,
+                postingUser: {
+                  create: { hashedPassword: 'String', salt: 'String' },
+                },
+
+                postTopic: {
+                  create: { title: 'String', description: 'String' },
+                },
               },
             },
-
-            postTopic: { create: { title: 'String', description: 'String' } },
           },
         },
 
-        userTotal: {
+        userTotal: { create: { hashedPassword: 'String', salt: 'String' } },
+        Post: {
           create: {
-            username: 'String1607287',
-            email: 'String1068771',
-            password: 'String',
-            admin: true,
-            userId: 266455,
+            content: 'String',
+            postId: 7730219,
+            reports: 9908214,
+            postingUser: {
+              create: { hashedPassword: 'String', salt: 'String' },
+            },
+
+            postTopic: { create: { title: 'String', description: 'String' } },
           },
         },
       },
@@ -40,33 +49,42 @@ export const standard = defineScenario({
       data: {
         upvote: true,
         downvote: true,
-        totalVotes: 1545135,
-        postVote: {
+        totalUpVotes: 4207560,
+        totalDownVotes: 608099,
+        superVotes: 1541528,
+        totalVotes: 496637,
+        responseVote: {
           create: {
-            content: 'String',
-            postId: 8705948,
-            reports: 3977087,
-            postingUser: {
+            responseTitle: 'String',
+            responseText: 'String',
+            postResponse: {
               create: {
-                username: 'String5644845',
-                email: 'String1811352',
-                password: 'String',
-                admin: true,
-                userId: 6733606,
+                content: 'String',
+                postId: 1174524,
+                reports: 6186037,
+                postingUser: {
+                  create: { hashedPassword: 'String', salt: 'String' },
+                },
+
+                postTopic: {
+                  create: { title: 'String', description: 'String' },
+                },
               },
             },
-
-            postTopic: { create: { title: 'String', description: 'String' } },
           },
         },
 
-        userTotal: {
+        userTotal: { create: { hashedPassword: 'String', salt: 'String' } },
+        Post: {
           create: {
-            username: 'String3310818',
-            email: 'String6941655',
-            password: 'String',
-            admin: true,
-            userId: 958087,
+            content: 'String',
+            postId: 9747860,
+            reports: 4297825,
+            postingUser: {
+              create: { hashedPassword: 'String', salt: 'String' },
+            },
+
+            postTopic: { create: { title: 'String', description: 'String' } },
           },
         },
       },

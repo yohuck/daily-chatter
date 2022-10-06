@@ -5,15 +5,16 @@ export const schema = gql`
     userId: Int!
     postingUser: User!
     postTopic: Topic!
-    votes: [Vote]!
+    responses: [Response]!
     postId: Int!
-    topicId: Int
+    topicId: Int!
     reports: Int!
+    Vote: [Vote]!
   }
 
   type Query {
-    posts: [Post!]! @skipAuth
-    post(id: Int!): Post @skipAuth
+    posts: [Post!]! @requireAuth
+    post(id: Int!): Post @requireAuth
   }
 
   input CreatePostInput {
@@ -33,8 +34,8 @@ export const schema = gql`
   }
 
   type Mutation {
-    createPost(input: CreatePostInput!): Post! @skipAuth
-    updatePost(id: Int!, input: UpdatePostInput!): Post! @skipAuth
-    deletePost(id: Int!): Post! @skipAuth
+    createPost(input: CreatePostInput!): Post! @requireAuth
+    updatePost(id: Int!, input: UpdatePostInput!): Post! @requireAuth
+    deletePost(id: Int!): Post! @requireAuth
   }
 `

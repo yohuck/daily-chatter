@@ -3,11 +3,16 @@ export const schema = gql`
     id: Int!
     upvote: Boolean!
     downvote: Boolean!
+    totalUpVotes: Int!
+    totalDownVotes: Int!
+    superVotes: Int!
     totalVotes: Int!
-    postVote: Post!
+    responseVote: Response!
     userTotal: User!
+    responseId: Int!
     postId: Int!
     userId: Int!
+    Post: Post!
   }
 
   type Query {
@@ -18,7 +23,11 @@ export const schema = gql`
   input CreateVoteInput {
     upvote: Boolean!
     downvote: Boolean!
+    totalUpVotes: Int!
+    totalDownVotes: Int!
+    superVotes: Int!
     totalVotes: Int!
+    responseId: Int!
     postId: Int!
     userId: Int!
   }
@@ -26,7 +35,11 @@ export const schema = gql`
   input UpdateVoteInput {
     upvote: Boolean
     downvote: Boolean
+    totalUpVotes: Int
+    totalDownVotes: Int
+    superVotes: Int
     totalVotes: Int
+    responseId: Int
     postId: Int
     userId: Int
   }

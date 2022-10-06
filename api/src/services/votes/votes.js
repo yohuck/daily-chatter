@@ -30,10 +30,13 @@ export const deleteVote = ({ id }) => {
 }
 
 export const Vote = {
-  postVote: (_obj, { root }) => {
-    return db.vote.findUnique({ where: { id: root?.id } }).postVote()
+  responseVote: (_obj, { root }) => {
+    return db.vote.findUnique({ where: { id: root?.id } }).responseVote()
   },
   userTotal: (_obj, { root }) => {
     return db.vote.findUnique({ where: { id: root?.id } }).userTotal()
+  },
+  Post: (_obj, { root }) => {
+    return db.vote.findUnique({ where: { id: root?.id } }).Post()
   },
 }
