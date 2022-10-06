@@ -22,14 +22,14 @@ const PromptInput = ({ prompt }) => {
       />
 
       <div className="flex max-w-sm items-center justify-center">
-        <div className="flex justify-center rounded-lg bg-sky-100 shadow">
+        <div className="flex justify-center rounded-lg bg-sky-200 shadow">
           <Form
             className="flex flex-col place-items-center justify-center "
             onSubmit={onSubmit}
             config={{ mode: 'onBlur' }}
           >
             <h2 className="font-bold">{prompt.date}</h2>
-            <div className="prompt m-2 rounded-lg bg-amber-50 p-2 text-center shadow">
+            <div className="prompt inner-shadow m-2 rounded-lg bg-sky-100 p-2 text-center shadow">
               <p className="m-2 text-2xl font-bold">{prompt.title}</p>
               <p className="text-xl">{prompt.body}</p>
             </div>
@@ -42,13 +42,13 @@ const PromptInput = ({ prompt }) => {
             </Label>
             <div className="relative m-0">
               <TextAreaField
-                className="m-2 w-80 resize-none rounded-lg bg-amber-50 shadow"
+                className="m-2 w-80 resize-none rounded-lg bg-sky-100 shadow inner-shadow"
                 name="response"
                 rows="8"
                 validation={{ required: true }}
-                errorClassName="m-2 w-80 resize-none rounded-lg bg-amber-50 shadow-error"
+                errorClassName="m-2 w-80 resize-none rounded-lg bg-green-50 shadow-error"
               />
-              <p className="absolute bottom-5 right-3 rounded-md bg-green-200 p-2">
+              <p className="absolute bottom-5 right-3 rounded-md bg-green-200 p-2 opacity-80">
                 500
               </p>
             </div>
