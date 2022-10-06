@@ -24,7 +24,11 @@ describe('votes', () => {
       input: {
         upvote: true,
         downvote: true,
-        totalVotes: 2396214,
+        totalUpVotes: 1984126,
+        totalDownVotes: 5672548,
+        superVotes: 7368625,
+        totalVotes: 3329819,
+        responseId: scenario.vote.two.responseId,
         postId: scenario.vote.two.postId,
         userId: scenario.vote.two.userId,
       },
@@ -32,7 +36,11 @@ describe('votes', () => {
 
     expect(result.upvote).toEqual(true)
     expect(result.downvote).toEqual(true)
-    expect(result.totalVotes).toEqual(2396214)
+    expect(result.totalUpVotes).toEqual(1984126)
+    expect(result.totalDownVotes).toEqual(5672548)
+    expect(result.superVotes).toEqual(7368625)
+    expect(result.totalVotes).toEqual(3329819)
+    expect(result.responseId).toEqual(scenario.vote.two.responseId)
     expect(result.postId).toEqual(scenario.vote.two.postId)
     expect(result.userId).toEqual(scenario.vote.two.userId)
   })
