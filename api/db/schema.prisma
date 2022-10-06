@@ -33,7 +33,6 @@ model Post {
   responses   Response[]
   postId      Int
   topicId     Int
-  reports     Int
   Vote        Vote[]
 
   @@unique([topicId, userId])
@@ -59,6 +58,7 @@ model Response {
   createdAt     DateTime @default(now())
   User          User?    @relation(fields: [userId], references: [id])
   userId        Int?
+  reports       Int
 }
 
 //Votes are on Responses
