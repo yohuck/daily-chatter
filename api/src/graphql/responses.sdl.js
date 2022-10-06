@@ -12,7 +12,7 @@ export const schema = gql`
   }
 
   type Query {
-    responses: [Response!]! @requireAuth
+    responses: [Response!]! @skipAuth
     response(id: Int!): Response @requireAuth
   }
 
@@ -31,7 +31,7 @@ export const schema = gql`
   }
 
   type Mutation {
-    createResponse(input: CreateResponseInput!): Response! @requireAuth
+    createResponse(input: CreateResponseInput!): Response! @skipAuth
     updateResponse(id: Int!, input: UpdateResponseInput!): Response!
       @requireAuth
     deleteResponse(id: Int!): Response! @requireAuth

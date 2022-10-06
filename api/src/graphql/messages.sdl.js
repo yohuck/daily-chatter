@@ -8,8 +8,8 @@ export const schema = gql`
   }
 
   type Query {
-    messages: [Message!]! @requireAuth
-    message(id: Int!): Message @requireAuth
+    messages: [Message!]! @skipAuth
+    message(id: Int!): Message @skipAuth
   }
 
   input CreateMessageInput {
