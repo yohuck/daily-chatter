@@ -31,7 +31,7 @@ const Response = ({ response }) => {
         <button className="m-2 flex items-center rounded-lg bg-white p-2 shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500">
           <div className=" flex flex-col">
             {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-            <i className="fa-duotone fa-coin fa-2x p-1 text-orange-700"></i>
+            <i className="fa-duotone fa-coin fa-2x p-1 text-emerald-500" ></i>
           </div>
         </button>
       </div>
