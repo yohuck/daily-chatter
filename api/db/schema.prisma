@@ -10,27 +10,18 @@ generator client {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  username String  @unique
-  email    String  @unique
-  password String
-  hashedPassword String @default("password")
-  salt String @default("salt")
-  posts    Post[]
-  votes    Vote[]
-  admin    Boolean
-  userId   Int
-}
-
-model Account {
   id                  Int       @id @default(autoincrement())
-  name                String?
+  username            String?   @unique
   email               String    @unique
   hashedPassword      String
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
+  roles               String    @default("user")
+  Post                Post[]
+  Vote                Vote[]
 }
+
 model Post {
   id          Int    @id @default(autoincrement())
   content     String
@@ -42,7 +33,7 @@ model Post {
   topicId     Int
   reports     Int
 
-  @@unique([postId, topicId])
+  @@unique([topicId, userId])
 }
 
 model Topic {
@@ -54,14 +45,16 @@ model Topic {
 }
 
 model Vote {
-  id         Int     @id @default(autoincrement())
-  upvote     Boolean
-  downvote   Boolean
-  totalVotes Int
-  postVote   Post    @relation(fields: [postId], references: [id])
-  userTotal  User    @relation(fields: [userId], references: [id])
-  postId     Int
-  userId     Int
+  id             Int     @id @default(autoincrement())
+  upvote         Boolean
+  downvote       Boolean
+  totalUpVotes   Int
+  totalDownVotes Int
+  totalVotes     Int
+  postVote       Post    @relation(fields: [postId], references: [id])
+  userTotal      User    @relation(fields: [userId], references: [id])
+  postId         Int
+  userId         Int
 
   @@unique([postId, userId])
 }

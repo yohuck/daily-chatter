@@ -7,7 +7,6 @@ const MainLayout = ({ children }) => {
   console.log(currentUser, isAuthenticated)
   return (
     <div className=" min-h-screen bg-gradient-to-r from-emerald-500 to-emerald-700 font-mono ">
-
       <header className="sticky top-0 z-50 mb-6 flex w-full justify-between bg-yellow-400 px-2 py-1 text-left">
         <div className="buttons flex">
           <div className=" m-2 flex flex items-center rounded-lg bg-sky-100 p-2 shadow hover:bg-yellow-100 ">
@@ -22,7 +21,7 @@ const MainLayout = ({ children }) => {
               <i className="fa-duotone fa-badge-dollar fa-2x p-1 text-emerald-500"></i>
             </div>
           </div>
-      
+
           <Link to={routes.submitResponse()}>
             <div className=" m-2 flex flex items-center rounded-lg bg-sky-100 p-2 shadow hover:bg-yellow-100 ">
               <div className=" flex flex-col">
@@ -41,7 +40,7 @@ const MainLayout = ({ children }) => {
           </Link>
           {isAuthenticated ? (
             <div>
-              <span>Logged in {currentUser}</span>{' '}
+              <span>Logged in as {currentUser.email}</span>{' '}
               <button type="button" onClick={logOut}>
                 Logout
               </button>
@@ -58,6 +57,9 @@ const MainLayout = ({ children }) => {
             </li>
             <li className="">
               <Link to={routes.about()}>About</Link>
+            </li>
+            <li className="">
+              <Link to={routes.topics()}>Topics</Link>
             </li>
             <li className="">
               <Link to={routes.contact()}>Contact</Link>
