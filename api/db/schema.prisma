@@ -58,7 +58,7 @@ model Response {
   createdAt     DateTime @default(now())
   User          User?    @relation(fields: [userId], references: [id])
   userId        Int?
-  reports       Int
+  reports       Int?
 }
 
 //Votes are on Responses
