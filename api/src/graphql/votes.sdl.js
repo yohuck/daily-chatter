@@ -16,8 +16,8 @@ export const schema = gql`
   }
 
   type Query {
-    votes: [Vote!]! @requireAuth
-    vote(id: Int!): Vote @requireAuth
+    votes: [Vote!]! @skipAuth
+    vote(id: Int!): Vote @skipAuth
   }
 
   input CreateVoteInput {
@@ -45,7 +45,7 @@ export const schema = gql`
   }
 
   type Mutation {
-    createVote(input: CreateVoteInput!): Vote! @requireAuth
+    createVote(input: CreateVoteInput!): Vote! @skipAuth
     updateVote(id: Int!, input: UpdateVoteInput!): Vote! @requireAuth
     deleteVote(id: Int!): Vote! @requireAuth
   }

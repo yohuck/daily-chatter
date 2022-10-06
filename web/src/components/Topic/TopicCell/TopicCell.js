@@ -7,6 +7,14 @@ export const QUERY = gql`
       title
       description
       createdAt
+      posts {
+        content
+        postId
+        id
+        topicId
+      }
+      description
+      title
     }
   }
 `
