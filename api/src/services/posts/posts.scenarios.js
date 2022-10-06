@@ -3,18 +3,9 @@ export const standard = defineScenario({
     one: {
       data: {
         content: 'String',
-        postId: 7432123,
-        reports: 4752345,
-        postingUser: {
-          create: {
-            username: 'String56835',
-            email: 'String9183268',
-            password: 'String',
-            admin: true,
-            userId: 5984155,
-          },
-        },
-
+        postId: 5929786,
+        reports: 2774155,
+        postingUser: { create: { hashedPassword: 'String', salt: 'String' } },
         postTopic: { create: { title: 'String', description: 'String' } },
       },
     },
@@ -22,18 +13,9 @@ export const standard = defineScenario({
     two: {
       data: {
         content: 'String',
-        postId: 707194,
-        reports: 5019775,
-        postingUser: {
-          create: {
-            username: 'String989592',
-            email: 'String4389992',
-            password: 'String',
-            admin: true,
-            userId: 5301772,
-          },
-        },
-
+        postId: 8913670,
+        reports: 4179077,
+        postingUser: { create: { hashedPassword: 'String', salt: 'String' } },
         postTopic: { create: { title: 'String', description: 'String' } },
       },
     },
