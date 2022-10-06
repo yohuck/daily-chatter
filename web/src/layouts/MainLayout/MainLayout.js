@@ -1,11 +1,8 @@
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
-import TopicsLayout from '../TopicsLayout/TopicsLayout'
 const MainLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
-
-  console.log(currentUser, isAuthenticated)
   return (
     <div className=" min-h-screen bg-gradient-to-r from-emerald-500 to-emerald-700 font-mono ">
       <header className="sticky top-0 z-50 mb-6 flex w-full justify-between bg-yellow-400 px-2 py-1 text-left">
@@ -34,9 +31,15 @@ const MainLayout = ({ children }) => {
               <i className="fa-duotone fa-gear fa-2x p-1 text-emerald-500"></i>
             </div>
           </div>
+        </div>
+
+        <div className="flex-between">
+          <h1>
+            <Link to={routes.home()}>Redwood Blog</Link>
+          </h1>
           {isAuthenticated ? (
             <div>
-              <span>Logged in {currentUser}</span>{' '}
+              <span>Logged in as {currentUser.email}</span>{' '}
               <button type="button" onClick={logOut}>
                 Logout
               </button>
@@ -63,9 +66,7 @@ const MainLayout = ({ children }) => {
           </ul>
         </nav>
       </header>
-      <main>
-        {children} <TopicsLayout />
-      </main>
+      <main>{children}</main>
     </div>
   )
 }

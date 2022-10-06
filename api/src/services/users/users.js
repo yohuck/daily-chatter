@@ -1,8 +1,6 @@
 import { db } from 'src/lib/db'
 
-
 export const users = () => {
-  console.log(db)
   return db.user.findMany()
 }
 
@@ -32,10 +30,10 @@ export const deleteUser = ({ id }) => {
 }
 
 export const User = {
-  posts: (_obj, { root }) => {
-    return db.user.findUnique({ where: { id: root?.id } }).posts()
+  Post: (_obj, { root }) => {
+    return db.user.findUnique({ where: { id: root?.id } }).Post()
   },
-  votes: (_obj, { root }) => {
-    return db.user.findUnique({ where: { id: root?.id } }).votes()
+  Vote: (_obj, { root }) => {
+    return db.user.findUnique({ where: { id: root?.id } }).Vote()
   },
 }

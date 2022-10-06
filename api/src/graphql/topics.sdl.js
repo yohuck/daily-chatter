@@ -10,7 +10,6 @@ export const schema = gql`
   type Query {
     topics: [Topic!]! @skipAuth
     topic(id: Int): Topic @skipAuth
-    topicResponse: [Topic!]
   }
 
   input CreateTopicInput {
