@@ -33,7 +33,6 @@ const MainLayout = ({ children }) => {
   //   localStorage.theme = 'light'
   // }
 
-
   // Whenever the user explicitly chooses light mode
 
   // Whenever the user explicitly chooses dark mode
@@ -59,7 +58,7 @@ const MainLayout = ({ children }) => {
       <div>
         <header
           className={
-            'sticky top-0 z-50 flex  w-full items-center justify-between px-2 py-1  text-left dark:bg-neutral-900 '
+            'sticky top-0 z-50 flex  w-full items-center justify-between px-2 py-1  text-left bg-white dark:bg-neutral-900 '
           }
         >
           <ul>
@@ -68,7 +67,15 @@ const MainLayout = ({ children }) => {
                 <div className=" m-2 flex flex items-center rounded-lg  p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800 ">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                    <i className="fa-duotone fa-home fa-2x p-1 text-emerald-500 dark:text-emerald-200"></i>
+                    <i className="fa-duotone fa-home  p-1 text-emerald-500 dark:text-emerald-200"></i>
+                  </div>
+                </div>
+              </Link>
+              <Link to={routes.viewTopics()}>
+                <div className=" m-2 flex flex items-center rounded-lg  p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800">
+                  <div className=" flex flex-col">
+                    {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
+                    <i className="fa-duotone fa-messages-dollar  p-1 text-emerald-500 dark:text-emerald-200 "></i>
                   </div>
                 </div>
               </Link>
@@ -76,7 +83,7 @@ const MainLayout = ({ children }) => {
                 <div className=" m-2 flex flex items-center rounded-lg  p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                    <i className="fa-duotone fa-pencil fa-2x p-1 text-emerald-500 dark:text-emerald-200 "></i>
+                    <i className="fa-duotone fa-pencil p-1 text-emerald-500 dark:text-emerald-200 "></i>
                   </div>
                 </div>
               </Link>
@@ -84,7 +91,7 @@ const MainLayout = ({ children }) => {
                 <div className=" m-2 flex flex items-center rounded-lg  p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                    <i className="fa-duotone fa-messages-question fa-2x p-1 text-emerald-500 dark:text-emerald-200"></i>
+                    <i className="fa-duotone fa-messages-question p-1 text-emerald-500 dark:text-emerald-200"></i>
                   </div>
                 </div>
               </Link>
@@ -100,7 +107,7 @@ const MainLayout = ({ children }) => {
                   <div className=" m-2 flex flex items-center rounded-lg p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800  ">
                     <div className=" flex flex-col">
                       {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                      <i className="fa-duotone fa-square-user fa-2x p-1 text-emerald-500 dark:text-emerald-200"></i>
+                      <i className="fa-duotone fa-square-user  p-1 text-emerald-500 dark:text-emerald-200"></i>
                     </div>
                   </div>
                 </Link>

@@ -30,6 +30,8 @@ const response5 = {
   user: 'Atkins',
 }
 
+import ResponsesCell from 'src/components/ResponsesCell/ResponsesCell.js'
+
 const ChooseTopicPage = () => {
   return (
     <>
