@@ -37,10 +37,10 @@ const HomePage = () => {
       <MetaTags title="Home" description="Home page" />
 
       <main className="flex flex-col items-center justify-center">
-        <TopicsLayout>
+        {/* <TopicsLayout>
           {' '}
           <TopicsCell></TopicsCell>
-        </TopicsLayout>
+        </TopicsLayout> */}
         <h1 className="mb-3 text-center text-2xl font-bold">
           Jeans: High Rise or Low?{' '}
         </h1>
