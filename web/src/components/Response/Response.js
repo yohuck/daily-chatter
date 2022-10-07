@@ -2,8 +2,11 @@ import ResponsesCell from '../ResponsesCell/ResponsesCell'
 
 const Response = ({ response }) => {
   return (
-    <div className="maxy relative m-2 flex flex-col justify-between rounded-lg bg-white p-8 shadow dark:border-slate-300 dark:bg-zinc-900">
-      <div className="absolute bottom-0 left-0 m-1 rounded bg-emerald-200 px-2"></div>
+    <div className="maxy relative m-2 flex flex-col justify-between rounded-lg bg-white p-8 shadow dark:border-emerald-300 dark:bg-zinc-900">
+      <div className="absolute  bottom-0 left-0 m-1 rounded bg-emerald-200 px-2 opacity-75 dark:text-zinc-900">
+        E
+      </div>
+
       <header className="center mb-2 flex justify-between gap-5">
         <h2 className="break-words font-bold">{response.title}</h2>
         <div className="icons mb-3 flex gap-2  border-black  p-3">
