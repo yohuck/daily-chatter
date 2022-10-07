@@ -48,6 +48,7 @@ const Routes = () => {
       </Set>
 
       <Set wrap={MainLayout}>
+        <Route path="/view-topics" page={ViewTopicsPage} name="viewTopics" />
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/choose-topic" page={ChooseTopicPage} name="chooseTopic" />
         <Route path="/submit-response" page={SubmitResponsePage} name="submitResponse" />

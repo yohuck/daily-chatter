@@ -38,7 +38,7 @@ const Response = ({ response }) => {
           </div>
         </button>
       </div>
-      <ResponsesCell />
+
     </div>
   )
 }
