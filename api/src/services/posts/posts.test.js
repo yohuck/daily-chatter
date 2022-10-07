@@ -24,17 +24,15 @@ describe('posts', () => {
       input: {
         content: 'String',
         userId: scenario.post.two.userId,
-        postId: 9908424,
+        postId: 1182147,
         topicId: scenario.post.two.topicId,
-        reports: 569394,
       },
     })
 
     expect(result.content).toEqual('String')
     expect(result.userId).toEqual(scenario.post.two.userId)
-    expect(result.postId).toEqual(9908424)
+    expect(result.postId).toEqual(1182147)
     expect(result.topicId).toEqual(scenario.post.two.topicId)
-    expect(result.reports).toEqual(569394)
   })
 
   scenario('updates a post', async (scenario) => {

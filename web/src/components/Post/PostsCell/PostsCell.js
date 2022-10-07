@@ -7,10 +7,20 @@ export const QUERY = gql`
     posts {
       id
       content
-      userId
-      postId
-      topicId
-      reports
+      Vote {
+        totalVotes
+        superVotes
+        totalDownVotes
+        totalUpVotes
+      }
+      responses {
+        responseText
+        responseTitle
+        createdAt
+        postId
+        id
+        userId
+      }
     }
   }
 `
