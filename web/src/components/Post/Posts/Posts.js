@@ -81,10 +81,7 @@ const PostsList = ({ posts }) => {
           <tr>
             <th>Id</th>
             <th>Content</th>
-            <th>User id</th>
-            <th>Post id</th>
-            <th>Topic id</th>
-            <th>Reports</th>
+            <th>Responses</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -93,10 +90,8 @@ const PostsList = ({ posts }) => {
             <tr key={post.id}>
               <td>{truncate(post.id)}</td>
               <td>{truncate(post.content)}</td>
-              <td>{truncate(post.userId)}</td>
-              <td>{truncate(post.postId)}</td>
-              <td>{truncate(post.topicId)}</td>
-              <td>{truncate(post.reports)}</td>
+              <td>{truncate(jsonTruncate(post.responses))}</td>
+              {console.log(jsonTruncate(post.responses))}
               <td>
                 <nav className="rw-table-actions">
                   <Link
