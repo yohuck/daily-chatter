@@ -14,6 +14,32 @@ const PromptInput = ({ prompt }) => {
     // create({ variables: { input: data } })
   }
 
+  const [state, setState] = React.useState({
+    wordCount: 0,
+    charCount: 0
+  });
+
+  const handleKeyPress = (e) => {
+    const count = e.target.value;
+
+    const countWords = (count) => {
+      if (count.length === 0) {
+        return 0;
+      } else {
+        count = count.replace(/(^\s*)|(\s*$)/gi,"");
+        count = count.replace(/[ ]{2,}/gi," ");
+        count = count.replace(/\n /,"\n");
+        return count.split(' ').length;
+      }
+    }
+
+    setState({
+      wordCount: countWords(count),
+      charCount: count.length
+    });
+  }
+
+
   return (
     <div className='mt-4 min-h-screen'>
       <MetaTags
@@ -47,9 +73,10 @@ const PromptInput = ({ prompt }) => {
                 rows="8"
                 validation={{ required: true }}
                 errorClassName="m-2 w-80 resize-none rounded-lg shadow-error dark:bg-red-900"
+                onChange={handleKeyPress}
               />
               <p className="absolute bottom-5 right-3 rounded-md bg-green-200 p-2 opacity-80 dark:text-neutral-900">
-                500
+               {500 - state.charCount}
               </p>
             </div>
             <FieldError name="response" className="text-red-500" />
