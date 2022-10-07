@@ -39,4 +39,7 @@ export const User = {
   votes: (_obj, { root }) => {
     return db.user.findUnique({ where: { id: root?.id } }).votes()
   },
+  subscribedTopics: (_obj, { root }) => {
+    return db.user.findUnique({ where: { id: root?.id } }).subscribedTopics()
+  },
 }

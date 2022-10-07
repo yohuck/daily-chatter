@@ -21,6 +21,7 @@ model User {
   posts               Post[]
   responseList        Response[]
   votes               Vote[]
+  subscribedTopics    Topic[]
 }
 
 // Post is within categories
@@ -41,11 +42,14 @@ model Post {
 
 //Topics are categories
 model Topic {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  createdAt   DateTime @default(now())
-  posts       Post[]
+  id             Int      @id @default(autoincrement())
+  title          String
+  description    String
+  subrscribed    Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  subscribedUser User?    @relation(fields: [userId], references: [id])
+  userId         Int?
+  posts          Post[]
 }
 
 //responses are on Posts
