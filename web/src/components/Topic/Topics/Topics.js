@@ -75,24 +75,22 @@ const TopicsList = ({ topics }) => {
   }
 
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
+    <div className="rounded-xl bg-yellow-500 shadow" id="reset">
+      <table className="rw-table" id="tbl">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Title</th>
             <th>Description</th>
-            <th>Created at</th>
+
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           {topics.map((topic) => (
             <tr key={topic.id}>
-              <td>{truncate(topic.id)}</td>
               <td>{truncate(topic.title)}</td>
               <td>{truncate(topic.description)}</td>
-              <td>{timeTag(topic.createdAt)}</td>
+
               <td>
                 <nav className="rw-table-actions">
                   <Link
