@@ -11,10 +11,11 @@ export const schema = gql`
     posts: [Post]!
     responseList: [Response]!
     votes: [Vote]!
+    subscribedTopics: [Topic]!
   }
 
   type Query {
-    users: [User!]! @skipAuth
+    users: [User!]! @requireAuth
     user(id: Int!): User @requireAuth
   }
 
