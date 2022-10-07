@@ -36,7 +36,10 @@ export const Post = {
   postTopic: (_obj, { root }) => {
     return db.post.findUnique({ where: { id: root?.id } }).postTopic()
   },
-  votes: (_obj, { root }) => {
-    return db.post.findUnique({ where: { id: root?.id } }).votes()
+  responses: (_obj, { root }) => {
+    return db.post.findUnique({ where: { id: root?.id } }).responses()
+  },
+  Vote: (_obj, { root }) => {
+    return db.post.findUnique({ where: { id: root?.id } }).Vote()
   },
 }

@@ -5,10 +5,13 @@ export const QUERY = gql`
     post: post(id: $id) {
       id
       content
-      userId
-      postId
       topicId
-      reports
+      responses {
+        id
+        postId
+        responseText
+        responseTitle
+      }
     }
   }
 `

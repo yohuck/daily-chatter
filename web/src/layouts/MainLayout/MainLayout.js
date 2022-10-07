@@ -1,65 +1,129 @@
+import { useState, useEffect } from 'react'
+
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
 const MainLayout = ({ children }) => {
-  const { isAuthenticated, currentUser, logOut} = useAuth()
+  // const [darkMode, setDarkMode] = useState('light')
+  const [darkModeOver, setDarkModeOver] = useState('')
+  const { isAuthenticated, currentUser, logOut } = useAuth()
 
-  console.log(currentUser, isAuthenticated)
+  const toggleDarkMode = () => {
+    if (darkModeOver === 'light') {
+      console.log(darkModeOver)
+      // setDarkModeOver('dark')
+      localStorage.theme = 'dark'
+      setDarkModeOver('dark')
+    } else {
+      // setDarkModeOver('light')
+      console.log(darkModeOver)
+      localStorage.theme = 'light'
+      setDarkModeOver('light')
+    }
+  }
+
+  // if (
+  //   localStorage.theme === 'dark' ||
+  //   (!('theme' in localStorage) &&
+  //     window.matchMedia('(prefers-color-scheme: dark)').matches)
+  // ) {
+  //   localStorage.theme = 'dark'
+
+  // } else {
+  //   localStorage.theme = 'light'
+  // }
+
+  // Whenever the user explicitly chooses light mode
+
+  // Whenever the user explicitly chooses dark mode
+  // localStorage.theme = 'dark'
+
+  // Whenever the user explicitly chooses to respect the OS preference
+  // localStorage.removeItem('theme')
+
+  useEffect(() => {
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches
+
+    if (prefersDark) {
+      setDarkModeOver('dark')
+    } else {
+      setDarkModeOver('light')
+    }
+  }, [])
+
   return (
-    <div className=" min-h-screen bg-gradient-to-r from-emerald-500 to-emerald-700 font-mono ">
-      <header className="sticky top-0 z-50 mb-6 flex w-full justify-between bg-yellow-400 px-2 py-1 text-left">
-        <div className="buttons flex">
-          <div className=" m-2 flex flex items-center rounded-lg bg-sky-100 p-2 shadow hover:bg-yellow-100 ">
-            <div className=" flex flex-col">
-              {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-              <i className="fa-duotone fa-coin fa-2x p-1 text-emerald-500"></i>
+    <div className={darkModeOver}>
+      <div>
+        <header
+          className={
+            'sticky top-0 z-50 flex  w-full items-center justify-between px-2 py-1  text-left bg-white dark:bg-neutral-900 '
+          }
+        >
+          <ul>
+            <div className="buttons flex justify-center ">
+              <Link to={routes.home()}>
+                <div className=" m-2 flex flex items-center rounded-lg  p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800 ">
+                  <div className=" flex flex-col">
+                    {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
+                    <i className="fa-duotone fa-home  p-1 text-emerald-500 dark:text-emerald-200"></i>
+                  </div>
+                </div>
+              </Link>
+              <Link to={routes.viewTopics()}>
+                <div className=" m-2 flex flex items-center rounded-lg  p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800">
+                  <div className=" flex flex-col">
+                    {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
+                    <i className="fa-duotone fa-messages-dollar  p-1 text-emerald-500 dark:text-emerald-200 "></i>
+                  </div>
+                </div>
+              </Link>
+              <Link to={routes.submitResponse()}>
+                <div className=" m-2 flex flex items-center rounded-lg  p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800">
+                  <div className=" flex flex-col">
+                    {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
+                    <i className="fa-duotone fa-pencil p-1 text-emerald-500 dark:text-emerald-200 "></i>
+                  </div>
+                </div>
+              </Link>
+              <Link to={routes.chooseTopic()}>
+                <div className=" m-2 flex flex items-center rounded-lg  p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800">
+                  <div className=" flex flex-col">
+                    {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
+                    <i className="fa-duotone fa-messages-question p-1 text-emerald-500 dark:text-emerald-200"></i>
+                  </div>
+                </div>
+              </Link>
+              {isAuthenticated ? (
+                <div>
+                  <span>Logged in as {currentUser.email}</span>{' '}
+                  <button type="button" onClick={logOut}>
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link to={routes.login()}>
+                  <div className=" m-2 flex flex items-center rounded-lg p-2 shadow hover:bg-yellow-100  dark:hover:bg-neutral-800  ">
+                    <div className=" flex flex-col">
+                      {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
+                      <i className="fa-duotone fa-square-user  p-1 text-emerald-500 dark:text-emerald-200"></i>
+                    </div>
+                  </div>
+                </Link>
+              )}
             </div>
-          </div>
-          <div className=" m-2 flex flex items-center rounded-lg bg-sky-100 p-2 shadow hover:bg-yellow-100 ">
-            <div className=" flex flex-col">
-              {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-              <i className="fa-duotone fa-badge-dollar fa-2x p-1 text-emerald-500"></i>
-            </div>
-          </div>
-          <div className=" m-2 flex flex items-center rounded-lg bg-sky-100 p-2 shadow hover:bg-yellow-100 ">
-            <div className=" flex flex-col">
-              {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-              <i className="fa-duotone fa-user fa-2x p-1 text-emerald-500"></i>
-            </div>
-          </div>
-          <div className=" m-2 flex flex items-center rounded-lg bg-sky-100 p-2 shadow hover:bg-yellow-100 ">
-            <div className=" flex flex-col">
-              {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-              <i className="fa-duotone fa-gear fa-2x p-1 text-emerald-500"></i>
-            </div>
-          </div>
-          {isAuthenticated ? (
-            <div>
-              <span>Logged in {currentUser}</span>{' '}
-              <button type="button" onClick={logOut}>
-                Logout
-              </button>
-            </div>
-          ) : (
-            <Link to={routes.login()}>Login</Link>
-          )}
-        </div>
-
-        <nav>
-          <ul className="flex flex-col">
-            <li className="">
-              <Link to={routes.home()}>Home</Link>
-            </li>
-            <li className="">
-              <Link to={routes.about()}>About</Link>
-            </li>
-            <li className="">
-              <Link to={routes.contact()}>Contact</Link>
-            </li>
           </ul>
-        </nav>
-      </header>
-      <main>{children}</main>
+          <div className="settings">
+            <button onClick={toggleDarkMode}>
+              <i className="fa-duotone fa-sun fa-med p-1 text-emerald-500 dark:text-emerald-200"></i>
+            </button>
+          </div>
+        </header>
+        <main className={'dark:bg-neutral-900 dark:text-emerald-200'}>
+          {children}
+        </main>
+      </div>
     </div>
   )
 }

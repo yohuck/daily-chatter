@@ -10,60 +10,79 @@ generator client {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  username String  @unique
-  email    String  @unique
-  password String
-  hashedPassword String @default("password")
-  salt String @default("salt")
-  posts    Post[]
-  votes    Vote[]
-  admin    Boolean
-  userId   Int
-}
-
-model Account {
-  id                  Int       @id @default(autoincrement())
-  name                String?
-  email               String    @unique
+  id                  Int        @id @default(autoincrement())
+  username            String?    @unique
+  email               String?    @unique
   hashedPassword      String
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
+  roles               String     @default("user")
+  posts               Post[]
+  responseList        Response[]
+  votes               Vote[]
+  subscribedTopics    Topic[]
 }
+
+// Post is within categories
 model Post {
-  id          Int    @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   content     String
   userId      Int
-  postingUser User   @relation(fields: [userId], references: [id])
-  postTopic   Topic  @relation(fields: [topicId], references: [id])
-  votes       Vote[]
+  postingUser User       @relation(fields: [userId], references: [id])
+  postTopic   Topic      @relation(fields: [topicId], references: [id])
+  responses   Response[]
   postId      Int
   topicId     Int
-  reports     Int
+  Vote        Vote[]
+  createdAt   DateTime   @default(now())
 
-  @@unique([postId, topicId])
+  @@unique([topicId, userId])
 }
 
+//Topics are categories
 model Topic {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  createdAt   DateTime @default(now())
-  posts       Post[]
+  id             Int      @id @default(autoincrement())
+  title          String
+  description    String
+  subrscribed    Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  subscribedUser User?    @relation(fields: [userId], references: [id])
+  userId         Int?
+  posts          Post[]
 }
 
-model Vote {
-  id         Int     @id @default(autoincrement())
-  upvote     Boolean
-  downvote   Boolean
-  totalVotes Int
-  postVote   Post    @relation(fields: [postId], references: [id])
-  userTotal  User    @relation(fields: [userId], references: [id])
-  postId     Int
-  userId     Int
+//responses are on Posts
+model Response {
+  id            Int      @id @default(autoincrement())
+  postId        Int
+  postResponse  Post     @relation(fields: [postId], references: [id])
+  responseTitle String
+  responseText  String
+  votes         Vote[]
+  createdAt     DateTime @default(now())
+  User          User?    @relation(fields: [userId], references: [id])
+  userId        Int?
+  reports       Int?
+}
 
-  @@unique([postId, userId])
+//Votes are on Responses
+model Vote {
+  id             Int      @id @default(autoincrement())
+  upvote         Boolean
+  downvote       Boolean
+  totalUpVotes   Int
+  totalDownVotes Int
+  superVotes     Int
+  totalVotes     Int
+  responseVote   Response @relation(fields: [responseId], references: [id])
+  userTotal      User     @relation(fields: [userId], references: [id])
+  responseId     Int
+  postId         Int
+  userId         Int
+  Post           Post     @relation(fields: [postId], references: [id])
+
+  @@unique([postId, userId, responseId])
 }
 
 model Message {

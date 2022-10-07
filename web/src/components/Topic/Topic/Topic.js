@@ -88,6 +88,12 @@ const Topic = ({ topic }) => {
               <th>Created at</th>
               <td>{timeTag(topic.createdAt)}</td>
             </tr>
+            {/* Topic/Post JSON Relation */}
+            <tr>
+              <th>JSON relations</th>
+              <td>{jsonDisplay(topic, topic.title, topic.posts)}</td>
+            </tr>
+            {/* end JSON for Relation */}
           </tbody>
         </table>
       </div>

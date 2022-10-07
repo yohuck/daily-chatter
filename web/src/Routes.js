@@ -7,29 +7,37 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Private, Router, Route, Set } from '@redwoodjs/router'
+import { Router, Route, Set } from '@redwoodjs/router'
 
 import MainLayout from 'src/layouts/MainLayout'
 import PostsLayout from 'src/layouts/PostsLayout'
-import UsersLayout from 'src/layouts/UsersLayout'
+import TopicsLayout from 'src/layouts/TopicsLayout'
 import VotesLayout from 'src/layouts/VotesLayout'
 
 const Routes = () => {
   return (
     <Router>
+<<<<<<< HEAD
       <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />
+=======
+      <Set wrap={TopicsLayout}>
+        <Route path="/topics/new" page={TopicNewTopicPage} name="newTopic" />
+        <Route path="/topics/{id:Int}/edit" page={TopicEditTopicPage} name="editTopic" />
+        <Route path="/topics/{id:Int}" page={TopicTopicPage} name="topic" />
+        <Route path="/topics" page={TopicTopicsPage} name="topics" />
+      </Set>
+>>>>>>> b91acbee3a53b1bfac87a70ae901febeb75aa6d0
       <Route path="/login" page={LoginPage} name="login" />
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
-      <Private unauthenticated="home">
-        <Set wrap={UsersLayout}>
-          <Route path="/admin/users/new" page={UserNewUserPage} name="newUser" />
-          <Route path="/admin/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
-          <Route path="/admin/users/{id:Int}" page={UserUserPage} name="user" />
-          <Route path="/admin/users" page={UserUsersPage} name="users" />
-        </Set>
-      </Private>
+
+      <Set wrap={VotesLayout}>
+        <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
+        <Route path="/votes/{id:Int}/edit" page={VoteEditVotePage} name="editVote" />
+        <Route path="/votes/{id:Int}" page={VoteVotePage} name="vote" />
+        <Route path="/votes" page={VoteVotesPage} name="votes" />
+      </Set>
       <Set wrap={VotesLayout}>
         <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
         <Route path="/votes/{id:Int}/edit" page={VoteEditVotePage} name="editVote" />
@@ -44,7 +52,10 @@ const Routes = () => {
       </Set>
 
       <Set wrap={MainLayout}>
+        <Route path="/view-topics" page={ViewTopicsPage} name="viewTopics" />
         <Route path="/about" page={AboutPage} name="about" />
+        <Route path="/choose-topic" page={ChooseTopicPage} name="chooseTopic" />
+        <Route path="/submit-response" page={SubmitResponsePage} name="submitResponse" />
         <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />
         <Route path="/contact" page={ContactPage} name="contact" />
