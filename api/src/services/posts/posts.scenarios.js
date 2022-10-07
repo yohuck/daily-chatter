@@ -3,8 +3,7 @@ export const standard = defineScenario({
     one: {
       data: {
         content: 'String',
-        postId: 5929786,
-        reports: 2774155,
+        postId: 6004051,
         postingUser: { create: { hashedPassword: 'String', salt: 'String' } },
         postTopic: { create: { title: 'String', description: 'String' } },
       },
@@ -13,8 +12,7 @@ export const standard = defineScenario({
     two: {
       data: {
         content: 'String',
-        postId: 8913670,
-        reports: 4179077,
+        postId: 5163000,
         postingUser: { create: { hashedPassword: 'String', salt: 'String' } },
         postTopic: { create: { title: 'String', description: 'String' } },
       },

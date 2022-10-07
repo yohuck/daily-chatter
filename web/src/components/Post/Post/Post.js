@@ -77,24 +77,16 @@ const Post = ({ post }) => {
               <td>{post.id}</td>
             </tr>
             <tr>
-              <th>Content</th>
+              <th>Post Content</th>
               <td>{post.content}</td>
             </tr>
             <tr>
-              <th>User id</th>
-              <td>{post.userId}</td>
-            </tr>
-            <tr>
-              <th>Post id</th>
-              <td>{post.postId}</td>
+              <th>Post Responses</th>
+              <td>{jsonDisplay(post.responses)}</td>
             </tr>
             <tr>
               <th>Topic id</th>
               <td>{post.topicId}</td>
-            </tr>
-            <tr>
-              <th>Reports</th>
-              <td>{post.reports}</td>
             </tr>
           </tbody>
         </table>
