@@ -17,6 +17,7 @@ import VotesLayout from 'src/layouts/VotesLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />
       <Route path="/login" page={LoginPage} name="login" />
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />

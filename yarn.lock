@@ -5459,6 +5459,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stripe/stripe-js@npm:1.29.0":
+  version: 1.29.0
+  resolution: "@stripe/stripe-js@npm:1.29.0"
+  checksum: c83c788214af7c5922c3025de68c25e2987defbc671337e701bd51c2774088cc916fa3462e1d04e9d698abddf14a8c83d1cf91f4c1dd29371e50cd9c9f0871c3
+  languageName: node
+  linkType: hard
+
 "@szmarczak/http-timer@npm:^1.1.2":
   version: 1.1.2
   resolution: "@szmarczak/http-timer@npm:1.1.2"
@@ -6100,6 +6107,13 @@ __metadata:
   version: 16.11.47
   resolution: "@types/node@npm:16.11.47"
   checksum: a10564a9ebf4568a6efc57ad2b7aa5728c934e798f143e03ed5f3dc05efe1885cc5ca3b94e500912e9544ee92294500bc2360e7a03ab25e78907304aed9b84b1
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:>=8.1.0":
+  version: 18.8.2
+  resolution: "@types/node@npm:18.8.2"
+  checksum: d9fd70522e6e108aa58ee806a97677809a0827a50509a8926c7a0f0fb52b4d592dc2cf19138ab848189ad6b63603ff04446f74e1bece3b6f329963ccaea388ce
   languageName: node
   linkType: hard
 
@@ -9335,6 +9349,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cli-testing-library@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "cli-testing-library@npm:1.0.4"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/runtime": ^7.12.5
+    jest-matcher-utils: ^27.4.2
+    lz-string: ^1.4.4
+    pretty-format: ^27.0.2
+    redent: ^3.0.0
+    slice-ansi: ^4.0.0
+    strip-ansi: ^6.0.1
+    strip-final-newline: ^2.0.0
+    tree-kill: ^1.2.2
+  checksum: ecb2786575025d16a43f57b27759b03febce1cd1b98eead134efa9eaab121d7fa881f0f6596cc210e09151a2c0de842756dfa6f94c965ca5d693a9f314986947
+  languageName: node
+  linkType: hard
+
 "cli-truncate@npm:2.1.0, cli-truncate@npm:^2.1.0":
   version: 2.1.0
   resolution: "cli-truncate@npm:2.1.0"
@@ -10784,6 +10816,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"diff-sequences@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "diff-sequences@npm:27.5.1"
+  checksum: a52566d891b89a666f48ba69f54262fa8293ae6264ae04da82c7bf3b6661cba75561de0729f18463179d56003cc0fd69aa09845f2c2cd7a353b1ec1e1a96beb9
+  languageName: node
+  linkType: hard
+
 "diff-sequences@npm:^29.0.0":
   version: 29.0.0
   resolution: "diff-sequences@npm:29.0.0"
@@ -11265,6 +11304,15 @@ __metadata:
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
   checksum: 285325677bf00e30845e330eec32894f5105529db97496ee3f598478e50f008c5352a41a30e5e72ec9de8a542b5a570b85699cd63bd2bc646dbcb9f311d83bc4
+  languageName: node
+  linkType: hard
+
+"envfile@npm:^6.17.0":
+  version: 6.18.0
+  resolution: "envfile@npm:6.18.0"
+  bin:
+    envfile: bin.cjs
+  checksum: 1ada7c0bbcdd596d7f2b1491ca1d3d7862fdc9c9119230ebbd245ce96de2fd722deea094ef0ca80048778c75fba7c1f74845e7e07953330f88471b4445c255a2
   languageName: node
   linkType: hard
 
@@ -15283,6 +15331,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-diff@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "jest-diff@npm:27.5.1"
+  dependencies:
+    chalk: ^4.0.0
+    diff-sequences: ^27.5.1
+    jest-get-type: ^27.5.1
+    pretty-format: ^27.5.1
+  checksum: 48f008c7b4ea7794108319eb61050315b1723e7391cb01e4377c072cadcab10a984cb09d2a6876cb65f100d06c970fd932996192e092b26006f885c00945e7ad
+  languageName: node
+  linkType: hard
+
 "jest-diff@npm:^29.1.2":
   version: 29.1.2
   resolution: "jest-diff@npm:29.1.2"
@@ -15344,6 +15404,13 @@ __metadata:
     jest-mock: ^29.1.2
     jest-util: ^29.1.2
   checksum: 4d0669ed8a19a55b392b5bf68deb4a6192a397bf6b5054e41ca7d7bdcb17241bc6b4bf0fcef66bfdf23b1e56fc88078f158ef8fba5ce595b3117333106246c48
+  languageName: node
+  linkType: hard
+
+"jest-get-type@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "jest-get-type@npm:27.5.1"
+  checksum: 42ee0101336bccfc3c1cff598b603c6006db7876b6117e5bd4a9fb7ffaadfb68febdb9ae68d1c47bc3a4174b070153fc6cfb59df995dcd054e81ace5028a7269
   languageName: node
   linkType: hard
 
@@ -15409,6 +15476,18 @@ __metadata:
     jest-get-type: ^29.0.0
     pretty-format: ^29.1.2
   checksum: 6fc5df7b309e435c2259c441eca7fa3621983a28f586d6cf70d55acb9960d6889cfd89f829ad6008660620638ad5433014cc6e5a0ad738429963b84d0ec169bc
+  languageName: node
+  linkType: hard
+
+"jest-matcher-utils@npm:^27.4.2":
+  version: 27.5.1
+  resolution: "jest-matcher-utils@npm:27.5.1"
+  dependencies:
+    chalk: ^4.0.0
+    jest-diff: ^27.5.1
+    jest-get-type: ^27.5.1
+    pretty-format: ^27.5.1
+  checksum: a2f082062e8bedc9cfe2654177a894ca43768c6db4c0f4efc0d6ec195e305a99e3d868ff54cc61bcd7f1c810d8ee28c9ac6374de21715dc52f136876de739a73
   languageName: node
   linkType: hard
 
@@ -16345,7 +16424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"listr@npm:0.14.3":
+"listr@npm:0.14.3, listr@npm:^0.14.3":
   version: 0.14.3
   resolution: "listr@npm:0.14.3"
   dependencies:
@@ -19465,7 +19544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.2":
+"pretty-format@npm:^27.0.2, pretty-format@npm:^27.5.1":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1"
   dependencies:
@@ -19613,7 +19692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prompts@npm:2.4.2, prompts@npm:^2.0.1, prompts@npm:^2.4.0":
+"prompts@npm:2.4.2, prompts@npm:^2.0.1, prompts@npm:^2.4.0, prompts@npm:^2.4.2":
   version: 2.4.2
   resolution: "prompts@npm:2.4.2"
   dependencies:
@@ -19783,7 +19862,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.11.0, qs@npm:^6.10.0":
+"qs@npm:6.11.0, qs@npm:^6.10.0, qs@npm:^6.10.3":
   version: 6.11.0
   resolution: "qs@npm:6.11.0"
   dependencies:
@@ -20246,6 +20325,32 @@ __metadata:
     indent-string: ^4.0.0
     strip-indent: ^3.0.0
   checksum: d64a6b5c0b50eb3ddce3ab770f866658a2b9998c678f797919ceb1b586bab9259b311407280bd80b804e2a7c7539b19238ae6a2a20c843f1a7fcff21d48c2eae
+  languageName: node
+  linkType: hard
+
+"redwoodjs-stripe@npm:^0.1.0-rc.1":
+  version: 0.1.0-rc.1
+  resolution: "redwoodjs-stripe@npm:0.1.0-rc.1"
+  dependencies:
+    "@stripe/stripe-js": 1.29.0
+    cli-testing-library: ^1.0.4
+    envfile: ^6.17.0
+    fs-extra: ^10.1.0
+    listr: ^0.14.3
+    prompts: ^2.4.2
+    stripe: ^8.220.0
+    tmp-promise: ^3.0.3
+    yargs: ^17.5.1
+  peerDependencies:
+    "@apollo/client": 3.x
+    "@redwoodjs/core": 1.x
+    "@redwoodjs/web": 1.x
+    graphql-tag: 2.x
+    react: 17.0.2
+    react-dom: 17.0.2
+  bin:
+    redwoodjs-stripe: src/cli/cli.js
+  checksum: da4a35440b655a7cc77b201394e0cdd99635553d87542275c1d651e263a01b98a019f1b71cd6793055448cceb69492667179849e1a2b9ad5aab2899b7f13df70
   languageName: node
   linkType: hard
 
@@ -20784,6 +20889,7 @@ __metadata:
   dependencies:
     "@redwoodjs/core": 3.0.3
     prettier-plugin-tailwindcss: ^0.1.13
+    redwoodjs-stripe: ^0.1.0-rc.1
   languageName: unknown
   linkType: soft
 
@@ -22089,6 +22195,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stripe@npm:^8.220.0":
+  version: 8.222.0
+  resolution: "stripe@npm:8.222.0"
+  dependencies:
+    "@types/node": ">=8.1.0"
+    qs: ^6.10.3
+  checksum: 7979f9d2b2f099d3bf0e5558dd4dc8f20fb20e8a34d93f38fc55fc1c0dc79296345898035f4075f497e255a9e7f6a0df3f9d8dbb0d1beb57fca595f70429af53
+  languageName: node
+  linkType: hard
+
 "style-loader@npm:3.3.1":
   version: 3.3.1
   resolution: "style-loader@npm:3.3.1"
@@ -22603,7 +22719,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tmp@npm:0.2.1":
+"tmp-promise@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "tmp-promise@npm:3.0.3"
+  dependencies:
+    tmp: ^0.2.0
+  checksum: 23b47dcb2e82b14bbd8f61ed7a9d9353cdb6a6f09d7716616cfd27d0087040cd40152965a518e598d7aabe1489b9569bf1eebde0c5fadeaf3ec8098adcebea4e
+  languageName: node
+  linkType: hard
+
+"tmp@npm:0.2.1, tmp@npm:^0.2.0":
   version: 0.2.1
   resolution: "tmp@npm:0.2.1"
   dependencies:
@@ -24651,7 +24776,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.0.0, yargs@npm:^17.3.1":
+"yargs@npm:^17.0.0, yargs@npm:^17.3.1, yargs@npm:^17.5.1":
   version: 17.6.0
   resolution: "yargs@npm:17.6.0"
   dependencies:
