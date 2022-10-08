@@ -4,9 +4,11 @@ export const QUERY = gql`
   query FindVoteById($id: Int!) {
     vote: vote(id: $id) {
       id
-      upvote
-      downvote
+      totalUpVotes
+      totalDownVotes
+      superVotes
       totalVotes
+      responseId
       postId
       userId
     }

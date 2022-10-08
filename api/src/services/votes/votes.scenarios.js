@@ -2,10 +2,10 @@ export const standard = defineScenario({
   vote: {
     one: {
       data: {
-        totalUpVotes: 5239050,
-        totalDownVotes: 4958796,
-        superVotes: 9486444,
-        totalVotes: 3550718,
+        totalUpVotes: 6785365,
+        totalDownVotes: 934134,
+        superVotes: 9293821,
+        totalVotes: 6466858,
         responseVote: {
           create: {
             responseTitle: 'String',
@@ -13,7 +13,7 @@ export const standard = defineScenario({
             postResponse: {
               create: {
                 content: 'String',
-                postId: 343981,
+                postId: 8527143,
                 postingUser: {
                   create: { hashedPassword: 'String', salt: 'String' },
                 },
@@ -30,7 +30,7 @@ export const standard = defineScenario({
         Post: {
           create: {
             content: 'String',
-            postId: 7338061,
+            postId: 3296326,
             postingUser: {
               create: { hashedPassword: 'String', salt: 'String' },
             },
@@ -43,10 +43,10 @@ export const standard = defineScenario({
 
     two: {
       data: {
-        totalUpVotes: 4327298,
-        totalDownVotes: 1969796,
-        superVotes: 6077652,
-        totalVotes: 1902779,
+        totalUpVotes: 9640444,
+        totalDownVotes: 2804619,
+        superVotes: 979018,
+        totalVotes: 8249738,
         responseVote: {
           create: {
             responseTitle: 'String',
@@ -54,7 +54,7 @@ export const standard = defineScenario({
             postResponse: {
               create: {
                 content: 'String',
-                postId: 2340419,
+                postId: 2292851,
                 postingUser: {
                   create: { hashedPassword: 'String', salt: 'String' },
                 },
@@ -71,7 +71,7 @@ export const standard = defineScenario({
         Post: {
           create: {
             content: 'String',
-            postId: 2894332,
+            postId: 7166781,
             postingUser: {
               create: { hashedPassword: 'String', salt: 'String' },
             },

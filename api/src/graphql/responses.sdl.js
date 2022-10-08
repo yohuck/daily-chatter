@@ -32,8 +32,7 @@ export const schema = gql`
 
   type Mutation {
     createResponse(input: CreateResponseInput!): Response! @skipAuth
-    updateResponse(id: Int!, input: UpdateResponseInput!): Response!
-      @requireAuth
+    updateResponse(id: Int!, input: UpdateResponseInput!): Response! @skipAuth
     deleteResponse(id: Int!): Response! @requireAuth
   }
 `

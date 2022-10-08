@@ -22,20 +22,20 @@ describe('votes', () => {
   scenario('creates a vote', async (scenario) => {
     const result = await createVote({
       input: {
-        totalUpVotes: 856200,
-        totalDownVotes: 3979140,
-        superVotes: 4532015,
-        totalVotes: 2120539,
+        totalUpVotes: 9846907,
+        totalDownVotes: 3148232,
+        superVotes: 4577007,
+        totalVotes: 3240759,
         responseId: scenario.vote.two.responseId,
         postId: scenario.vote.two.postId,
         userId: scenario.vote.two.userId,
       },
     })
 
-    expect(result.totalUpVotes).toEqual(856200)
-    expect(result.totalDownVotes).toEqual(3979140)
-    expect(result.superVotes).toEqual(4532015)
-    expect(result.totalVotes).toEqual(2120539)
+    expect(result.totalUpVotes).toEqual(9846907)
+    expect(result.totalDownVotes).toEqual(3148232)
+    expect(result.superVotes).toEqual(4577007)
+    expect(result.totalVotes).toEqual(3240759)
     expect(result.responseId).toEqual(scenario.vote.two.responseId)
     expect(result.postId).toEqual(scenario.vote.two.postId)
     expect(result.userId).toEqual(scenario.vote.two.userId)
@@ -45,10 +45,10 @@ describe('votes', () => {
     const original = await vote({ id: scenario.vote.one.id })
     const result = await updateVote({
       id: original.id,
-      input: { totalUpVotes: 878651 },
+      input: { totalUpVotes: 4709203 },
     })
 
-    expect(result.totalUpVotes).toEqual(878651)
+    expect(result.totalUpVotes).toEqual(4709203)
   })
 
   scenario('deletes a vote', async (scenario) => {

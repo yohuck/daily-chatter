@@ -9,9 +9,11 @@ export const QUERY = gql`
   query EditVoteById($id: Int!) {
     vote: vote(id: $id) {
       id
-      upvote
-      downvote
+      totalUpVotes
+      totalDownVotes
+      superVotes
       totalVotes
+      responseId
       postId
       userId
     }
@@ -21,9 +23,11 @@ const UPDATE_VOTE_MUTATION = gql`
   mutation UpdateVoteMutation($id: Int!, $input: UpdateVoteInput!) {
     updateVote(id: $id, input: $input) {
       id
-      upvote
-      downvote
+      totalUpVotes
+      totalDownVotes
+      superVotes
       totalVotes
+      responseId
       postId
       userId
     }

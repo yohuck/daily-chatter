@@ -77,16 +77,24 @@ const Vote = ({ vote }) => {
               <td>{vote.id}</td>
             </tr>
             <tr>
-              <th>Upvote</th>
-              <td>{vote.totalUpVote}</td>
+              <th>Total up votes</th>
+              <td>{vote.totalUpVotes}</td>
             </tr>
             <tr>
-              <th>Downvote</th>
-              <td>{vote.totalDownVote}</td>
+              <th>Total down votes</th>
+              <td>{vote.totalDownVotes}</td>
+            </tr>
+            <tr>
+              <th>Super votes</th>
+              <td>{vote.superVotes}</td>
             </tr>
             <tr>
               <th>Total votes</th>
               <td>{vote.totalVotes}</td>
+            </tr>
+            <tr>
+              <th>Response id</th>
+              <td>{vote.responseId}</td>
             </tr>
             <tr>
               <th>Post id</th>
@@ -101,7 +109,7 @@ const Vote = ({ vote }) => {
       </div>
       <nav className="rw-button-group">
         <Link
-          // to={routes.editVote({ id: vote.id })}
+          to={routes.editVote({ id: vote.id })}
           className="rw-button rw-button-blue"
         >
           Edit
@@ -109,7 +117,7 @@ const Vote = ({ vote }) => {
         <button
           type="button"
           className="rw-button rw-button-red"
-          // onClick={() => onDeleteClick(vote.id)}
+          onClick={() => onDeleteClick(vote.id)}
         >
           Delete
         </button>

@@ -3,7 +3,6 @@ import {
   FormError,
   FieldError,
   Label,
-  CheckboxField,
   NumberField,
   Submit,
 } from '@redwoodjs/forms'
@@ -24,38 +23,58 @@ const VoteForm = (props) => {
         />
 
         <Label
-          name="upvote"
+          name="totalUpVotes"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Upvote
+          Total up votes
         </Label>
 
-        <CheckboxField
-          name="upvote"
-          defaultChecked={props.vote?.upvote}
+        <NumberField
+          name="totalUpVotes"
+          defaultValue={props.vote?.totalUpVotes}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
         />
 
-        <FieldError name="upvote" className="rw-field-error" />
+        <FieldError name="totalUpVotes" className="rw-field-error" />
 
         <Label
-          name="downvote"
+          name="totalDownVotes"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Downvote
+          Total down votes
         </Label>
 
-        <CheckboxField
-          name="downvote"
-          defaultChecked={props.vote?.downvote}
+        <NumberField
+          name="totalDownVotes"
+          defaultValue={props.vote?.totalDownVotes}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
         />
 
-        <FieldError name="downvote" className="rw-field-error" />
+        <FieldError name="totalDownVotes" className="rw-field-error" />
+
+        <Label
+          name="superVotes"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Super votes
+        </Label>
+
+        <NumberField
+          name="superVotes"
+          defaultValue={props.vote?.superVotes}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="superVotes" className="rw-field-error" />
 
         <Label
           name="totalVotes"
@@ -74,6 +93,24 @@ const VoteForm = (props) => {
         />
 
         <FieldError name="totalVotes" className="rw-field-error" />
+
+        <Label
+          name="responseId"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Response id
+        </Label>
+
+        <NumberField
+          name="responseId"
+          defaultValue={props.vote?.responseId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="responseId" className="rw-field-error" />
 
         <Label
           name="postId"

@@ -24,7 +24,7 @@ export const schema = gql`
 
   type Mutation {
     createTopic(input: CreateTopicInput!): Topic! @skipAuth
-    updateTopic(id: Int!, input: UpdateTopicInput!): Topic! @requireAuth
+    updateTopic(id: Int!, input: UpdateTopicInput!): Topic! @skipAuth
     deleteTopic(id: Int!): Topic! @requireAuth
   }
 `

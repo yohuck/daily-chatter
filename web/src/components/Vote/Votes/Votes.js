@@ -80,9 +80,11 @@ const VotesList = ({ votes }) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Upvote</th>
-            <th>Downvote</th>
+            <th>Total up votes</th>
+            <th>Total down votes</th>
+            <th>Super votes</th>
             <th>Total votes</th>
+            <th>Response id</th>
             <th>Post id</th>
             <th>User id</th>
             <th>&nbsp;</th>
@@ -94,20 +96,22 @@ const VotesList = ({ votes }) => {
               <td>{truncate(vote.id)}</td>
               <td>{truncate(vote.totalUpVotes)}</td>
               <td>{truncate(vote.totalDownVotes)}</td>
+              <td>{truncate(vote.superVotes)}</td>
               <td>{truncate(vote.totalVotes)}</td>
+              <td>{truncate(vote.responseId)}</td>
               <td>{truncate(vote.postId)}</td>
               <td>{truncate(vote.userId)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
-                    // to={routes.vote({ id: vote.id })}
+                    to={routes.vote({ id: vote.id })}
                     title={'Show vote ' + vote.id + ' detail'}
                     className="rw-button rw-button-small"
                   >
                     Show
                   </Link>
                   <Link
-                    // to={routes.editVote({ id: vote.id })}
+                    to={routes.editVote({ id: vote.id })}
                     title={'Edit vote ' + vote.id}
                     className="rw-button rw-button-small rw-button-blue"
                   >
