@@ -5,8 +5,6 @@ import { Link, routes } from '@redwoodjs/router'
 
 const duration = 300
 
-
-
 const MainLayout = ({ children }) => {
   // const [darkMode, setDarkMode] = useState('light')
   const [darkModeOver, setDarkModeOver] = useState('')
@@ -146,7 +144,9 @@ const MainLayout = ({ children }) => {
             </button>
           </div>
         </header>
-        <main className={'dark:bg-neutral-900  dark:text-emerald-400'}>
+        <main
+          className={'min-h-screen dark:bg-neutral-900 dark:text-emerald-400'}
+        >
           {children}
         </main>
       </div>

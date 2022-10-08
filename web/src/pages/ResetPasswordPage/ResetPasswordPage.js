@@ -60,20 +60,20 @@ const ResetPasswordPage = ({ resetToken }) => {
     <>
       <MetaTags title="Reset Password" />
 
-      <main className="rw-main">
+      <main className="flex items-center justify-center">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
-        <div className="rw-scaffold rw-login-container">
-          <div className="rw-segment">
-            <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">
+        <div className="">
+          <div className="">
+            <header className="rounded-t-lg bg-emerald-500 shadow">
+              <h2 className="p-2 font-bold dark:bg-emerald-500 dark:text-black">
                 Reset Password
               </h2>
             </header>
 
-            <div className="rw-segment-main">
-              <div className="rw-form-wrapper">
-                <Form onSubmit={onSubmit} className="rw-form-wrapper">
-                  <div className="text-left">
+            <div className="flex max-w-lg justify-center rounded-b-lg bg-slate-200 p-2 shadow dark:bg-neutral-700">
+              <div className="">
+                <Form onSubmit={onSubmit} className="">
+                  <div className="">
                     <Label
                       name="password"
                       className="rw-label"
@@ -84,7 +84,7 @@ const ResetPasswordPage = ({ resetToken }) => {
                     <PasswordField
                       name="password"
                       autoComplete="new-password"
-                      className="rw-input"
+                      className=""
                       errorClassName="rw-input rw-input-error"
                       disabled={!enabled}
                       ref={passwordRef}
@@ -99,11 +99,8 @@ const ResetPasswordPage = ({ resetToken }) => {
                     <FieldError name="password" className="rw-field-error" />
                   </div>
 
-                  <div className="rw-button-group">
-                    <Submit
-                      className="rw-button rw-button-blue"
-                      disabled={!enabled}
-                    >
+                  <div className="">
+                    <Submit className="" disabled={!enabled}>
                       Submit
                     </Submit>
                   </div>

@@ -23,10 +23,7 @@ const Routes = () => {
         <Route path="/topics/{id:Int}" page={TopicTopicPage} name="topic" />
         <Route path="/topics" page={TopicTopicsPage} name="topics" />
       </Set>
-      <Route path="/login" page={LoginPage} name="login" />
-      <Route path="/signup" page={SignupPage} name="signup" />
-      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
-      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
+
 
       <Set wrap={VotesLayout}>
         <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
@@ -55,6 +52,10 @@ const Routes = () => {
         <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />
         <Route path="/contact" page={ContactPage} name="contact" />
+        <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       </Set>
     </Router>
   )

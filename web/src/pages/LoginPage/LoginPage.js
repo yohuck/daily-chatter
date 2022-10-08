@@ -44,28 +44,30 @@ const LoginPage = () => {
     <>
       <MetaTags title="Login" />
 
-      <main className="rw-main">
+      <main className="rw-main flex items-center justify-center">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
-        <div className="rw-scaffold rw-login-container">
-          <div className="rw-segment">
-            <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">Login</h2>
+        <div className="">
+          <div className="mt-10">
+            <header className="rounded-t-lg shadow bg-emerald-500">
+              <h2 className=" p-2 font-bold dark:bg-emerald-500 dark:text-black">
+                Login
+              </h2>
             </header>
 
-            <div className="rw-segment-main">
-              <div className="rw-form-wrapper">
-                <Form onSubmit={onSubmit} className="rw-form-wrapper">
+            <div className="flex max-w-lg justify-center rounded-b-lg bg-slate-200 p-2 shadow dark:bg-neutral-900">
+              <div className="">
+                <Form onSubmit={onSubmit} className="flex max-w-md flex-col ">
                   <Label
                     name="username"
-                    className="rw-label"
+                    className=""
                     errorClassName="rw-label rw-label-error"
                   >
                     Username
                   </Label>
                   <TextField
                     name="username"
-                    className="rw-input"
-                    errorClassName="rw-input rw-input-error"
+                    className=""
+                    errorClassName=""
                     ref={usernameRef}
                     validation={{
                       required: {
@@ -79,14 +81,14 @@ const LoginPage = () => {
 
                   <Label
                     name="password"
-                    className="rw-label"
+                    className=""
                     errorClassName="rw-label rw-label-error"
                   >
                     Password
                   </Label>
                   <PasswordField
                     name="password"
-                    className="rw-input"
+                    className=""
                     errorClassName="rw-input rw-input-error"
                     autoComplete="current-password"
                     validation={{
@@ -109,7 +111,7 @@ const LoginPage = () => {
                   <FieldError name="password" className="rw-field-error" />
 
                   <div className="rw-button-group">
-                    <Submit className="rw-button rw-button-blue">Login</Submit>
+                    <Submit className=" m-2 flex  items-center rounded-lg bg-white p-2 shadow hover:bg-emerald-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">Login</Submit>
                   </div>
                 </Form>
               </div>
