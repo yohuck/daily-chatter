@@ -58,7 +58,7 @@ const MainLayout = ({ children }) => {
       <div>
         <header
           className={
-            'sticky top-0 z-50 flex  w-full items-center justify-between px-2 py-1  text-left bg-white dark:bg-neutral-900 '
+            'sticky top-0 z-50 flex  w-full items-center justify-between bg-white px-2  py-1 text-left dark:bg-neutral-900 '
           }
         >
           <ul>
