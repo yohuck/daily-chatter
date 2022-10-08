@@ -27,10 +27,10 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ responses }) => {
-  return responses.map((response) => (
-    <>
+  return responses.map((response, index) => (
+    <div id={response.id}>
     <div
-      key={response.id}
+      key={index}
       className="maxy relative m-3 flex flex-col justify-between rounded-lg p-8 shadow dark:border-emerald-300 dark:bg-zinc-900"
     >
       <div className="absolute  bottom-0 left-0 m-1 rounded bg-emerald-200 px-2 opacity-75 dark:text-zinc-900">
@@ -64,6 +64,6 @@ export const Success = ({ responses }) => {
         </button>
       </div>
     </div>
-    </>
+    </div>
   ))
 }
