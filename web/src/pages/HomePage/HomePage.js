@@ -41,6 +41,7 @@ const HomePage = () => {
           {' '}
           <TopicsCell></TopicsCell>
         </TopicsLayout> */}
+        {}
         <h1 className="mb-3 text-center text-2xl font-bold">
           Jeans: High Rise or Low?{' '}
         </h1>
