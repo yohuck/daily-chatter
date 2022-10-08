@@ -95,24 +95,6 @@ const PostForm = (props) => {
 
         <FieldError name="topicId" className="rw-field-error" />
 
-        <Label
-          name="reports"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Reports
-        </Label>
-
-        <NumberField
-          name="reports"
-          defaultValue={props.post?.reports}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="reports" className="rw-field-error" />
-
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
