@@ -28,18 +28,6 @@ const Routes = () => {
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
 
-      <Set wrap={VotesLayout}>
-        <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
-        <Route path="/votes/{id:Int}/edit" page={VoteEditVotePage} name="editVote" />
-        <Route path="/votes/{id:Int}" page={VoteVotePage} name="vote" />
-        <Route path="/votes" page={VoteVotesPage} name="votes" />
-      </Set>
-      <Set wrap={VotesLayout}>
-        <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
-        <Route path="/votes/{id:Int}/edit" page={VoteEditVotePage} name="editVote" />
-        <Route path="/votes/{id:Int}" page={VoteVotePage} name="vote" />
-        <Route path="/votes" page={VoteVotesPage} name="votes" />
-      </Set>
       <Set wrap={PostsLayout}>
         <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
         <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
