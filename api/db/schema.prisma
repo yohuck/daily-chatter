@@ -68,8 +68,6 @@ model Response {
 //Votes are on Responses
 model Vote {
   id             Int      @id @default(autoincrement())
-  upvote         Boolean
-  downvote       Boolean
   totalUpVotes   Int
   totalDownVotes Int
   superVotes     Int

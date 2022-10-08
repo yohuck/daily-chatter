@@ -1,8 +1,6 @@
 export const schema = gql`
   type Vote {
     id: Int!
-    upvote: Boolean!
-    downvote: Boolean!
     totalUpVotes: Int!
     totalDownVotes: Int!
     superVotes: Int!
@@ -16,13 +14,11 @@ export const schema = gql`
   }
 
   type Query {
-    votes: [Vote!]! @skipAuth
-    vote(id: Int!): Vote @skipAuth
+    votes: [Vote!]! @requireAuth
+    vote(id: Int!): Vote @requireAuth
   }
 
   input CreateVoteInput {
-    upvote: Boolean!
-    downvote: Boolean!
     totalUpVotes: Int!
     totalDownVotes: Int!
     superVotes: Int!
@@ -33,8 +29,6 @@ export const schema = gql`
   }
 
   input UpdateVoteInput {
-    upvote: Boolean
-    downvote: Boolean
     totalUpVotes: Int
     totalDownVotes: Int
     superVotes: Int
@@ -45,7 +39,7 @@ export const schema = gql`
   }
 
   type Mutation {
-    createVote(input: CreateVoteInput!): Vote! @skipAuth
+    createVote(input: CreateVoteInput!): Vote! @requireAuth
     updateVote(id: Int!, input: UpdateVoteInput!): Vote! @requireAuth
     deleteVote(id: Int!): Vote! @requireAuth
   }

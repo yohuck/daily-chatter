@@ -78,11 +78,11 @@ const Vote = ({ vote }) => {
             </tr>
             <tr>
               <th>Upvote</th>
-              <td>{checkboxInputTag(vote.upvote)}</td>
+              <td>{vote.totalUpVote}</td>
             </tr>
             <tr>
               <th>Downvote</th>
-              <td>{checkboxInputTag(vote.downvote)}</td>
+              <td>{vote.totalDownVote}</td>
             </tr>
             <tr>
               <th>Total votes</th>
@@ -101,7 +101,7 @@ const Vote = ({ vote }) => {
       </div>
       <nav className="rw-button-group">
         <Link
-          to={routes.editVote({ id: vote.id })}
+          // to={routes.editVote({ id: vote.id })}
           className="rw-button rw-button-blue"
         >
           Edit
@@ -109,7 +109,7 @@ const Vote = ({ vote }) => {
         <button
           type="button"
           className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(vote.id)}
+          // onClick={() => onDeleteClick(vote.id)}
         >
           Delete
         </button>

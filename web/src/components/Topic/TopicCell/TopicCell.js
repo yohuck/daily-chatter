@@ -13,8 +13,6 @@ export const QUERY = gql`
         id
         topicId
       }
-      description
-      title
     }
   }
 `

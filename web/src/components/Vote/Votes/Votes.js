@@ -92,22 +92,22 @@ const VotesList = ({ votes }) => {
           {votes.map((vote) => (
             <tr key={vote.id}>
               <td>{truncate(vote.id)}</td>
-              <td>{checkboxInputTag(vote.upvote)}</td>
-              <td>{checkboxInputTag(vote.downvote)}</td>
+              <td>{truncate(vote.totalUpVotes)}</td>
+              <td>{truncate(vote.totalDownVotes)}</td>
               <td>{truncate(vote.totalVotes)}</td>
               <td>{truncate(vote.postId)}</td>
               <td>{truncate(vote.userId)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
-                    to={routes.vote({ id: vote.id })}
+                    // to={routes.vote({ id: vote.id })}
                     title={'Show vote ' + vote.id + ' detail'}
                     className="rw-button rw-button-small"
                   >
                     Show
                   </Link>
                   <Link
-                    to={routes.editVote({ id: vote.id })}
+                    // to={routes.editVote({ id: vote.id })}
                     title={'Edit vote ' + vote.id}
                     className="rw-button rw-button-small rw-button-blue"
                   >

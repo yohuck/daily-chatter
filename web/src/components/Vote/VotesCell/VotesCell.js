@@ -5,12 +5,12 @@ import Votes from 'src/components/Vote/Votes'
 export const QUERY = gql`
   query FindVotes {
     votes {
-      id
-      upvote
-      downvote
-      totalVotes
       postId
-      userId
+      responseId
+      totalVotes
+      totalUpVotes
+      totalDownVotes
+      superVotes
     }
   }
 `
