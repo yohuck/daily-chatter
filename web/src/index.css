@@ -16,7 +16,7 @@ body *{
 }
 
 .shadow-p{
-  border: 3px solid;
+  border: 3px solid #22c55e;
   padding: 10px;
   box-shadow: 5px 5px hsla(0,0%,0%, 0.86);
 }
@@ -28,7 +28,7 @@ body *{
 }
 
 .inner-shadow{
-  box-shadow: inset 0 0 4px #374151;
+  box-shadow: inset 0 0 4px #22c55e;
 }
 
 .rw-table *{
@@ -67,6 +67,26 @@ color: rgb(234 179 8);
 max-width: 400px;
 }
 
-.bg{
+.bor{
+border-bottom: 1px solid;
+}
 
-  }
+
+.example-enter {
+  opacity: 0;
+  transform:translateX(-100%);
+}
+.example-enter-active {
+  opacity: 1;
+  transform:translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.example-exit {
+  opacity: 1;
+  transform:translateX(0);
+}
+.example-exit-active {
+  opacity: 0;
+  transform:translateX(-100%);
+  transition: opacity 900ms, transform 900ms;
+}
