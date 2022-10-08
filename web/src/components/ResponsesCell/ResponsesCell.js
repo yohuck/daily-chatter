@@ -59,7 +59,7 @@ export const Success = ({ responses }) => {
           </button>
           <button className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500 dark:border-emerald-200 dark:hover:bg-neutral-800">
             <div className=" flex flex-col">
-              <i className="fa-duotone fa-coin fa-2x p-1 text-emerald-500 dark:text-emerald-200"></i>
+              <i className="fa-duotone fa-coin fa-2x p-1 text-emerald-500 dark:text-emerald-300"></i>
             </div>
           </button>
         </div>

@@ -70,3 +70,23 @@ max-width: 400px;
 .bor{
 border-bottom: 1px solid;
 }
+
+
+.example-enter {
+  opacity: 0;
+  transform:translateX(-100%);
+}
+.example-enter-active {
+  opacity: 1;
+  transform:translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.example-exit {
+  opacity: 1;
+  transform:translateX(0);
+}
+.example-exit-active {
+  opacity: 0;
+  transform:translateX(-100%);
+  transition: opacity 900ms, transform 900ms;
+}
