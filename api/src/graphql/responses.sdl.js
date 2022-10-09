@@ -7,10 +7,10 @@ export const schema = gql`
     promptId: Int!
     body: String!
     createdAt: DateTime!
-    upvotes: Int!
-    downvotes: Int!
-    reports: Int!
-    supervote: Int!
+    upvotes: Int
+    downvotes: Int
+    reports: Int
+    supervote: Int
   }
 
   type Query {
@@ -22,10 +22,10 @@ export const schema = gql`
     userId: Int!
     promptId: Int!
     body: String!
-    upvotes: Int!
-    downvotes: Int!
-    reports: Int!
-    supervote: Int!
+    upvotes: Int
+    downvotes: Int
+    reports: Int
+    supervote: Int
   }
 
   input UpdateResponseInput {
