@@ -87,10 +87,10 @@ const ResponseForm = (props) => {
 
         <NumberField
           name="upvotes"
-          defaultValue={props.response?.upvotes}
+          defaultValue={0}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          //validation={{ required: true }}
         />
 
         <FieldError name="upvotes" className="rw-field-error" />
@@ -105,10 +105,10 @@ const ResponseForm = (props) => {
 
         <NumberField
           name="downvotes"
-          defaultValue={props.response?.downvotes}
+          defaultValue={0}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          //validation={{ required: true }}
         />
 
         <FieldError name="downvotes" className="rw-field-error" />
@@ -123,10 +123,10 @@ const ResponseForm = (props) => {
 
         <NumberField
           name="reports"
-          defaultValue={props.response?.reports}
+          defaultValue={0}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          //validation={{ required: true }}
         />
 
         <FieldError name="reports" className="rw-field-error" />
@@ -141,10 +141,10 @@ const ResponseForm = (props) => {
 
         <NumberField
           name="supervote"
-          defaultValue={props.response?.supervote}
+          defaultValue={0}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          //validation={{ required: true }}
         />
 
         <FieldError name="supervote" className="rw-field-error" />
