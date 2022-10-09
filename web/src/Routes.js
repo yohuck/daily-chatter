@@ -9,14 +9,38 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
-import MainLayout from 'src/layouts/MainLayout'
-import PostsLayout from 'src/layouts/PostsLayout'
+import UsersLayout from 'src/layouts/UsersLayout'
+
+import ResponsesLayout from 'src/layouts/ResponsesLayout'
+
+import PromptsLayout from 'src/layouts/PromptsLayout'
+
 import TopicsLayout from 'src/layouts/TopicsLayout'
-import VotesLayout from 'src/layouts/VotesLayout'
+
+import MainLayout from 'src/layouts/MainLayout'
 
 const Routes = () => {
   return (
+    //------------------------------
     <Router>
+      <Set wrap={UsersLayout}>
+        <Route path="/users/new" page={UserNewUserPage} name="newUser" />
+        <Route path="/users/{id:Int}/edit" page={UserEditUserPage} name="editUser" />
+        <Route path="/users/{id:Int}" page={UserUserPage} name="user" />
+        <Route path="/users" page={UserUsersPage} name="users" />
+      </Set>
+      <Set wrap={ResponsesLayout}>
+        <Route path="/responses/new" page={ResponseNewResponsePage} name="newResponse" />
+        <Route path="/responses/{id:Int}/edit" page={ResponseEditResponsePage} name="editResponse" />
+        <Route path="/responses/{id:Int}" page={ResponseResponsePage} name="response" />
+        <Route path="/responses" page={ResponseResponsesPage} name="responses" />
+      </Set>
+      <Set wrap={PromptsLayout}>
+        <Route path="/prompts/new" page={PromptNewPromptPage} name="newPrompt" />
+        <Route path="/prompts/{id:Int}/edit" page={PromptEditPromptPage} name="editPrompt" />
+        <Route path="/prompts/{id:Int}" page={PromptPromptPage} name="prompt" />
+        <Route path="/prompts" page={PromptPromptsPage} name="prompts" />
+      </Set>
       <Set wrap={TopicsLayout}>
         <Route path="/topics/new" page={TopicNewTopicPage} name="newTopic" />
         <Route path="/topics/{id:Int}/edit" page={TopicEditTopicPage} name="editTopic" />
@@ -27,29 +51,8 @@ const Routes = () => {
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
-
-      <Set wrap={VotesLayout}>
-        <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
-        <Route path="/votes/{id:Int}/edit" page={VoteEditVotePage} name="editVote" />
-        <Route path="/votes/{id:Int}" page={VoteVotePage} name="vote" />
-        <Route path="/votes" page={VoteVotesPage} name="votes" />
-      </Set>
-      <Set wrap={VotesLayout}>
-        <Route path="/votes/new" page={VoteNewVotePage} name="newVote" />
-        <Route path="/votes/{id:Int}/edit" page={VoteEditVotePage} name="editVote" />
-        <Route path="/votes/{id:Int}" page={VoteVotePage} name="vote" />
-        <Route path="/votes" page={VoteVotesPage} name="votes" />
-      </Set>
-      <Set wrap={PostsLayout}>
-        <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
-        <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
-        <Route path="/posts/{id:Int}" page={PostPostPage} name="post" />
-        <Route path="/posts" page={PostPostsPage} name="posts" />
-      </Set>
-
       <Set wrap={MainLayout}>
         <Route path="/view-topics" page={ViewTopicsPage} name="viewTopics" />
-        <Route path="/about" page={AboutPage} name="about" />
         <Route path="/choose-topic" page={ChooseTopicPage} name="chooseTopic" />
         <Route path="/submit-response" page={SubmitResponsePage} name="submitResponse" />
         <Route path="/" page={HomePage} name="home" />

@@ -28,15 +28,23 @@ describe('responses', () => {
   scenario('creates a response', async (scenario) => {
     const result = await createResponse({
       input: {
-        postId: scenario.response.two.postId,
-        responseTitle: 'String',
-        responseText: 'String',
+        body: 'String',
+        upvotes: 3089375,
+        downvotes: 2948616,
+        reports: 7121148,
+        supervote: 5528132,
+        promptId: scenario.response.two.promptId,
+        userId: scenario.response.two.userId,
       },
     })
 
-    expect(result.postId).toEqual(scenario.response.two.postId)
-    expect(result.responseTitle).toEqual('String')
-    expect(result.responseText).toEqual('String')
+    expect(result.body).toEqual('String')
+    expect(result.upvotes).toEqual(3089375)
+    expect(result.downvotes).toEqual(2948616)
+    expect(result.reports).toEqual(7121148)
+    expect(result.supervote).toEqual(5528132)
+    expect(result.promptId).toEqual(scenario.response.two.promptId)
+    expect(result.userId).toEqual(scenario.response.two.userId)
   })
 
   scenario('updates a response', async (scenario) => {
@@ -46,10 +54,10 @@ describe('responses', () => {
 
     const result = await updateResponse({
       id: original.id,
-      input: { responseTitle: 'String2' },
+      input: { body: 'String2' },
     })
 
-    expect(result.responseTitle).toEqual('String2')
+    expect(result.body).toEqual('String2')
   })
 
   scenario('deletes a response', async (scenario) => {

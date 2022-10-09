@@ -1,39 +1,46 @@
 export const schema = gql`
   type Response {
     id: Int!
-    postId: Int!
-    postResponse: Post!
-    responseTitle: String!
-    responseText: String!
-    votes: [Vote]!
+    body: String!
     createdAt: DateTime!
-    User: User
-    userId: Int
+    upvotes: Int!
+    downvotes: Int!
+    reports: Int!
+    supervote: Int!
+    prompt: Prompt!
+    promptId: Int!
+    user: User!
+    userId: Int!
   }
 
   type Query {
     responses: [Response!]! @skipAuth
-    response(id: Int!): Response @requireAuth
+    response(id: Int!): Response @skipAuth
   }
 
   input CreateResponseInput {
-    postId: Int!
-    responseTitle: String!
-    responseText: String!
-    userId: Int
+    body: String!
+    upvotes: Int!
+    downvotes: Int!
+    reports: Int!
+    supervote: Int!
+    promptId: Int!
+    userId: Int!
   }
 
   input UpdateResponseInput {
-    postId: Int
-    responseTitle: String
-    responseText: String
+    body: String
+    upvotes: Int
+    downvotes: Int
+    reports: Int
+    supervote: Int
+    promptId: Int
     userId: Int
   }
 
   type Mutation {
     createResponse(input: CreateResponseInput!): Response! @skipAuth
-    updateResponse(id: Int!, input: UpdateResponseInput!): Response!
-      @requireAuth
-    deleteResponse(id: Int!): Response! @requireAuth
+    updateResponse(id: Int!, input: UpdateResponseInput!): Response! @skipAuth
+    deleteResponse(id: Int!): Response! @skipAuth
   }
 `

@@ -81,19 +81,9 @@ const Topic = ({ topic }) => {
               <td>{topic.title}</td>
             </tr>
             <tr>
-              <th>Description</th>
-              <td>{topic.description}</td>
+              <th>User id</th>
+              <td>{topic.userId}</td>
             </tr>
-            <tr>
-              <th>Created at</th>
-              <td>{timeTag(topic.createdAt)}</td>
-            </tr>
-            {/* Topic/Post JSON Relation */}
-            <tr>
-              <th>JSON relations</th>
-              <td>{jsonDisplay(topic, topic.title, topic.posts)}</td>
-            </tr>
-            {/* end JSON for Relation */}
           </tbody>
         </table>
       </div>

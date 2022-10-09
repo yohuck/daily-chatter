@@ -19,13 +19,13 @@ describe('topics', () => {
     expect(result).toEqual(scenario.topic.one)
   })
 
-  scenario('creates a topic', async () => {
+  scenario('creates a topic', async (scenario) => {
     const result = await createTopic({
-      input: { title: 'String', description: 'String' },
+      input: { title: 'String', userId: scenario.topic.two.userId },
     })
 
     expect(result.title).toEqual('String')
-    expect(result.description).toEqual('String')
+    expect(result.userId).toEqual(scenario.topic.two.userId)
   })
 
   scenario('updates a topic', async (scenario) => {

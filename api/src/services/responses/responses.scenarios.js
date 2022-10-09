@@ -2,38 +2,66 @@ export const standard = defineScenario({
   response: {
     one: {
       data: {
-        responseTitle: 'String',
-        responseText: 'String',
-        postResponse: {
+        body: 'String',
+        upvotes: 6090289,
+        downvotes: 7976371,
+        reports: 7710538,
+        supervote: 543653,
+        prompt: {
           create: {
-            content: 'String',
-            postId: 2739458,
-            reports: 809262,
-            postingUser: {
-              create: { hashedPassword: 'String', salt: 'String' },
+            title: 'String',
+            body: 'String',
+            dispalyDate: 'String',
+            topic: {
+              create: {
+                title: 'String',
+                user: {
+                  create: {
+                    hashedPassword: 'String',
+                    salt: 'String',
+                    admin: true,
+                  },
+                },
+              },
             },
-
-            postTopic: { create: { title: 'String', description: 'String' } },
           },
+        },
+
+        user: {
+          create: { hashedPassword: 'String', salt: 'String', admin: true },
         },
       },
     },
 
     two: {
       data: {
-        responseTitle: 'String',
-        responseText: 'String',
-        postResponse: {
+        body: 'String',
+        upvotes: 9457544,
+        downvotes: 6128323,
+        reports: 6238025,
+        supervote: 8337776,
+        prompt: {
           create: {
-            content: 'String',
-            postId: 2570445,
-            reports: 5584638,
-            postingUser: {
-              create: { hashedPassword: 'String', salt: 'String' },
+            title: 'String',
+            body: 'String',
+            dispalyDate: 'String',
+            topic: {
+              create: {
+                title: 'String',
+                user: {
+                  create: {
+                    hashedPassword: 'String',
+                    salt: 'String',
+                    admin: true,
+                  },
+                },
+              },
             },
-
-            postTopic: { create: { title: 'String', description: 'String' } },
           },
+        },
+
+        user: {
+          create: { hashedPassword: 'String', salt: 'String', admin: true },
         },
       },
     },

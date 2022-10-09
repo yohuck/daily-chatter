@@ -28,3 +28,12 @@ export const deleteResponse = ({ id }) => {
     where: { id },
   })
 }
+
+export const Response = {
+  prompt: (_obj, { root }) => {
+    return db.response.findUnique({ where: { id: root?.id } }).prompt()
+  },
+  user: (_obj, { root }) => {
+    return db.response.findUnique({ where: { id: root?.id } }).user()
+  },
+}

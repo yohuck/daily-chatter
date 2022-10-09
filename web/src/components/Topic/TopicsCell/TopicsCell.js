@@ -7,8 +7,7 @@ export const QUERY = gql`
     topics {
       id
       title
-      description
-      createdAt
+      userId
     }
   }
 `

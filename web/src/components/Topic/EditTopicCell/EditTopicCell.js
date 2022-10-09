@@ -10,8 +10,7 @@ export const QUERY = gql`
     topic: topic(id: $id) {
       id
       title
-      description
-      createdAt
+      userId
     }
   }
 `
@@ -20,8 +19,7 @@ const UPDATE_TOPIC_MUTATION = gql`
     updateTopic(id: $id, input: $input) {
       id
       title
-      description
-      createdAt
+      userId
     }
   }
 `

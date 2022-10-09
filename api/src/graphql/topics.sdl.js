@@ -2,9 +2,9 @@ export const schema = gql`
   type Topic {
     id: Int!
     title: String!
-    description: String!
-    createdAt: DateTime!
-    posts: [Post]!
+    user: User!
+    userId: Int!
+    prompts: [Prompt]!
   }
 
   type Query {
@@ -14,17 +14,17 @@ export const schema = gql`
 
   input CreateTopicInput {
     title: String!
-    description: String!
+    userId: Int!
   }
 
   input UpdateTopicInput {
     title: String
-    description: String
+    userId: Int
   }
 
   type Mutation {
     createTopic(input: CreateTopicInput!): Topic! @skipAuth
-    updateTopic(id: Int!, input: UpdateTopicInput!): Topic! @requireAuth
-    deleteTopic(id: Int!): Topic! @requireAuth
+    updateTopic(id: Int!, input: UpdateTopicInput!): Topic! @skipAuth
+    deleteTopic(id: Int!): Topic! @skipAuth
   }
 `

@@ -30,7 +30,10 @@ export const deleteTopic = ({ id }) => {
 }
 
 export const Topic = {
-  posts: (_obj, { root }) => {
-    return db.topic.findUnique({ where: { id: root?.id } }).posts()
+  user: (_obj, { root }) => {
+    return db.topic.findUnique({ where: { id: root?.id } }).user()
+  },
+  prompts: (_obj, { root }) => {
+    return db.topic.findUnique({ where: { id: root?.id } }).prompts()
   },
 }

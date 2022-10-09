@@ -5,16 +5,7 @@ export const QUERY = gql`
     topic: topic(id: $id) {
       id
       title
-      description
-      createdAt
-      posts {
-        content
-        postId
-        id
-        topicId
-      }
-      description
-      title
+      userId
     }
   }
 `

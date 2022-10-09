@@ -1,6 +1,5 @@
-//change the provider to 'mySql' to use mysql.
 datasource db {
-  provider = "postgresql"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
@@ -8,6 +7,11 @@ generator client {
   provider      = "prisma-client-js"
   binaryTargets = "native"
 }
+
+// Define your own datamodels here and run `yarn redwood prisma migrate dev`
+// to create migrations for them and apply to your dev DB.
+// TODO: Please remove the following example:
+
 
 model User {
   id                  Int        @id @default(autoincrement())
@@ -17,74 +21,53 @@ model User {
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
-  roles               String     @default("user")
-  posts               Post[]
-  responseList        Response[]
-  votes               Vote[]
+  admin               Boolean
   subscribedTopics    Topic[]
+  responses           Response[]
 }
 
-// Post is within categories
-model Post {
-  id          Int        @id @default(autoincrement())
-  content     String
-  userId      Int
-  postingUser User       @relation(fields: [userId], references: [id])
-  postTopic   Topic      @relation(fields: [topicId], references: [id])
-  responses   Response[]
-  postId      Int
-  topicId     Int
-  Vote        Vote[]
-  createdAt   DateTime   @default(now())
-
-  @@unique([topicId, userId])
-}
-
-//Topics are categories
+//Topics are categories. Users can subscribe to certain Topics.
 model Topic {
-  id             Int      @id @default(autoincrement())
-  title          String
-  description    String
-  subrscribed    Boolean  @default(false)
-  createdAt      DateTime @default(now())
-  subscribedUser User?    @relation(fields: [userId], references: [id])
-  userId         Int?
-  posts          Post[]
+  id          Int      @id @default(autoincrement())
+  title       String
+  user        User @relation(fields:[userId], references:[id])
+  userId      Int
+  prompts     Prompt[]
+
+  @@unique([userId])
 }
 
-//responses are on Posts
+// Prompt is organized by Topics
+model Prompt {
+  id          Int        @id @default(autoincrement())
+  title       String
+  body        String
+  dispalyDate String
+  topic       Topic @relation(fields:[topicId], references:[id])
+  topicId     Int
+  responses   Response[]
+
+  @@unique([topicId])
+}
+
+//Responses display under prompts and are created by users.
 model Response {
-  id            Int      @id @default(autoincrement())
-  postId        Int
-  postResponse  Post     @relation(fields: [postId], references: [id])
-  responseTitle String
-  responseText  String
-  votes         Vote[]
+  id            Int @id @default(autoincrement())
+  body          String
   createdAt     DateTime @default(now())
-  User          User?    @relation(fields: [userId], references: [id])
-  userId        Int?
-  reports       Int?
+  upvotes       Int
+  downvotes     Int
+  reports       Int
+  supervote     Int
+  prompt        Prompt @relation(fields: [promptId], references: [id])
+  promptId      Int
+  user          User @relation(fields:[userId], references: [id])
+  userId        Int
+
+  @@unique([promptId, userId])
 }
 
-//Votes are on Responses
-model Vote {
-  id             Int      @id @default(autoincrement())
-  upvote         Boolean
-  downvote       Boolean
-  totalUpVotes   Int
-  totalDownVotes Int
-  superVotes     Int
-  totalVotes     Int
-  responseVote   Response @relation(fields: [responseId], references: [id])
-  userTotal      User     @relation(fields: [userId], references: [id])
-  responseId     Int
-  postId         Int
-  userId         Int
-  Post           Post     @relation(fields: [postId], references: [id])
-
-  @@unique([postId, userId, responseId])
-}
-
+//This does something....
 model Message {
   id             Int      @id @default(autoincrement())
   name           String
@@ -92,3 +75,4 @@ model Message {
   messageContent String
   createdAt      DateTime @default(now())
 }
+
