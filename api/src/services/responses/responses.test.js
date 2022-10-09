@@ -31,20 +31,20 @@ describe('responses', () => {
         userId: scenario.response.two.userId,
         promptId: scenario.response.two.promptId,
         body: 'String',
-        upvotes: 5429022,
-        downvotes: 1473078,
-        reports: 3487172,
-        supervote: 6028504,
+        upvotes: 1052328,
+        downvotes: 7004827,
+        reports: 6543534,
+        supervote: 4658348,
       },
     })
 
     expect(result.userId).toEqual(scenario.response.two.userId)
     expect(result.promptId).toEqual(scenario.response.two.promptId)
     expect(result.body).toEqual('String')
-    expect(result.upvotes).toEqual(5429022)
-    expect(result.downvotes).toEqual(1473078)
-    expect(result.reports).toEqual(3487172)
-    expect(result.supervote).toEqual(6028504)
+    expect(result.upvotes).toEqual(1052328)
+    expect(result.downvotes).toEqual(7004827)
+    expect(result.reports).toEqual(6543534)
+    expect(result.supervote).toEqual(4658348)
   })
 
   scenario('updates a response', async (scenario) => {

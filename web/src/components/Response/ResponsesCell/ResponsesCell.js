@@ -6,14 +6,14 @@ export const QUERY = gql`
   query FindResponses {
     responses {
       id
-      userId
-      promptId
       body
       createdAt
       upvotes
       downvotes
       reports
       supervote
+      promptId
+      userId
     }
   }
 `

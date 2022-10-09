@@ -22,6 +22,10 @@ export const schema = gql`
     userId: Int!
     promptId: Int!
     body: String!
+    upvotes: Int!
+    downvotes: Int!
+    reports: Int!
+    supervote: Int!
   }
 
   input UpdateResponseInput {

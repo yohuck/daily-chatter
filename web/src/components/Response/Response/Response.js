@@ -113,7 +113,7 @@ const Response = ({ response }) => {
       </div>
       <nav className="rw-button-group">
         <Link
-          // to={routes.editResponse({ id: response.id })}
+          to={routes.editResponse({ id: response.id })}
           className="rw-button rw-button-blue"
         >
           Edit

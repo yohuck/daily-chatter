@@ -51,14 +51,16 @@ const SignupPage = () => {
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
         <div className="">
           <div className="mt-10">
-            <header className="rounded-t-lg shadow bg-emerald-500">
-              <h2 className=" p-2 font-bold dark:bg-emerald-500 dark:text-black">Signup</h2>
+            <header className="rounded-t-lg bg-emerald-500 shadow">
+              <h2 className=" p-2 font-bold dark:bg-emerald-500 dark:text-black">
+                Signup
+              </h2>
             </header>
 
             <div className="flex max-w-lg justify-center rounded-b-lg bg-slate-200 p-2 shadow dark:bg-neutral-900">
               <div className="">
                 <Form onSubmit={onSubmit} className="flex max-w-md flex-col ">
-                  {/* <Label
+                  <Label
                     name="email"
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
@@ -76,9 +78,7 @@ const SignupPage = () => {
                       },
                     }}
                   />
-
-                  <FieldError name="email" className="rw-field-error" /> */}
-
+                  <FieldError name="email" className="rw-field-error" />
                   <Label
                     name="username"
                     className=""
@@ -98,9 +98,7 @@ const SignupPage = () => {
                       },
                     }}
                   />
-
                   <FieldError name="username" className="rw-field-error" />
-
                   <Label
                     name="password"
                     className=""
@@ -120,9 +118,7 @@ const SignupPage = () => {
                       },
                     }}
                   />
-
                   <FieldError name="password" className="rw-field-error" />
-
                   <div className="rw-button-group">
                     <Submit className=" m-2 flex  items-center rounded-lg bg-white p-2 shadow hover:bg-emerald-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
                       Sign Up
