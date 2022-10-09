@@ -2,18 +2,21 @@ export const standard = defineScenario({
   response: {
     one: {
       data: {
-        responseTitle: 'String',
-        responseText: 'String',
-        postResponse: {
-          create: {
-            content: 'String',
-            postId: 2739458,
-            reports: 809262,
-            postingUser: {
-              create: { hashedPassword: 'String', salt: 'String' },
-            },
+        body: 'String',
+        upvotes: 7992131,
+        downvotes: 151426,
+        reports: 7512555,
+        supervote: 66391,
+        User: {
+          create: { hashedPassword: 'String', salt: 'String', admin: true },
+        },
 
-            postTopic: { create: { title: 'String', description: 'String' } },
+        prompt: {
+          create: {
+            title: 'String',
+            body: 'String',
+            date: 'String',
+            topic: { create: { title: 'String' } },
           },
         },
       },
@@ -21,18 +24,21 @@ export const standard = defineScenario({
 
     two: {
       data: {
-        responseTitle: 'String',
-        responseText: 'String',
-        postResponse: {
-          create: {
-            content: 'String',
-            postId: 2570445,
-            reports: 5584638,
-            postingUser: {
-              create: { hashedPassword: 'String', salt: 'String' },
-            },
+        body: 'String',
+        upvotes: 7318414,
+        downvotes: 3860969,
+        reports: 4014416,
+        supervote: 1097587,
+        User: {
+          create: { hashedPassword: 'String', salt: 'String', admin: true },
+        },
 
-            postTopic: { create: { title: 'String', description: 'String' } },
+        prompt: {
+          create: {
+            title: 'String',
+            body: 'String',
+            date: 'String',
+            topic: { create: { title: 'String' } },
           },
         },
       },

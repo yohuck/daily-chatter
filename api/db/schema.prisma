@@ -17,72 +17,49 @@ model User {
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
-  roles               String     @default("user")
-  posts               Post[]
-  responseList        Response[]
-  votes               Vote[]
+  admin               Boolean
   subscribedTopics    Topic[]
+  responses           Response[]
 }
-
-// Post is within categories
-model Post {
-  id          Int        @id @default(autoincrement())
-  content     String
-  userId      Int
-  postingUser User       @relation(fields: [userId], references: [id])
-  postTopic   Topic      @relation(fields: [topicId], references: [id])
-  responses   Response[]
-  postId      Int
-  topicId     Int
-  Vote        Vote[]
-  createdAt   DateTime   @default(now())
-
-  @@unique([topicId, userId])
-}
-
 //Topics are categories
 model Topic {
   id             Int      @id @default(autoincrement())
   title          String
-  description    String
-  subrscribed    Boolean  @default(false)
-  createdAt      DateTime @default(now())
+  userSubscribed    Boolean  @default(false)
   subscribedUser User?    @relation(fields: [userId], references: [id])
   userId         Int?
-  posts          Post[]
+  prompts Prompt[]
+
+  @@unique([userId])
 }
+
+// Post is within categories
+model Prompt {
+  id          Int        @id @default(autoincrement())
+  title       String
+  body     String
+  responses   Response[]
+  topic   Topic @relation(fields:[topicId], references:[id])
+  topicId     Int
+  date String
+
+  @@unique([topicId])
+}
+
 
 //responses are on Posts
 model Response {
   id            Int      @id @default(autoincrement())
-  postId        Int
-  postResponse  Post     @relation(fields: [postId], references: [id])
-  responseTitle String
-  responseText  String
-  votes         Vote[]
+  User          User    @relation(fields: [userId], references: [id])
+  userId        Int
+  prompt  Prompt     @relation(fields: [promptId], references: [id])
+  promptId        Int
+  body  String
   createdAt     DateTime @default(now())
-  User          User?    @relation(fields: [userId], references: [id])
-  userId        Int?
-  reports       Int?
-}
-
-//Votes are on Responses
-model Vote {
-  id             Int      @id @default(autoincrement())
-  upvote         Boolean
-  downvote       Boolean
-  totalUpVotes   Int
-  totalDownVotes Int
-  superVotes     Int
-  totalVotes     Int
-  responseVote   Response @relation(fields: [responseId], references: [id])
-  userTotal      User     @relation(fields: [userId], references: [id])
-  responseId     Int
-  postId         Int
-  userId         Int
-  Post           Post     @relation(fields: [postId], references: [id])
-
-  @@unique([postId, userId, responseId])
+  upvotes Int
+  downvotes Int
+  reports     Int
+  supervote Int
 }
 
 model Message {
