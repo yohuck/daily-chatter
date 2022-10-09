@@ -77,6 +77,78 @@ const ResponseForm = (props) => {
 
         <FieldError name="body" className="rw-field-error" />
 
+        <Label
+          name="upvotes"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Upvotes
+        </Label>
+
+        <NumberField
+          name="upvotes"
+          defaultValue={props.response?.upvotes}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="upvotes" className="rw-field-error" />
+
+        <Label
+          name="downvotes"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Downvotes
+        </Label>
+
+        <NumberField
+          name="downvotes"
+          defaultValue={props.response?.downvotes}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="downvotes" className="rw-field-error" />
+
+        <Label
+          name="reports"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Reports
+        </Label>
+
+        <NumberField
+          name="reports"
+          defaultValue={props.response?.reports}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="reports" className="rw-field-error" />
+
+        <Label
+          name="supervote"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Supervote
+        </Label>
+
+        <NumberField
+          name="supervote"
+          defaultValue={props.response?.supervote}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="supervote" className="rw-field-error" />
+
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save

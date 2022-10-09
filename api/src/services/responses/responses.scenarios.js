@@ -3,10 +3,10 @@ export const standard = defineScenario({
     one: {
       data: {
         body: 'String',
-        upvotes: 7992131,
-        downvotes: 151426,
-        reports: 7512555,
-        supervote: 66391,
+        upvotes: 6203370,
+        downvotes: 3928679,
+        reports: 1018316,
+        supervote: 3587938,
         User: {
           create: { hashedPassword: 'String', salt: 'String', admin: true },
         },
@@ -25,10 +25,10 @@ export const standard = defineScenario({
     two: {
       data: {
         body: 'String',
-        upvotes: 7318414,
-        downvotes: 3860969,
-        reports: 4014416,
-        supervote: 1097587,
+        upvotes: 9676913,
+        downvotes: 6431913,
+        reports: 1329795,
+        supervote: 8680049,
         User: {
           create: { hashedPassword: 'String', salt: 'String', admin: true },
         },
