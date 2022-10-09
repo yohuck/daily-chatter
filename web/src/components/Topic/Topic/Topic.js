@@ -81,19 +81,13 @@ const Topic = ({ topic }) => {
               <td>{topic.title}</td>
             </tr>
             <tr>
-              <th>Description</th>
-              <td>{topic.description}</td>
+              <th>User subscribed</th>
+              <td>{checkboxInputTag(topic.userSubscribed)}</td>
             </tr>
             <tr>
-              <th>Created at</th>
-              <td>{timeTag(topic.createdAt)}</td>
+              <th>User id</th>
+              <td>{topic.userId}</td>
             </tr>
-            {/* Topic/Post JSON Relation */}
-            <tr>
-              <th>JSON relations</th>
-              <td>{jsonDisplay(topic, topic.title, topic.posts)}</td>
-            </tr>
-            {/* end JSON for Relation */}
           </tbody>
         </table>
       </div>

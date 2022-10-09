@@ -2,10 +2,9 @@ export const QUERY = gql`
   query ResponsesQuery {
     responses {
       id
-      responseText
-      responseTitle
+      body
       userId
-      postId
+      promptId
     }
   }
 `
@@ -37,7 +36,7 @@ export const Success = ({ responses }) => {
           {index}
         </div>
         <header className="center mb-2 flex justify-between gap-5">
-          <h2 className="break-words font-bold">{response.responseTitle}</h2>
+          {/* <h2 className="break-words font-bold">{response.responseTitle}</h2> */}
           <div className="icons mb-3 flex gap-2  border-black  p-3">
             <p>23</p>
             <i className="fa-duotone fa-sack-dollar p-1 text-emerald-200"></i>
@@ -45,7 +44,7 @@ export const Success = ({ responses }) => {
             <i className="fa-duotone fa-sack-dollar p-1 text-indigo-500"></i>
           </div>
         </header>
-        <p className="mt-2 text-sm">{response.responseText}</p>
+        <p className="mt-2 text-sm">{response.body}</p>
         <div className=" mt-3 flex w-full justify-center">
           <button className="bg-white-100 m-2 flex items-center rounded-lg p-2 shadow transition-shadow hover:bg-yellow-100 hover:ring hover:ring-yellow-500 focus:bg-yellow-100 focus:ring focus:ring-yellow-500 dark:border-emerald-200 dark:hover:bg-neutral-800">
             <div className=" flex flex-col">

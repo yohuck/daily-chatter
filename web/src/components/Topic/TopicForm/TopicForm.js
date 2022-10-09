@@ -4,6 +4,8 @@ import {
   FieldError,
   Label,
   TextField,
+  CheckboxField,
+  NumberField,
   Submit,
 } from '@redwoodjs/forms'
 
@@ -39,24 +41,6 @@ const TopicForm = (props) => {
         />
 
         <FieldError name="title" className="rw-field-error" />
-
-        <Label
-          name="description"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Description
-        </Label>
-
-        <TextField
-          name="description"
-          defaultValue={props.topic?.description}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="description" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

@@ -7,16 +7,14 @@ export const schema = gql`
     salt: String!
     resetToken: String
     resetTokenExpiresAt: DateTime
-    roles: String!
-    posts: [Post]!
-    responseList: [Response]!
-    votes: [Vote]!
+    admin: Boolean!
     subscribedTopics: [Topic]!
+    responses: [Response]!
   }
 
   type Query {
-    users: [User!]! @requireAuth
-    user(id: Int!): User @requireAuth
+    users: [User!]! @skipAuth
+    user(id: Int!): User @skipAuth
   }
 
   input CreateUserInput {
@@ -26,7 +24,7 @@ export const schema = gql`
     salt: String!
     resetToken: String
     resetTokenExpiresAt: DateTime
-    roles: String!
+    admin: Boolean!
   }
 
   input UpdateUserInput {
@@ -36,12 +34,12 @@ export const schema = gql`
     salt: String
     resetToken: String
     resetTokenExpiresAt: DateTime
-    roles: String
+    admin: Boolean
   }
 
   type Mutation {
-    createUser(input: CreateUserInput!): User! @requireAuth
-    updateUser(id: Int!, input: UpdateUserInput!): User! @requireAuth
-    deleteUser(id: Int!): User! @requireAuth
+    createUser(input: CreateUserInput!): User! @skipAuth
+    updateUser(id: Int!, input: UpdateUserInput!): User! @skipAuth
+    deleteUser(id: Int!): User! @skipAuth
   }
 `

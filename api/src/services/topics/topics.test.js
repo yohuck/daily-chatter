@@ -21,11 +21,10 @@ describe('topics', () => {
 
   scenario('creates a topic', async () => {
     const result = await createTopic({
-      input: { title: 'String', description: 'String' },
+      input: { title: 'String' },
     })
 
     expect(result.title).toEqual('String')
-    expect(result.description).toEqual('String')
   })
 
   scenario('updates a topic', async (scenario) => {

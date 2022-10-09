@@ -1,7 +1,7 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
-import Response from 'src/components/Response/Response'
+import Response from 'src/components/ResponsesCell/ResponsesCell'
 
 const response = {
   title: 'Low Rise? High Rise? Rise Above',
@@ -90,7 +90,6 @@ const ChooseTopicPage = () => {
             </button>
           </div>
         </li>
-
       </ul>
     </>
   )

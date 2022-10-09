@@ -30,16 +30,10 @@ export const deleteUser = ({ id }) => {
 }
 
 export const User = {
-  posts: (_obj, { root }) => {
-    return db.user.findUnique({ where: { id: root?.id } }).posts()
-  },
-  responseList: (_obj, { root }) => {
-    return db.user.findUnique({ where: { id: root?.id } }).responseList()
-  },
-  votes: (_obj, { root }) => {
-    return db.user.findUnique({ where: { id: root?.id } }).votes()
-  },
   subscribedTopics: (_obj, { root }) => {
     return db.user.findUnique({ where: { id: root?.id } }).subscribedTopics()
+  },
+  responses: (_obj, { root }) => {
+    return db.user.findUnique({ where: { id: root?.id } }).responses()
   },
 }

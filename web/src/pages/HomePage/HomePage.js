@@ -41,7 +41,7 @@ const HomePage = () => {
           {' '}
           <TopicsCell></TopicsCell>
         </TopicsLayout> */}
-        <h1 className="mb-3 text-center text-2xl font-bold mt-4">
+        <h1 className="mb-3 mt-4 text-center text-2xl font-bold">
           Jeans: High Rise or Low?{' '}
         </h1>
         <div className="container flex justify-center">
