@@ -4,7 +4,7 @@ import ResponsesCell from 'src/components/ResponseCardsCell'
 
 const ViewTopicsPage = () => {
   return (
-    <div className="p-1">
+    <div className="p-1 flex justify-center">
       <MetaTags title="ViewTopics" description="ViewTopics page" />
 
       <ResponsesCell />

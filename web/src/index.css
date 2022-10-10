@@ -90,3 +90,9 @@ border-bottom: 1px solid;
   transform:translateX(-100%);
   transition: opacity 900ms, transform 900ms;
 }
+
+
+.cardwidth{
+width: 90vw;
+max-width: 350px
+}
