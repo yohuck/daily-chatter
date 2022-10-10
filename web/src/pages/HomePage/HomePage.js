@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <>
       <MetaTags title="Home" description="Home page" />
-      <main className="flex items-center justify-center">
+      <main className="flex items-center justify-center flex-wrap">
         <GetResponseCell />
       </main>
     </>
