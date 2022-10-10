@@ -1,3 +1,5 @@
+import { useMutation } from '@redwoodjs/web'
+
 import AnimatedResponse from './AnimatedResponse'
 
 export const QUERY = gql`
@@ -8,6 +10,33 @@ export const QUERY = gql`
       userId
       upvotes
       downvotes
+      supervote
+    }
+  }
+`
+export const VOTE_QUERY = gql`
+  query EditResponseById($id: Int!) {
+    response: response(id: $id) {
+      id
+      upvotes
+      downvotes
+      reports
+      supervote
+    }
+  }
+`
+const UPDATE_VOTE_MUTATION = gql`
+  mutation UpdateResponseMutation($id: Int!, $input: UpdateResponseInput!) {
+    updateResponse(id: $id, input: $input) {
+      id
+      userId
+      promptId
+      body
+      createdAt
+      upvotes
+      downvotes
+      reports
+      supervote
     }
   }
 `
@@ -21,7 +50,12 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ responses }) => {
+  const [updateResponse] = useMutation(UPDATE_VOTE_MUTATION)
+
+  const onSave = (input, id) => {
+    updateResponse({ variables: { id, input } })
+  }
   return responses.map((response) => (
-    <AnimatedResponse key={response.id} response={response} />
+    <AnimatedResponse onSave={onSave} key={response.id} response={response} />
   ))
 }
