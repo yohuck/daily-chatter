@@ -29,10 +29,6 @@ const UPDATE_VOTE_MUTATION = gql`
   mutation UpdateResponseMutation($id: Int!, $input: UpdateResponseInput!) {
     updateResponse(id: $id, input: $input) {
       id
-      userId
-      promptId
-      body
-      createdAt
       upvotes
       downvotes
       reports

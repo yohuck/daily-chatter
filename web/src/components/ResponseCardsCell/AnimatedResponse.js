@@ -2,6 +2,10 @@ import { useState } from 'react'
 
 import { CSSTransition } from 'react-transition-group'
 
+const incrementValue = (value) => {
+  return ++value
+}
+
 const AnimatedResponse = ({ response }) => {
   const [showMessage, setShowMessage] = useState(true)
   const [showTrashMessage, setShowTrashMessage] = useState(true)
@@ -43,6 +47,7 @@ const AnimatedResponse = ({ response }) => {
               <button
                 onClick={() => {
                   setShowTrashMessage(!showMessage)
+                  console.log(incrementValue(response.upvotes))
                 }}
                 className="m-2 flex items-center rounded-lg p-2 shadow transition-shadow hover:bg-yellow-100 hover:ring hover:ring-yellow-500 focus:bg-yellow-100 focus:ring focus:ring-yellow-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
@@ -53,6 +58,7 @@ const AnimatedResponse = ({ response }) => {
               <button
                 onClick={() => {
                   setShowReportMessage(!showReportMessage)
+                  console.log(incrementValue(response.downvotes))
                 }}
                 className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-red-100 hover:ring hover:ring-red-500 focus:bg-red-100 focus:ring focus:ring-red-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
@@ -63,6 +69,7 @@ const AnimatedResponse = ({ response }) => {
               <button
                 onClick={() => {
                   setShowMessage(!showMessage)
+                  console.log(incrementValue(response.supervote))
                 }}
                 className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
