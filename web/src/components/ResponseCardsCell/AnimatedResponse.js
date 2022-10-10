@@ -4,20 +4,36 @@ import { CSSTransition } from 'react-transition-group'
 
 import { useMutation } from '@redwoodjs/web'
 
-const UPDATE_VOTE_MUTATION = gql`
-  mutation UpdateResponse($id: Int!, $input: UpdateResponseInput!) {
-    updateResponse(id: $id, input: $input) {
+export const QUERY = gql`
+  query EditResponseById($id: Int!) {
+    response: response(id: $id) {
       id
-      supervote
+      upvotes
     }
   }
 `
 
-const incrementValue = (value) => {
-  return ++value
-}
+const UPDATE_RESPONSE_MUTATION = gql`
+  mutation UpdateResponseMutation($id: Int!, $input: UpdateResponseInput!) {
+    updateResponse(id: $id, input: $input) {
+      id
+      upvotes
+    }
+  }
+`
 
-const AnimatedResponse = ({ response, props }) => {
+const AnimatedResponse = ({ response }) => {
+  const [updateResponse, { loading, error }] = useMutation(
+    UPDATE_RESPONSE_MUTATION,
+    {
+      onCompleted: () => {
+        console.log('nice')
+      },
+      onError: (error) => {
+        console.log(error)
+      },
+    }
+  )
   const [showMessage, setShowMessage] = useState(true)
   const [showTrashMessage, setShowTrashMessage] = useState(true)
   const [showReportMessage, setShowReportMessage] = useState(true)
@@ -96,12 +112,14 @@ const AnimatedResponse = ({ response, props }) => {
               </button>
 
               <button
-                // value={incrementValue(response.supervote)}
-                onSubmit={onSubmit}
+                data-id={response.id}
                 onClick={() => {
-                  onSave(1, 6)
+                  const id = response.id
+                  const input = {
+                    upvotes: 10,
+                  }
                   setShowMessage(!showMessage)
-                  console.log('supervote ' + incrementValue(response.supervote))
+                  updateResponse({ variables: { id, input } })
                 }}
                 className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
