@@ -2,15 +2,39 @@ import { useState } from 'react'
 
 import { CSSTransition } from 'react-transition-group'
 
+import { useMutation } from '@redwoodjs/web'
+
+const UPDATE_VOTE_MUTATION = gql`
+  mutation UpdateResponse($id: Int!, $input: UpdateResponseInput!) {
+    updateResponse(id: $id, input: $input) {
+      id
+      supervote
+    }
+  }
+`
+
 const incrementValue = (value) => {
   return ++value
 }
 
-const AnimatedResponse = ({ response }) => {
+const AnimatedResponse = ({ response, props }) => {
   const [showMessage, setShowMessage] = useState(true)
   const [showTrashMessage, setShowTrashMessage] = useState(true)
   const [showReportMessage, setShowReportMessage] = useState(true)
+  const [updateResponse] = useMutation(UPDATE_VOTE_MUTATION)
+
+  const onSave = (input, id) => {
+    // updateResponse(6,  input: 5 )
+  }
+
+  const onSubmit = (data) => {
+    console.log('postId: ' + response?.id)
+    console.log('votes:', data)
+    console.log('props', props)
+    // props.onSave(data, response?.id)
+  }
   return (
+    // <Form onSubmit={onSubmit}>
     <CSSTransition
       in={showMessage}
       timeout={500}
@@ -40,14 +64,17 @@ const AnimatedResponse = ({ response }) => {
                 <i className="fa-duotone fa-sack-dollar p-1 text-emerald-500"></i>
                 <p>{response.downvotes}</p>
                 <i className="fa-duotone fa-sack-dollar p-1 text-indigo-500"></i>
+                <p>{response.supervote}</p>
+                <i className="fa-duotone fa-coins p-1 text-indigo-500"></i>
               </div>
             </header>
             <p className="mt-2 text-sm">{response.body}</p>
             <div className=" mt-3 flex w-full justify-center">
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  console.log(e.target.upvotes)
                   setShowTrashMessage(!showMessage)
-                  console.log(incrementValue(response.upvotes))
+                  console.log('upvotes ' + incrementValue(response.upvotes))
                 }}
                 className="m-2 flex items-center rounded-lg p-2 shadow transition-shadow hover:bg-yellow-100 hover:ring hover:ring-yellow-500 focus:bg-yellow-100 focus:ring focus:ring-yellow-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
@@ -56,9 +83,10 @@ const AnimatedResponse = ({ response }) => {
                 </div>
               </button>
               <button
+                name="upvotes"
                 onClick={() => {
                   setShowReportMessage(!showReportMessage)
-                  console.log(incrementValue(response.downvotes))
+                  console.log('downvotes ' + incrementValue(response.downvotes))
                 }}
                 className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-red-100 hover:ring hover:ring-red-500 focus:bg-red-100 focus:ring focus:ring-red-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
@@ -66,13 +94,18 @@ const AnimatedResponse = ({ response }) => {
                   <i className="fa-duotone fa-do-not-enter fa-2x p-1 text-red-500"></i>
                 </div>
               </button>
+
               <button
+                // value={incrementValue(response.supervote)}
+                onSubmit={onSubmit}
                 onClick={() => {
+                  onSave(1, 6)
                   setShowMessage(!showMessage)
-                  console.log(incrementValue(response.supervote))
+                  console.log('supervote ' + incrementValue(response.supervote))
                 }}
                 className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
+                {/* <NumberField name="supervote" /> */}
                 <div className=" flex flex-col">
                   <i className="fa-duotone fa-coin fa-2x p-1 text-emerald-500"></i>
                 </div>
@@ -82,6 +115,7 @@ const AnimatedResponse = ({ response }) => {
         </CSSTransition>
       </CSSTransition>
     </CSSTransition>
+    // </Form>
   )
 }
 
