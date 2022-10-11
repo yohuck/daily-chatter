@@ -6,7 +6,11 @@ const UPDATE_TOPIC_MUTATION = gql`
   mutation UpdatePromptMutation($id: Int!, $input: UpdateTopicInput!) {
     updateTopic(id: $id, input: $input) {
       id
-      userSubscribed
+      subs {
+        subscribedTopics {
+          userId
+        }
+      }
     }
   }
 `
@@ -88,12 +92,13 @@ const HomePageTopics = ({ topic, user }) => {
         className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
         onClick={() => {
           const id = topic.id
-          let subscribed = true
-          let user = currentUser.id
+          // let user = currentUser.id
+          // console.log(currentUser.id)
+          console.log(topic.subs.subscribedTopics.id)
           const input = {
-            userSubscribed: subscribed,
-            userId: user,
+            subs: [...topic.subs.subscribedTopics.id, currentUser.id],
           }
+
           subscribe({ variables: { id, input } })
         }}
       >

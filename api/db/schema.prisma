@@ -21,44 +21,40 @@ model User {
   subscribedTopics    Topic[]
   responses           Response[]
 }
+
 //Topics are categories
 model Topic {
-  id             Int      @id @default(autoincrement())
-  title          String
-  userSubscribed Boolean  @default(false)
-  subscribedUser User?    @relation(fields: [userId], references: [id])
-  userId         Int?
-  prompts        Prompt[]
-
-  @@unique([userId])
+  id      Int      @id @default(autoincrement())
+  title   String
+  userId  Int?
+  prompts Prompt[]
+  subs    User?    @relation(fields: [userId], references: [id])
 }
 
 // Post is within categories
 model Prompt {
-  id          Int        @id @default(autoincrement())
-  title       String
-  body        String
-  date        String
-  topic       Topic @relation(fields:[topicId], references:[id])
-  topicId     Int
-  responses   Response[]
-
+  id        Int        @id @default(autoincrement())
+  title     String
+  body      String
+  date      String
+  topic     Topic      @relation(fields: [topicId], references: [id])
+  topicId   Int
+  responses Response[]
 }
-
 
 //responses are on Posts
 model Response {
-  id            Int      @id @default(autoincrement())
-  body          String
-  upvotes       Int @default(0)
-  downvotes     Int @default(0)
-  reports       Int @default(0)
-  supervote     Int @default(0)
-  createdAt     DateTime @default(now())
-  User          User    @relation(fields: [userId], references: [id])
-  userId        Int
-  prompt        Prompt  @relation(fields: [promptId], references: [id])
-  promptId      Int
+  id        Int      @id @default(autoincrement())
+  body      String
+  upvotes   Int      @default(0)
+  downvotes Int      @default(0)
+  reports   Int      @default(0)
+  supervote Int      @default(0)
+  createdAt DateTime @default(now())
+  User      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  prompt    Prompt   @relation(fields: [promptId], references: [id])
+  promptId  Int
 }
 
 model Message {

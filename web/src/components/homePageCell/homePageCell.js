@@ -5,9 +5,8 @@ export const QUERY = gql`
     getTopics: topics {
       id
       title
-      subscribedUser {
+      subs {
         id
-        username
       }
       prompts {
         title

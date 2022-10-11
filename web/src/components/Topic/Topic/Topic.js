@@ -81,10 +81,6 @@ const Topic = ({ topic }) => {
               <td>{topic.title}</td>
             </tr>
             <tr>
-              <th>User subscribed</th>
-              <td>{checkboxInputTag(topic.userSubscribed)}</td>
-            </tr>
-            <tr>
               <th>User id</th>
               <td>{topic.userId}</td>
             </tr>

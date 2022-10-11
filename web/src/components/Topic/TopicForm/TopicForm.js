@@ -47,7 +47,7 @@ const TopicForm = (props) => {
         >
           userId
         </Label>
-        <TextField
+        <NumberField
           name="userId"
           defaultValue={props.topic?.userId}
           className="rw-input"
