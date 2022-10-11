@@ -18,10 +18,17 @@ export const QUERY = gql`
           User {
             username
             email
+            responses {
+              upvotes
+              downvotes
+              supervote
+            }
           }
           userId
           upvotes
           downvotes
+          supervote
+          reports
         }
       }
     }
