@@ -1,11 +1,12 @@
 import ResponseCard from 'src/components/ResponseCards'
+import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
 
 const HomePageTopics = ({ topic }) => {
   const renderCards = (topic) => {
     const cardStore = []
     for (let i = 0; i < topic.prompts[0].responses.length && i < 3; i++) {
       const card = (
-        <ResponseCard
+        <AnimatedCard
           key={topic.prompts[0].responses[i].id}
           response={topic.prompts[0].responses[i]}
         />

@@ -61,7 +61,9 @@ const AnimatedResponse = ({ response }) => {
               {response.userId}
             </div>
             <header className="center mb-2 flex justify-between gap-5">
-              <h2 className="break-words font-bold">{response.userId}</h2>
+              <h2 className="break-words font-bold">
+                {response.User.username} wanted to say
+              </h2>
               <div className="icons mb-3 flex gap-2  border-black  p-3">
                 <p>{response.upvotes}</p>
                 <i className="fa-duotone fa-sack-dollar p-1 text-emerald-500"></i>
