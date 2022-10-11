@@ -11,20 +11,11 @@ export const QUERY = gql`
       upvotes
       downvotes
       supervote
+      reports
     }
   }
 `
-// export const VOTE_QUERY = gql`
-//   query EditResponseById($id: Int!) {
-//     response: response(id: $id) {
-//       id
-//       upvotes
-//       downvotes
-//       reports
-//       supervote
-//     }
-//   }
-// `
+
 const UPDATE_VOTE_MUTATION = gql`
   mutation UpdateResponse($id: Int!, $input: UpdateResponseInput!) {
     updateResponse(id: $id, input: $input) {
