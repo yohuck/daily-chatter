@@ -3,25 +3,18 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
-const duration = 300
-
 const MainLayout = ({ children }) => {
-  // const [darkMode, setDarkMode] = useState('light')
   const [darkModeOver, setDarkModeOver] = useState('')
-  const [showMessage, setShowMessage] = useState(false)
   const [inProp, setInProp] = useState(true)
 
   const [darkIcon, setDarkIcon] = useState(
     'fa-sun fa-duotone fa-med dark:fa-moon p-1 text-emerald-500 dark:text-emerald-300'
   )
   const { isAuthenticated, currentUser, logOut } = useAuth()
-  let icon = ''
 
   const toggleDarkMode = () => {
     if (darkModeOver === 'light') {
       setInProp(!inProp)
-      console.log(darkModeOver)
-      // setDarkModeOver('dark')
       localStorage.theme = 'dark'
       setDarkIcon(
         'fa-sun fa-duotone fa-med dark:fa-moon p-1 text-emerald-500 dark:text-emerald-300'
@@ -29,35 +22,15 @@ const MainLayout = ({ children }) => {
       setDarkModeOver('dark')
     } else {
       setInProp(!inProp)
-      // setDarkModeOver('light')
-      console.log(darkModeOver)
+
       localStorage.theme = 'light'
-      icon = 'fa-moon'
+
       setDarkModeOver('light')
       setDarkIcon(
         'fa-moon fa-duotone fa-med dark:fa-moon p-1 text-emerald-500 dark:text-emerald-300'
       )
     }
   }
-
-  // if (
-  //   localStorage.theme === 'dark' ||
-  //   (!('theme' in localStorage) &&
-  //     window.matchMedia('(prefers-color-scheme: dark)').matches)
-  // ) {
-  //   localStorage.theme = 'dark'
-
-  // } else {
-  //   localStorage.theme = 'light'
-  // }
-
-  // Whenever the user explicitly chooses light mode
-
-  // Whenever the user explicitly chooses dark mode
-  // localStorage.theme = 'dark'
-
-  // Whenever the user explicitly chooses to respect the OS preference
-  // localStorage.removeItem('theme')
 
   useEffect(() => {
     const prefersDark = window.matchMedia(
@@ -121,17 +94,23 @@ const MainLayout = ({ children }) => {
               </Link>
               {isAuthenticated ? (
                 <div>
-                  <span>Logged in as {currentUser.email}</span>{' '}
-                  <button type="button" onClick={logOut}>
-                    Logout
-                  </button>
+                  <Link to={routes.settings()}>
+                    <button
+                      className="m-2 flex  items-center rounded-lg  bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                      type="button"
+                      // onClick={logOut}
+                    >
+                      <i className="fa-duotone fa-user p-1 text-emerald-500 dark:text-violet-400"></i>
+                    </button>
+                  </Link>
+                  {/* <span>Logged in as {currentUser.email}</span>{' '} */}
                 </div>
               ) : (
                 <Link to={routes.login()}>
                   <div className=" m-2 flex items-center rounded-lg bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800  ">
                     <div className=" flex flex-col">
                       {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                      <i className="fa-duotone fa-square-user  p-1 text-emerald-500 dark:text-emerald-400"></i>
+                      <i className="fa-duotone fa-user  p-1 text-emerald-500 dark:text-emerald-400"></i>
                     </div>
                   </div>
                 </Link>
