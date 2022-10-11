@@ -7,7 +7,7 @@ import {
   FieldError,
 } from '@redwoodjs/forms'
 import { MetaTags, useMutation } from '@redwoodjs/web'
-
+import { toast, Toaster } from '@redwoodjs/web/toast'
 const CREATE_MESSAGE = gql`
   mutation CreateMessageMutation($input: CreateMessageInput!) {
     createMessage(input: $input) {
@@ -18,20 +18,27 @@ const CREATE_MESSAGE = gql`
 
 const ContactPage = () => {
   const [create, { loading, error }] = useMutation(CREATE_MESSAGE)
-  const onSubmit = (data) => {
-    console.log(data)
-    create({ variables: { input: data } })
+  const onSubmit = (data, e) => {
+    try {
+      console.log(e)
+      console.log(data)
+      create({ variables: { input: data } })
+      toast('Message Sent')
+    } catch (error) {
+      toast(error.message)
+    }
   }
 
   return (
     <>
       <MetaTags title="Contact" description="Contact page" />
-
+      <Toaster />
       <div className="flex items-center justify-center">
         <div className="flex w-96 justify-center rounded-lg bg-sky-100 shadow">
           <Form
             className="flex flex-col place-items-center justify-center"
             onSubmit={onSubmit}
+            error={error}
             config={{ mode: 'onBlur' }}
           >
             <Label

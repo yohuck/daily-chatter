@@ -26,7 +26,7 @@ const ChooseTopicPage = () => {
       <ul className="max-w-full overflow-hidden">
         <li className="custom-max flex justify-center">
           <div className="card max-w-11/12 relative mt-5 mb-5 flex flex-col items-center justify-center rounded-lg   lg:m-2 lg:block  xl:w-11/12">
-            <div className="p2 mt-5 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg shadow">
+            <div className="p2 z-10 mx-auto mt-5 flex  w-min items-center gap-4 rounded-lg shadow">
               <p className="text-2xl font-extrabold">Health</p>
               <div className="flex w-11/12 justify-between gap-1">
                 <i className="fa-duotone fa-user p-1 "></i> 24
@@ -71,7 +71,7 @@ const ChooseTopicPage = () => {
                 <Response response={response3} />
               </article>
             </div>
-            <button className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow">
+            <button className="p2 shadowshadow z-10 m-4  mx-auto flex w-min rounded-lg transition-shadow hover:bg-amber-100 hover:ring hover:ring-amber-500 focus:bg-amber-100 focus:ring focus:ring-amber-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
               <p className="font-bold">Subscribe</p>
             </button>
           </div>

@@ -1,4 +1,3 @@
-import ResponseCard from 'src/components/ResponseCards'
 import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
 
 const HomePageTopics = ({ topic }) => {
