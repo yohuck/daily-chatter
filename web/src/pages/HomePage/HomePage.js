@@ -1,7 +1,6 @@
 import { MetaTags } from '@redwoodjs/web'
 
 import GetTopicsCell from 'src/components/GetTopicsCell'
-import GetResponseCell from 'src/components/ResponseCardsCell'
 
 const HomePage = () => {
   return (
