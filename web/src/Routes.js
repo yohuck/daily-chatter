@@ -47,6 +47,8 @@ const Routes = () => {
         <Route path="/view-topics" page={ViewTopicsPage} name="viewTopics" />
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/choose-topic" page={ChooseTopicPage} name="chooseTopic" />
+        <Route path="/choose-prompt/{id:Int}" page={ChoosePromptPage} name="choosePrompt" />
+        <Route path="/responses-to-prompt/{id:Int}" page={ResponsesToPromptPage} name="responsesToPrompt" />
         <Route path="/submit-response" page={SubmitResponsePage} name="submitResponse" />
         <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />
