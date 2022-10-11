@@ -43,7 +43,6 @@ model Prompt {
   topicId     Int
   responses   Response[]
 
-  @@unique([topicId])
 }
 
 
