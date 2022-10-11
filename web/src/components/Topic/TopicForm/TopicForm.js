@@ -31,7 +31,6 @@ const TopicForm = (props) => {
         >
           Title
         </Label>
-
         <TextField
           name="title"
           defaultValue={props.topic?.title}
@@ -39,8 +38,21 @@ const TopicForm = (props) => {
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
-
         <FieldError name="title" className="rw-field-error" />
+
+        <Label
+          name="userId"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          userId
+        </Label>
+        <TextField
+          name="userId"
+          defaultValue={props.topic?.userId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
