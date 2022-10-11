@@ -1,6 +1,20 @@
-import GetResponseCell from 'src/components/ResponseCardsCell'
+import ResponseCard from 'src/components/ResponseCards'
 
 const HomePageTopics = ({ topic }) => {
+  const renderCards = (topic) => {
+    const cardStore = []
+    for (let i = 0; i < topic.prompts[0].responses.length && i < 3; i++) {
+      const card = (
+        <ResponseCard
+          key={topic.prompts[0].responses[i].id}
+          response={topic.prompts[0].responses[i]}
+        />
+      )
+      cardStore.push(card)
+    }
+    return cardStore
+  }
+
   return (
     <div
       key={topic.id}
@@ -19,12 +33,15 @@ const HomePageTopics = ({ topic }) => {
           }, 0)}
         </div>
       </div>
-      <h1 className="m-x-auto mb-3 mt-5 p-2 text-center text-2xl  font-bold">
+      <h1 className="m-x-auto mb-3 mt-5 p-2 text-center text-3xl  font-bold">
         {topic.prompts[0].title}{' '}
       </h1>
+      <p className="m-x-auto text-2x1 text-1x1 mb-3 mt-5 p-2 text-center font-bold">
+        {topic.prompts[0].body}
+      </p>
       <div className="container flex justify-center">
         <article className="flex flex-wrap justify-center">
-          <GetResponseCell />
+          {renderCards(topic)}
         </article>
       </div>
       <button className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow">

@@ -1,4 +1,4 @@
-import TopicCard from 'src/components/HomePageTopics'
+import HomePageTopics from 'src/components/HomePageTopics'
 
 export const QUERY = gql`
   query GetTopicsQuery {
@@ -37,6 +37,7 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ getTopics }) => {
-  console.log(getTopics)
-  return getTopics.map((topic) => <TopicCard key={topic.id} topic={topic} />)
+  return getTopics.map((topic) => (
+    <HomePageTopics key={topic.id} topic={topic} />
+  ))
 }
