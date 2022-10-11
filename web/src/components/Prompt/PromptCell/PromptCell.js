@@ -1,5 +1,5 @@
 import Prompt from 'src/components/Prompt/Prompt'
-
+import PromptInput from 'src/components/PromptInput/PromptInput'
 export const QUERY = gql`
   query FindPromptById($id: Int!) {
     prompt: prompt(id: $id) {
@@ -21,5 +21,5 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ prompt }) => {
-  return <Prompt prompt={prompt} />
+  return <PromptInput key={prompt} prompt={prompt} />
 }

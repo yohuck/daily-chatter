@@ -1,8 +1,6 @@
 import { useMutation } from '@redwoodjs/web'
 
-
 import AnimatedResponse from './AnimatedResponse'
-
 
 export const QUERY = gql`
   query ResponsesQuery {
@@ -53,13 +51,11 @@ export const Success = ({ responses, props }) => {
     updateResponse({ variables: { id, input } })
   }
   return responses.map((response) => (
-
     <AnimatedResponse
       onSave={onSave}
       key={response.id}
       response={response}
       props={props}
     />
-
   ))
 }

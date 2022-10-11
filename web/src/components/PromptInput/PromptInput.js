@@ -1,3 +1,4 @@
+import { useAuth } from '@redwoodjs/auth'
 import {
   Form,
   Label,
@@ -8,10 +9,48 @@ import {
 } from '@redwoodjs/forms'
 import { MetaTags, useMutation } from '@redwoodjs/web'
 
+// export const QUERY = gql`
+//   query CreateResponse($id: Int!, $promptId: Int!, $body: String!) {
+//     response: response(id: $id, promptId: $promptId, body: $body) {
+//       id
+//       promptId
+//       userId
+//       body
+//     }
+//   }
+// `
+const CREATE_RESPONSE_MUTATION = gql`
+  mutation CreateResponseMutation($input: CreateResponseInput!) {
+    createResponse(input: $input) {
+      id
+      userId
+      promptId
+      body
+    }
+  }
+`
+
 const PromptInput = ({ prompt }) => {
-  const onSubmit = (data) => {
-    console.log(data)
-    // create({ variables: { input: data } })
+  const { currentUser } = useAuth()
+  const [createResponse] = useMutation(CREATE_RESPONSE_MUTATION, {
+    onComplted: () => {
+      console.log('response created')
+    },
+    onError: (error) => {
+      console.log(error)
+    },
+  })
+  const onSubmit = (input) => {
+    input = {
+      userId: currentUser.id,
+      promptId: prompt.id,
+      body: input.body,
+    }
+    // console.log(prompt.id)
+    console.log([currentUser.id, prompt.id, input.body])
+    createResponse({
+      variables: { input },
+    })
   }
 
   const [state, setState] = React.useState({
@@ -70,8 +109,9 @@ const PromptInput = ({ prompt }) => {
             <div className="relative m-0 flex w-full justify-center">
               <TextAreaField
                 className=" w-11/12 resize-none rounded-b-lg bg-neutral-100 pt-2 pl-2 dark:bg-neutral-800"
-                name="response"
+                name="body"
                 rows="8"
+                id="responseBody"
                 validation={{ required: true }}
                 errorClassName=" w-11/12 resize-none rounded-b-lg shadow-error dark:bg-stone-900"
                 onChange={handleKeyPress}

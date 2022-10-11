@@ -22,6 +22,41 @@ const AnimatedResponse = ({ response }) => {
   const [showReportMessage, setShowReportMessage] = useState(true)
   const [updateResponse] = useMutation(UPDATE_VOTE_MUTATION)
 
+  const userTotalUpVotes = (response) => {
+    let total = 0
+    if (response.User.responses != null) {
+      const upCounter = response.User.responses.reduce(
+        (totalUpvotes, response) => {
+          return response.upvotes + totalUpvotes
+        },
+        0
+      )
+
+      const downCounter = response.User.responses.reduce(
+        (totalUpvotes, response) => {
+          return response.downvotes + totalUpvotes
+        },
+        0
+      )
+
+      const superCounter = response.User.responses.reduce(
+        (totalUpvotes, response) => {
+          return response.supervote + totalUpvotes
+        },
+        0
+      )
+      total = total + upCounter
+      total = total + superCounter * 5
+      total = total - downCounter
+
+      total = total / 100
+
+      return `$${total.toFixed(2)}`
+    } else {
+      return ' '
+    }
+  }
+
   return (
     <CSSTransition
       in={showMessage}
@@ -43,7 +78,7 @@ const AnimatedResponse = ({ response }) => {
         >
           <div className="maxy cardwidth relative m-3 flex flex-col justify-between rounded-lg p-8 shadow dark:border-emerald-300 dark:bg-zinc-900">
             <div className="absolute  bottom-0 left-0 m-1 rounded bg-emerald-200 px-2 opacity-75 dark:text-zinc-900">
-              {response.userId}
+              {userTotalUpVotes(response)}
             </div>
             <header className="center mb-2 flex justify-between gap-5">
               <h2 className="break-words font-bold">
@@ -96,7 +131,7 @@ const AnimatedResponse = ({ response }) => {
               </button>
 
               <button
-                data-id={response.id}
+                // data-id={response.id}
                 onClick={() => {
                   const id = response.id
                   let superUpVote = response.supervote + 1
@@ -114,7 +149,7 @@ const AnimatedResponse = ({ response }) => {
                 </div>
               </button>
               <button
-                data-id={response.id}
+                // data-id={response.id}
                 onClick={() => {
                   const id = response.id
                   console.log(response)
