@@ -29,6 +29,34 @@ const HomePageTopics = ({ topic, user }) => {
     return cardStore
   }
 
+  const allTopicUpvotes = (topic) => {
+    let total = 0
+    if (topic.prompts != null)
+      for (let i = 0; i < topic.prompts.length; i++) {
+        const upCounter = topic.prompts[i].responses.reduce(
+          (totalUpvotes, response) => {
+            return response.upvotes + totalUpvotes
+          },
+          0
+        )
+        const superCounter = topic.prompts[i].responses.reduce(
+          (totalUpvotes, response) => {
+            return response.supervote + totalUpvotes
+          },
+          0
+        )
+        total = total + upCounter
+        total = total + superCounter * 5
+
+        total = total / 100
+
+        return `$${total.toFixed(2)}`
+      }
+    else {
+      return 0
+    }
+  }
+
   return (
     <div
       key={topic.id}
@@ -41,10 +69,7 @@ const HomePageTopics = ({ topic, user }) => {
           {topic.subsrcibedUser || 0}
         </div>
         <div className="flex w-11/12 justify-between gap-1">
-          <i className="fa-duotone fa-coin p-1"></i>{' '}
-          {topic.prompts[0].responses.reduce((totalUpVotes, response) => {
-            return response.upvotes + totalUpVotes
-          }, 0)}
+          <i className="fa-duotone fa-coin p-1"></i> {allTopicUpvotes(topic)}
         </div>
       </div>
       <h1 className="m-x-auto mb-3 mt-5 p-2 text-center text-3xl  font-bold">
