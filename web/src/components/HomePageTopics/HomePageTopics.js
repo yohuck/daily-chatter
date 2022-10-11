@@ -1,6 +1,20 @@
-import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
+import { useAuth } from '@redwoodjs/auth'
+import { useMutation } from '@redwoodjs/web'
 
-const HomePageTopics = ({ topic }) => {
+import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
+const UPDATE_TOPIC_MUTATION = gql`
+  mutation UpdatePromptMutation($id: Int!, $input: UpdateTopicInput!) {
+    updateTopic(id: $id, input: $input) {
+      id
+      userSubscribed
+    }
+  }
+`
+
+const HomePageTopics = ({ topic, user }) => {
+  const { currentUser } = useAuth()
+  console.log(currentUser)
+  const [subscribe] = useMutation(UPDATE_TOPIC_MUTATION)
   const renderCards = (topic) => {
     const cardStore = []
     for (let i = 0; i < topic.prompts[0].responses.length && i < 3; i++) {
@@ -44,7 +58,20 @@ const HomePageTopics = ({ topic }) => {
           {renderCards(topic)}
         </article>
       </div>
-      <button className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow">
+      <button
+        // userId to identify user model list and add subscribed topic to subscribedTopic list
+        className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
+        onClick={() => {
+          const id = topic.id
+          let subscribed = true
+          let user = currentUser.id
+          const input = {
+            userSubscribed: subscribed,
+            userId: user,
+          }
+          subscribe({ variables: { id, input } })
+        }}
+      >
         <p className="font-bold">Subscribe</p>
       </button>
     </div>
