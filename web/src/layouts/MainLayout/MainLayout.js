@@ -4,6 +4,8 @@ import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
 const MainLayout = ({ children }) => {
+  const path = window.location.pathname
+  console.log(path)
   const [darkModeOver, setDarkModeOver] = useState('')
   const [inProp, setInProp] = useState(true)
 
@@ -64,7 +66,13 @@ const MainLayout = ({ children }) => {
                 <div className=" m-2 flex items-center rounded-lg bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                    <i className="fa-duotone fa-home  p-1 text-emerald-400 dark:text-emerald-400"></i>
+                    <i
+                      className={
+                        path === '/'
+                          ? 'fa-duotone fa-coin  p-1 text-violet-500'
+                          : 'fa-duotone fa-coin  p-1 text-emerald-500'
+                      }
+                    ></i>
                   </div>
                 </div>
               </Link>
@@ -72,7 +80,13 @@ const MainLayout = ({ children }) => {
                 <div className=" m-2 flex  items-center rounded-lg  bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                    <i className="fa-duotone fa-messages-dollar  p-1 text-emerald-500 dark:text-emerald-400 "></i>
+                    <i
+                      className={
+                        path === '/view-topics'
+                          ? 'fa-duotone fa-messages-dollar  p-1 text-violet-500'
+                          : 'fa-duotone fa-messages-dollar  p-1 text-emerald-500'
+                      }
+                    ></i>
                   </div>
                 </div>
               </Link>
@@ -80,7 +94,13 @@ const MainLayout = ({ children }) => {
                 <div className=" m-2 flex  items-center rounded-lg bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                    <i className="fa-duotone fa-pencil p-1 text-emerald-500 dark:text-emerald-400 "></i>
+                    <i
+                      className={
+                        path === '/submit-response'
+                          ? 'fa-duotone fa-pencil  p-1 text-violet-500'
+                          : 'fa-duotone fa-pencil  p-1 text-emerald-500'
+                      }
+                    ></i>
                   </div>
                 </div>
               </Link>
@@ -88,7 +108,13 @@ const MainLayout = ({ children }) => {
                 <div className=" m-2 flex  items-center rounded-lg bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                    <i className="fa-duotone fa-messages-question p-1 text-emerald-500 dark:text-emerald-400"></i>
+                    <i
+                      className={
+                        path === '/choose-topic'
+                          ? 'fa-duotone fa-list  p-1 text-violet-500'
+                          : 'fa-duotone fa-list  p-1 text-emerald-500'
+                      }
+                    ></i>
                   </div>
                 </div>
               </Link>
@@ -100,7 +126,13 @@ const MainLayout = ({ children }) => {
                       type="button"
                       // onClick={logOut}
                     >
-                      <i className="fa-duotone fa-user p-1 text-emerald-500 dark:text-violet-400"></i>
+                      <i
+                        className={
+                          path === '/settings'
+                            ? 'fa-duotone fa-user  p-1 text-violet-500'
+                            : 'fa-duotone fa-user  p-1 text-emerald-500'
+                        }
+                      ></i>
                     </button>
                   </Link>
                   {/* <span>Logged in as {currentUser.email}</span>{' '} */}
