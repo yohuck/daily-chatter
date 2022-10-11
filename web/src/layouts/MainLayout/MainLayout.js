@@ -142,7 +142,13 @@ const MainLayout = ({ children }) => {
                   <div className=" m-2 flex items-center rounded-lg bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800  ">
                     <div className=" flex flex-col">
                       {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                      <i className="fa-duotone fa-user  p-1 text-emerald-500 dark:text-emerald-400"></i>
+                      <i
+                        className={
+                          path === '/settings'
+                            ? 'fa-duotone fa-user  p-1 text-violet-500'
+                            : 'fa-duotone fa-user  p-1 text-emerald-500'
+                        }
+                      ></i>
                     </div>
                   </div>
                 </Link>
