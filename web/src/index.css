@@ -85,8 +85,41 @@ border-bottom: 1px solid;
   opacity: 1;
   transform:translateX(0);
 }
-.example-exit-active {
+.coin-exit-active {
+  opacity: 0;
+  transform:translateX(100%);
+  transition: opacity 900ms, transform 900ms;
+}
+.trash-exit-active {
   opacity: 0;
   transform:translateX(-100%);
   transition: opacity 900ms, transform 900ms;
+}
+
+.report-exit-active {
+  opacity: 0;
+  transform:translateY(100%);
+  transition: opacity 900ms, transform 900ms;
+}
+
+
+.cardwidth{
+width: 90vw;
+max-width: 400px
+}
+
+.spin{
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
