@@ -144,7 +144,7 @@ const MainLayout = ({ children }) => {
                       {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
                       <i
                         className={
-                          path === '/settings'
+                          path === '/login'
                             ? 'fa-duotone fa-user  p-1 text-violet-500'
                             : 'fa-duotone fa-user  p-1 text-emerald-500'
                         }
