@@ -10,7 +10,7 @@ const MainLayout = ({ children }) => {
   const [inProp, setInProp] = useState(true)
 
   const [darkIcon, setDarkIcon] = useState(
-    'fa-sun fa-duotone fa-med dark:fa-moon p-1 text-emerald-500 dark:text-emerald-300'
+    'fa-sun fa-duotone fa-med dark:fa-moon p-1 text-emerald-500 dark:text-emerald-300 '
   )
   const { isAuthenticated, currentUser, logOut } = useAuth()
 
@@ -54,7 +54,7 @@ const MainLayout = ({ children }) => {
 
   return (
     <div className={darkModeOver}>
-      <div>
+      <div className="dark:bg-gradient-b flex flex-col items-center justify-center bg-gradient-to-b from-emerald-100 to-blue-100 dark:from-neutral-900 dark:to-neutral-900">
         <header
           className={
             'bor sticky top-0 z-50  flex w-full items-center justify-between border-emerald-400 bg-emerald-400 px-2 py-1 text-left dark:bg-neutral-900 '
@@ -63,7 +63,7 @@ const MainLayout = ({ children }) => {
           <ul>
             <div className="buttons flex justify-center ">
               <Link to={routes.home()}>
-                <div className=" m-2 flex items-center rounded-lg bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
+                <div className=" m-2 flex items-center rounded-lg  bg-slate-100 p-2 shadow   hover:bg-violet-100 hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:border-emerald-400  dark:bg-neutral-900  dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
                     <i
@@ -77,7 +77,7 @@ const MainLayout = ({ children }) => {
                 </div>
               </Link>
               <Link to={routes.viewTopics()}>
-                <div className=" m-2 flex  items-center rounded-lg  bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
+                <div className="  m-2 flex items-center rounded-lg  bg-slate-100 p-2 shadow   hover:bg-violet-100 hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:border-emerald-400  dark:bg-neutral-900  dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
                     <i
@@ -91,7 +91,7 @@ const MainLayout = ({ children }) => {
                 </div>
               </Link>
               <Link to={routes.submitResponse()}>
-                <div className=" m-2 flex  items-center rounded-lg bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
+                <div className=" m-2 flex items-center rounded-lg  bg-slate-100 p-2 shadow   hover:bg-violet-100 hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:border-emerald-400  dark:bg-neutral-900  dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
                     <i
@@ -105,7 +105,7 @@ const MainLayout = ({ children }) => {
                 </div>
               </Link>
               <Link to={routes.chooseTopic()}>
-                <div className=" m-2 flex  items-center rounded-lg bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
+                <div className=" m-2 flex items-center rounded-lg  bg-slate-100 p-2 shadow   hover:bg-violet-100 hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:border-emerald-400  dark:bg-neutral-900  dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
                   <div className=" flex flex-col">
                     {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
                     <i
@@ -122,7 +122,7 @@ const MainLayout = ({ children }) => {
                 <div>
                   <Link to={routes.settings()}>
                     <button
-                      className="m-2 flex  items-center rounded-lg  bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                      className=" m-2 flex items-center rounded-lg  bg-slate-100 p-2 shadow   hover:bg-violet-100 hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:border-emerald-400  dark:bg-neutral-900  dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
                       type="button"
                       // onClick={logOut}
                     >
@@ -139,7 +139,7 @@ const MainLayout = ({ children }) => {
                 </div>
               ) : (
                 <Link to={routes.login()}>
-                  <div className=" m-2 flex items-center rounded-lg bg-white p-2 shadow hover:bg-yellow-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800  ">
+                  <div className=" m-2 flex items-center rounded-lg  bg-slate-100 p-2 shadow   hover:bg-violet-100 hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:border-emerald-400  dark:bg-neutral-900  dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 ">
                     <div className=" flex flex-col">
                       {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
                       <i
@@ -162,7 +162,9 @@ const MainLayout = ({ children }) => {
           </div>
         </header>
         <main
-          className={'min-h-screen dark:bg-neutral-900 dark:text-emerald-400'}
+          className={
+            'min-h-screen  p-5 dark:bg-neutral-900 dark:text-emerald-400'
+          }
         >
           {children}
         </main>
