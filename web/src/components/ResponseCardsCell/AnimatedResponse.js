@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group'
 import { useMutation } from '@redwoodjs/web'
 
 const UPDATE_VOTE_MUTATION = gql`
-  mutation UpdateResponseMutation($id: Int!, $input: UpdateResponseInput!) {
+  mutation UpdateResponseMutationtwo($id: Int!, $input: UpdateResponseInput!) {
     updateResponse(id: $id, input: $input) {
       id
       upvotes

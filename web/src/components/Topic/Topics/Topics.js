@@ -91,7 +91,7 @@ const TopicsList = ({ topics }) => {
             <tr key={topic.id}>
               <td>{truncate(topic.id)}</td>
               <td>{truncate(topic.title)}</td>
-              <td>{checkboxInputTag(topic.userSubscribed)}</td>
+              <td>{checkboxInputTag(topic.subscribedUser)}</td>
               <td>{truncate(topic.userId)}</td>
               <td>
                 <nav className="rw-table-actions">

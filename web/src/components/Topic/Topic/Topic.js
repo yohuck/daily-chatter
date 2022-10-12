@@ -82,7 +82,7 @@ const Topic = ({ topic }) => {
             </tr>
             <tr>
               <th>User subscribed</th>
-              <td>{checkboxInputTag(topic.userSubscribed)}</td>
+              <td>{checkboxInputTag(topic.subscribedUser.id)}</td>
             </tr>
             <tr>
               <th>User id</th>

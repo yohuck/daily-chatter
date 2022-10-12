@@ -20,7 +20,7 @@ import { MetaTags, useMutation } from '@redwoodjs/web'
 //   }
 // `
 const CREATE_RESPONSE_MUTATION = gql`
-  mutation CreateResponseMutation($input: CreateResponseInput!) {
+  mutation CreateResponseMutationtwo($input: CreateResponseInput!) {
     createResponse(input: $input) {
       id
       userId

@@ -2,8 +2,7 @@ export const schema = gql`
   type Topic {
     id: Int!
     title: String!
-    userSubscribed: Boolean!
-    subscribedUser: User
+    subscribedUser: [User]!
     userId: Int
     prompts: [Prompt]!
   }
@@ -15,13 +14,13 @@ export const schema = gql`
 
   input CreateTopicInput {
     title: String!
-    userSubscribed: Boolean
+    subscribedUser: Boolean
     userId: Int
   }
 
   input UpdateTopicInput {
     title: String
-    userSubscribed: Boolean
+    subscribedUser: Boolean
     userId: Int
   }
 
