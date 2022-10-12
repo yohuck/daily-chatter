@@ -5,6 +5,7 @@ import { Link, routes } from '@redwoodjs/router'
 
 const MainLayout = ({ children }) => {
   const path = window.location.pathname
+  console.log(path)
   const [darkModeOver, setDarkModeOver] = useState('')
   const [inProp, setInProp] = useState(true)
 
@@ -166,6 +167,75 @@ const MainLayout = ({ children }) => {
           }
         >
           {children}
+          <footer>
+            <div className="flex items-center space-x-2.5">
+              <a href="https://github.com/yohuck/daily-chatter">
+                <i
+                  href="https://github.com/yohuck/daily-chatter"
+                  target="_blank"
+                  className="fa-brands fa-github fa-1.5x"
+                  rel="noreferrer"
+                >
+                  Main Repo For
+                </i>
+              </a>
+              <a href="https://github.com/yohuck">
+                <i
+                  href="https://github.com/yohuck"
+                  target="_blank"
+                  className="fa-brands fa-github fa-1.5x"
+                  rel="noreferrer"
+                >
+                  {'  '}
+                  Erics
+                </i>
+              </a>
+              <a href="https://github.com/jgood13">
+                <i
+                  href="https://github.com/jgood13"
+                  target="_blank"
+                  className="fa-brands fa-github fa-1.5x"
+                  rel="noreferrer"
+                >
+                  {' '}
+                  Joes
+                </i>
+              </a>
+              <a href="https://github.com/itsmejustino">
+                <i
+                  href="https://github.com/itsmejustino"
+                  target="_blank"
+                  className="fa-brands fa-github fa-1.5x"
+                  rel="noreferrer"
+                >
+                  {'   '}
+                  Justins
+                </i>
+              </a>
+              <a href="https://github.com/MichaelFisher-01/">
+                <i
+                  href="https://github.com/MichaelFisher-01/"
+                  target="_blank"
+                  className="fa-brands fa-github fa-1.5x"
+                  rel="noreferrer"
+                >
+                  {'   '}
+                  Michaels
+                </i>
+              </a>
+              <a href="https://github.com/Jaajarbinks">
+                <i
+                  href="https://github.com/Jaajarbinks"
+                  target="_blank"
+                  className="fa-brands fa-github fa-1.5x"
+                  rel="noreferrer"
+                >
+                  {'  '}
+                  Davids
+                </i>
+              </a>
+            </div>
+          </footer>
         </main>
       </div>
     </div>
