@@ -75,7 +75,7 @@ const HomePageTopics = ({ topic, user }) => {
         </div>
       </div>
       <h1 className="m-x-auto mb-3 mt-5 p-2 text-center text-3xl  font-bold">
-        {topic.prompts[0].title}{' '}
+        {topic.prompts[0].title}
       </h1>
       <p className="m-x-auto text-2x1 text-1x1 mb-3 mt-5 p-2 text-center font-bold">
         {topic.prompts[0].body}

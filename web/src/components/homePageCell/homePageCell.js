@@ -44,8 +44,6 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ getTopics }) => {
-  console.log('Get Topics Console Log')
-  console.log(getTopics)
   return getTopics.map((topic) => (
     <HomePageTopics key={topic.id} topic={topic} />
   ))
