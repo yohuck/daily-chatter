@@ -31,18 +31,21 @@ export const Success = ({ prompts }) => {
 
   console.log(prompts)
 
-  const filterTest = (prompt) => {
-    return prompt.responses.every(
-      (response) => response.userId != currentUser.id
-    )
+  if (currentUser) {
+    const filterTest = (prompt) => {
+      return prompt.responses.every(
+        (response) => response.userId != currentUser.id
+      )
+    }
+
+    const filteredPrompts = prompts.filter((prompt) => filterTest(prompt))
+
+    return filteredPrompts.map((prompt) => (
+      <div key={prompt.id} className="flex justify-center">
+        <PromptInput prompt={prompt} />
+      </div>
+    ))
+  } else {
+    return <div> please login</div>
   }
-
-  const filteredPrompts = prompts.filter((prompt) => filterTest(prompt))
-
-
-  return filteredPrompts.map((prompt) => (
-    <div key={prompt.id} className="flex justify-center">
-      <PromptInput prompt={prompt} />
-    </div>
-  ))
 }
