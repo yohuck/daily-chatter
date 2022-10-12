@@ -1,11 +1,13 @@
+import { useDebugValue } from 'react'
+
 import { useAuth } from '@redwoodjs/auth'
 import { useMutation } from '@redwoodjs/web'
 
 import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
 const CREATE_USERSUB_MUTATION = gql`
   mutation CreateUsersubInput($input: CreateUsersubInput!) {
-   createUsersub(input: $input) {
-      id
+    createUsersub(input: $input) {
+      # id
       userId
       topicId
     }
@@ -15,7 +17,6 @@ const CREATE_USERSUB_MUTATION = gql`
 const HomePageTopics = ({ topic, user }) => {
   const { currentUser } = useAuth()
   const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
-
 
   const renderCards = (topic) => {
     const cardStore = []
@@ -29,6 +30,17 @@ const HomePageTopics = ({ topic, user }) => {
       cardStore.push(card)
     }
     return cardStore
+  }
+
+  const isSubbed = (userId, topic) => {
+    console.log('hello')
+    console.log(userId)
+    console.log(topic.subscribedUser)
+    console.log(topic.subscribedUser.filter((user) => user.id == userId).length)
+
+    if (topic.subscribedUser.filter((user) => user.id == userId).length > 0) {
+      return true
+    } else return false
   }
 
   const allTopicUpvotes = (topic) => {
@@ -64,7 +76,7 @@ const HomePageTopics = ({ topic, user }) => {
       key={topic.id}
       dataclassname="card  max-w-11/12 relative mb-5 flex flex-col items-center justify-center rounded-lg   lg:m-2 lg:block  xl:w-11/12"
     >
-      <div className="p2 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg shadow">
+      <div className="p2 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg bg-slate-100 shadow dark:bg-neutral-900">
         <p className="text-2xl font-extrabold ">{topic.title}</p>
         <div className="flex w-11/12 justify-between gap-1">
           <i className="fa-duotone fa-user p-1 "></i>{' '}
@@ -87,7 +99,7 @@ const HomePageTopics = ({ topic, user }) => {
       </div>
       <button
         // userId to identify user model list and add subscribed topic to subscribedTopic list
-        className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
+        className="p2 hover:bg-violet100 z-10 m-4  mx-auto flex w-min rounded-lg bg-slate-100 shadow hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
         onClick={() => {
           const topicId = topic.id
           const userId = currentUser.id
@@ -98,7 +110,9 @@ const HomePageTopics = ({ topic, user }) => {
           usersub({ variables: { input } })
         }}
       >
-        <p className="font-bold">Subscribe</p>
+        <p className="font-bold ">
+          {isSubbed(currentUser.id, topic) ? 'Subscribed' : 'Subscribe'}
+        </p>
       </button>
     </div>
   )
