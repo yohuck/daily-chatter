@@ -30,7 +30,6 @@ const SignupPage = () => {
   }, [])
 
   const onSubmit = async (data) => {
-    console.log(data)
     const response = await signUp({ ...data })
 
     if (response.message) {

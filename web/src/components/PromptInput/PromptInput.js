@@ -43,7 +43,6 @@ const PromptInput = ({ prompt }) => {
       body: input.body,
     }
     // console.log(prompt.id)
-    console.log([currentUser.id, prompt.id, input.body])
     createResponse({
       variables: { input },
     })

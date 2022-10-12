@@ -84,9 +84,9 @@ const AnimatedResponse = ({ response }) => {
               <h2 className="break-words font-bold">
                 {response.User.username} wanted to say
               </h2>
-              <div className="icons mb-3 flex gap-2  border-black  p-3">
+              <div className="icons mb-3 flex gap-2  border-black p-3 ">
                 <p>{response.downvotes}</p>
-                <i className="fa-duotone fa-trash-can p-1 text-red-500"></i>
+                <i className="fa-duotone fa-trash-can p-1 text-gray-500"></i>
                 <p>{response.upvotes}</p>
                 <i className="fa-duotone fa-sack-dollar p-1 text-indigo-500"></i>
                 <p>{response.supervote}</p>
@@ -107,7 +107,7 @@ const AnimatedResponse = ({ response }) => {
                   updateResponse({ variables: { id, input } })
                   setShowTrashMessage(!showMessage)
                 }}
-                className="m-2 flex items-center rounded-lg p-2 shadow transition-shadow hover:bg-yellow-100 hover:ring hover:ring-yellow-500 focus:bg-yellow-100 focus:ring focus:ring-yellow-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                className="m-2 flex items-center rounded-lg p-2 shadow transition-shadow hover:bg-gray-100 hover:ring hover:ring-gray-500 focus:bg-gray-100 focus:ring focus:ring-gray-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
                 <div className=" flex flex-col">
                   <i className="fa-duotone fa-trash-can fa-2x p-1 text-gray-500"></i>
@@ -123,7 +123,7 @@ const AnimatedResponse = ({ response }) => {
                   setShowMessage(!showMessage)
                   updateResponse({ variables: { id, input } })
                 }}
-                className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-red-100 hover:ring hover:ring-red-500 focus:bg-red-100 focus:ring focus:ring-red-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-indigo-100 hover:ring hover:ring-indigo-500 focus:bg-indigo-100 focus:ring focus:ring-indigo-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
                 <div className=" flex flex-col">
                   <i className="fa-duotone fa-thumbs-up fa-2x p-1 text-indigo-500"></i>
@@ -135,7 +135,6 @@ const AnimatedResponse = ({ response }) => {
                 onClick={() => {
                   const id = response.id
                   let superUpVote = response.supervote + 1
-                  console.log(response.supervote)
                   const input = {
                     supervote: superUpVote,
                   }
@@ -152,7 +151,6 @@ const AnimatedResponse = ({ response }) => {
                 // data-id={response.id}
                 onClick={() => {
                   const id = response.id
-                  console.log(response)
                   let reported = response.reports + 1
                   const input = {
                     reports: reported,
@@ -161,7 +159,7 @@ const AnimatedResponse = ({ response }) => {
                   setShowMessage(!showMessage)
                   updateResponse({ variables: { id, input } })
                 }}
-                className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-amber-100 hover:ring hover:ring-amber-500 focus:bg-amber-100 focus:ring focus:ring-amber-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
                 <div className=" flex flex-col">
                   <i className="fa-duotone fa-do-not-enter fa-2x p-1 text-amber-500"></i>

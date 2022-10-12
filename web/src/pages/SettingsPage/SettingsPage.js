@@ -11,7 +11,6 @@ import SettingsRedir from './SettingsRedir'
 const SettingsPage = () => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
 
-  console.log(isAuthenticated)
   return isAuthenticated ? (
     <div>
       <MetaTags title="Settings" description="Settings page" />

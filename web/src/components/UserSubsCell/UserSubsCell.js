@@ -20,7 +20,6 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ singleUser }) => {
-  console.log(singleUser)
   return singleUser.subscriptions.map((topic) => (
     <SingleTopicCell key={topic.topicId} id={topic.topicId} />
   ))

@@ -41,13 +41,6 @@ const HomePageTopics = ({ topic, user }) => {
   }
 
   const isSubbed = (userId, topic) => {
-    console.log('hello')
-    console.log(userId)
-    console.log(topic.subscribedUser)
-    console.log(
-      topic.subscribedUser.filter((user) => user.userId == userId).length
-    )
-
     if (
       topic.subscribedUser.filter((user) => user.userId == userId).length > 0
     ) {
@@ -111,7 +104,9 @@ const HomePageTopics = ({ topic, user }) => {
       </div>
       <button
         // userId to identify user model list and add subscribed topic to subscriptions list
+
         className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg bg-slate-100 shadow dark:bg-neutral-900"
+
         onClick={() => {
           const topicId = topic.id
           const userId = currentUser.id

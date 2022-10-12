@@ -1,3 +1,5 @@
+import { routes, Link } from '@redwoodjs/router'
+
 import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse'
 
 const SinglePrompt = ({ prompt }) => {
@@ -25,14 +27,21 @@ const SinglePrompt = ({ prompt }) => {
       <p className="m-x-auto text-2x1 text-1x1 mb-3 mt-5 p-2 text-center font-bold">
         {prompt.body}
       </p>
+      <div>
+        <button className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow">
+          <p className="font-bold">Subscribe</p>
+        </button>
+        <div className="p2 z-10 mx-auto flex  w-max items-center gap-4 rounded-lg text-center shadow">
+          <Link to={routes.directPromptResponse({ id: prompt.id })}>
+            <p>Give my Response!</p>
+          </Link>
+        </div>
+      </div>
       <div className="container flex justify-center">
         <article className="flex flex-wrap justify-center">
           {renderCards(prompt)}
         </article>
       </div>
-      <button className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow">
-        <p className="font-bold">Subscribe</p>
-      </button>
     </div>
   )
 }
