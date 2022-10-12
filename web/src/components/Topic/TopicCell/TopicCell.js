@@ -5,7 +5,6 @@ export const QUERY = gql`
     topic: topic(id: $id) {
       id
       title
-      userSubscribed
       userId
     }
   }

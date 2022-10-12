@@ -4,8 +4,7 @@ export const QUERY = gql`
   query OnlyTopicsQuery {
     onlyTopics: topics {
       id
-      title
-      subscribedUser {
+      title {
         id
         username
       }
