@@ -17,10 +17,12 @@ const CREATE_USERSUB_MUTATION = gql`
 const HomePageTopics = ({ topic, user }) => {
   const { currentUser } = useAuth()
   const [subbed, setSubbed] = useState('Subscribe')
-  const userIdCheck = currentUser.id
-  useEffect(() => {
-    isSubbed(userIdCheck, topic)
-  }, [])
+  if (currentUser) {
+    const userIdCheck = currentUser.id
+    useEffect(() => {
+      isSubbed(userIdCheck, topic)
+    }, [])
+  }
 
   const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
 
