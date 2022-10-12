@@ -2,23 +2,20 @@ import { useAuth } from '@redwoodjs/auth'
 import { useMutation } from '@redwoodjs/web'
 
 import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
-const UPDATE_TOPIC_MUTATION = gql`
-  mutation UpdatePromptMutation($id: Int!, $input: UpdateTopicInput!) {
-    updateTopic(id: $id, input: $input) {
+const CREATE_USERSUB_MUTATION = gql`
+  mutation CreateUsersubInput($input: CreateUsersubInput!) {
+    createUsersub(input: $input) {
       id
-      subs {
-        subscribedTopics {
-          userId
-        }
-      }
+      userId
+      topicId
     }
   }
 `
 
 const HomePageTopics = ({ topic, user }) => {
   const { currentUser } = useAuth()
-  console.log(currentUser)
-  const [subscribe] = useMutation(UPDATE_TOPIC_MUTATION)
+  const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
+
   const renderCards = (topic) => {
     const cardStore = []
     for (let i = 0; i < topic.prompts[0].responses.length && i < 3; i++) {
@@ -69,8 +66,8 @@ const HomePageTopics = ({ topic, user }) => {
       <div className="p2 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg shadow">
         <p className="text-2xl font-extrabold ">{topic.title}</p>
         <div className="flex w-11/12 justify-between gap-1">
-          <i className="fa-duotone fa-user p-1 "></i>
-          {topic.subsrcibedUser || 0}
+          <i className="fa-duotone fa-user p-1 "></i>{' '}
+          {topic.subscribedUser.length}
         </div>
         <div className="flex w-11/12 justify-between gap-1">
           <i className="fa-duotone fa-coin p-1"></i> {allTopicUpvotes(topic)}
@@ -91,15 +88,13 @@ const HomePageTopics = ({ topic, user }) => {
         // userId to identify user model list and add subscribed topic to subscribedTopic list
         className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
         onClick={() => {
-          const id = topic.id
-          // let user = currentUser.id
-          // console.log(currentUser.id)
-          console.log(topic.subs.subscribedTopics.id)
+          const topicId = topic.id
+          const userId = currentUser.id
           const input = {
-            subs: [...topic.subs.subscribedTopics.id, currentUser.id],
+            userId,
+            topicId,
           }
-
-          subscribe({ variables: { id, input } })
+          usersub({ variables: { input } })
         }}
       >
         <p className="font-bold">Subscribe</p>
