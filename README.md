@@ -14,13 +14,13 @@ Talking Cents is a social platform to give your opinion on potentially controver
 
 ## Technologies Used
 
--RedwoodJS Framework
--React + Tailwind
--Prisma - ORM
--PostgreSQL
--GraphQL
--Netlify
--Coffee
+- RedwoodJS Framework
+- React + Tailwind
+- Prisma - ORM
+- PostgreSQL
+- GraphQL
+- Netlify
+- Coffee
 
 
 ## Gif of Deployed Page
