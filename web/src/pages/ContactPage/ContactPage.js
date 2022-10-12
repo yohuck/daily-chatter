@@ -19,7 +19,6 @@ const CREATE_MESSAGE = gql`
 const ContactPage = () => {
   const [create, { loading, error }] = useMutation(CREATE_MESSAGE)
   const onSubmit = (data) => {
-    console.log(data)
     create({ variables: { input: data } })
   }
 

@@ -16,6 +16,7 @@ export const QUERY = gql`
         responses {
           id
           body
+          upvotes
           User {
             username
             email

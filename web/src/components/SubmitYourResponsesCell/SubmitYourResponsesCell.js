@@ -1,6 +1,7 @@
 import { useAuth } from '@redwoodjs/auth'
+import { Link, routes } from '@redwoodjs/router'
 
-import PromptInput from '../PromptInput/PromptInput'
+import LoopResponses from './LoopResponses'
 
 export const QUERY = gql`
   query findPrompts {
@@ -40,11 +41,28 @@ export const Success = ({ prompts }) => {
 
     const filteredPrompts = prompts.filter((prompt) => filterTest(prompt))
 
-    return filteredPrompts.map((prompt) => (
-      <div key={prompt.id} className="flex justify-center">
-        <PromptInput prompt={prompt} />
+    return (
+      <div className="relative w-screen">
+        <LoopResponses filteredPrompts={filteredPrompts} />
+        <div className="absolute  z-10 flex w-screen justify-center">
+          <div className="card maxy m-3 flex flex-col  rounded-lg bg-slate-100 p-8 text-center shadow dark:border-emerald-300 dark:bg-zinc-900 ">
+            <p className="max-w-xs">
+              You answered all the prompts for now! Go vote on other responses
+              or hire one of the developers on this project 😀
+            </p>
+
+            <Link to={routes.home()} className="flex justify-center">
+              <div className=" m-2 w-fit rounded-lg  bg-slate-100 p-2 shadow   hover:bg-violet-100 hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:border-emerald-400  dark:bg-neutral-900  dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                <div className="">
+                  {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
+                  <i className="fa-duotone fa-coin  p-1 text-emerald-500"></i>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
       </div>
-    ))
+    )
   } else {
     return <div> please login</div>
   }

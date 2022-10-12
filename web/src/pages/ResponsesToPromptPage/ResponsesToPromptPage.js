@@ -1,6 +1,7 @@
+import { routes, Link } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
-import Responses from 'src/components/ResponsesUnderPromptCell'
+import ResponsesUnderPrompt from 'src/components/ResponsesUnderPromptCell'
 
 const ResponsesToPromptPage = ({ id }) => {
   return (
@@ -9,7 +10,12 @@ const ResponsesToPromptPage = ({ id }) => {
         title="ResponsesToPrompt"
         description="ResponsesToPrompt page"
       />
-      <Responses id={id} />
+      <div>
+        <Link to={routes.choosePrompt({ id: id })}>
+          <p>Go Back</p>
+        </Link>
+      </div>
+      <ResponsesUnderPrompt id={id} />
     </>
   )
 }

@@ -7,6 +7,7 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
+import { useAuth } from '@redwoodjs/auth'
 import { Router, Route, Set, Private } from '@redwoodjs/router'
 
 import MainLayout from 'src/layouts/MainLayout'
@@ -57,6 +58,7 @@ const Routes = () => {
         <Route path="/choose-topic" page={ChooseTopicPage} name="chooseTopic" />
         <Route path="/choose-prompt/{id:Int}" page={ChoosePromptPage} name="choosePrompt" />
         <Route path="/responses-to-prompt/{id:Int}" page={ResponsesToPromptPage} name="responsesToPrompt" />
+        <Route path="/direct-prompt-response/{id:Int}" page={DirectPromptResponsePage} name="directPromptResponse" />
         <Route path="/submit-response" page={SubmitResponsePage} name="submitResponse" />
         <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />
