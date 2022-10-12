@@ -7,7 +7,7 @@ export const QUERY = gql`
       title
       subscribedUser {
         id
-        username
+        topicId
       }
       prompts {
         title
@@ -44,7 +44,6 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ getTopics }) => {
-  console.log(getTopics)
   return getTopics.map((topic) => (
     <HomePageTopics key={topic.id} topic={topic} />
   ))

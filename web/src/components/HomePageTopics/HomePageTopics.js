@@ -1,6 +1,22 @@
-import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
+import { useAuth } from '@redwoodjs/auth'
+import { useMutation } from '@redwoodjs/web'
 
-const HomePageTopics = ({ topic }) => {
+import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
+const CREATE_USERSUB_MUTATION = gql`
+  mutation CreateUsersubInput($input: CreateUsersubInput!) {
+   createUsersub(input: $input) {
+      id
+      userId
+      topicId
+    }
+  }
+`
+
+const HomePageTopics = ({ topic, user }) => {
+  const { currentUser } = useAuth()
+  const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
+
+
   const renderCards = (topic) => {
     const cardStore = []
     for (let i = 0; i < topic.prompts[0].responses.length && i < 3; i++) {
@@ -51,8 +67,8 @@ const HomePageTopics = ({ topic }) => {
       <div className="p2 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg shadow">
         <p className="text-2xl font-extrabold ">{topic.title}</p>
         <div className="flex w-11/12 justify-between gap-1">
-          <i className="fa-duotone fa-user p-1 "></i>
-          {topic.subsrcibedUser || 0}
+          <i className="fa-duotone fa-user p-1 "></i>{' '}
+          {topic.subscribedUser.length}
         </div>
         <div className="flex w-11/12 justify-between gap-1">
           <i className="fa-duotone fa-coin p-1"></i> {allTopicUpvotes(topic)}
@@ -69,7 +85,19 @@ const HomePageTopics = ({ topic }) => {
           {renderCards(topic)}
         </article>
       </div>
-      <button className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow">
+      <button
+        // userId to identify user model list and add subscribed topic to subscribedTopic list
+        className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
+        onClick={() => {
+          const topicId = topic.id
+          const userId = currentUser.id
+          const input = {
+            userId,
+            topicId,
+          }
+          usersub({ variables: { input } })
+        }}
+      >
         <p className="font-bold">Subscribe</p>
       </button>
     </div>
