@@ -79,7 +79,7 @@ const PromptInput = ({ prompt }) => {
   }
 
   return (
-    <div className="mt-4 min-h-screen">
+    <div className="mt-4">
       <MetaTags
         title="Respond to Prompt"
         description="Respond to the prompt of the day"
