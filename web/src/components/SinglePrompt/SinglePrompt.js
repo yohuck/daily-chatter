@@ -1,8 +1,43 @@
+import { useDebugValue, useEffect, useState } from 'react'
+
+import { useAuth } from '@redwoodjs/auth'
 import { routes, Link } from '@redwoodjs/router'
+import { useMutation } from '@redwoodjs/web'
 
 import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse'
-
-const SinglePrompt = ({ prompt }) => {
+const CREATE_USERSUB_MUTATION = gql`
+  mutation CreateUsersubInput($input: CreateUsersubInput!) {
+    createUsersub(input: $input) {
+      id
+      userId
+      topicId
+    }
+  }
+`
+const SinglePrompt = ({ prompt, user }) => {
+  const { currentUser } = useAuth()
+  const [subbed, setSubbed] = useState('Subscribe')
+  if (currentUser) {
+    const userIdCheck = currentUser.id
+    const topicArray = []
+    const topicNumber = prompt.topicId
+    topicArray.push(topicNumber)
+    useEffect(() => {
+      isSubbed(userIdCheck, topicArray)
+    }, [])
+  }
+  const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
+  console.log('Prompt CONSOLE LOG')
+  console.log(prompt.topicId)
+  const isSubbed = (userId, topicArray) => {
+    console.log('Prompt CONSOLE LOG')
+    console.log(topicArray)
+    console.log('USER CONSOLE LOG')
+    console.log(userId)
+    if (topicArray.filter((user) => user.userId == userId).length > 0) {
+      setSubbed('Subscribed')
+    } else return false
+  }
   const renderCards = (prompt) => {
     const cardStore = []
     for (let i = 0; i < prompt.responses.length; i++) {
@@ -28,14 +63,22 @@ const SinglePrompt = ({ prompt }) => {
         {prompt.body}
       </p>
       <div>
-        <button className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow">
-          <p className="font-bold">Subscribe</p>
+        <button
+          // userId to identify user model list and add subscribed topic to subscriptions list
+          className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
+          onClick={() => {
+            const topicId = prompt.topicId
+            const userId = currentUser.id
+            const input = {
+              userId,
+              topicId,
+            }
+            usersub({ variables: { input } })
+            setSubbed('Subscribed')
+          }}
+        >
+          <p className="font-bold ">{subbed}</p>
         </button>
-        <div className="p2 z-10 mx-auto flex  w-max items-center gap-4 rounded-lg text-center shadow">
-          <Link to={routes.directPromptResponse({ id: prompt.id })}>
-            <p>Give my Response!</p>
-          </Link>
-        </div>
       </div>
       <div className="container flex justify-center">
         <article className="flex flex-wrap justify-center">
@@ -45,5 +88,4 @@ const SinglePrompt = ({ prompt }) => {
     </div>
   )
 }
-
 export default SinglePrompt
