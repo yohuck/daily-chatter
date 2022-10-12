@@ -20,6 +20,7 @@ import UsersubsLayout from 'src/layouts/UsersubsLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />
       <Private admin="true" unauthenticated="home">
         <Set wrap={UsersubsLayout}>
           <Route path="/admin/usersubs/new" page={UsersubNewUsersubPage} name="newUsersub" />
