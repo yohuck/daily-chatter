@@ -1,3 +1,7 @@
+import { useState } from 'react'
+
+import { CSSTransition } from 'react-transition-group'
+
 import { useAuth } from '@redwoodjs/auth'
 import {
   Form,
@@ -21,6 +25,8 @@ const CREATE_RESPONSE_MUTATION = gql`
 `
 
 const PromptInput = ({ prompt }) => {
+  const [showMessage, setShowMessage] = useState(true)
+
   const { currentUser } = useAuth()
   const [createResponse] = useMutation(CREATE_RESPONSE_MUTATION, {
     onComplted: () => {
@@ -40,6 +46,8 @@ const PromptInput = ({ prompt }) => {
     createResponse({
       variables: { input },
     })
+
+    setShowMessage(!showMessage)
   }
 
   const [state, setState] = React.useState({
@@ -68,58 +76,65 @@ const PromptInput = ({ prompt }) => {
   }
 
   return (
-    <div className="mt-4">
-      <MetaTags
-        title="Respond to Prompt"
-        description="Respond to the prompt of the day"
-      />
+    <CSSTransition
+      in={showMessage}
+      timeout={500}
+      classNames="coin"
+      unmountOnExit
+    >
+      <div className="mt-4">
+        <MetaTags
+          title="Respond to Prompt"
+          description="Respond to the prompt of the day"
+        />
 
-      <div className="m-2 flex max-w-sm items-center justify-center">
-        <div className="flex justify-center rounded-lg">
-          <Form
-            className="flex flex-col place-items-center justify-center rounded-lg shadow"
-            onSubmit={onSubmit}
-            config={{ mode: 'onBlur' }}
-          >
-            <h2 className="font-bold">{prompt.date}</h2>
-            <div className="prompt w-11/12 rounded-lg bg-neutral-100 text-center dark:bg-neutral-800">
-              <div className=" w-full rounded-t-lg  border-black bg-emerald-200 p-2 text-center text-xl font-bold text-neutral-900">
-                <p className="m-2 text-2xl font-bold">{prompt.title}</p>
+        <div className="relative w-96">
+          <div className="absolute w-96  rounded-lg">
+            <Form
+              className="flex flex-col place-items-center  justify-center rounded-lg bg-slate-100 shadow dark:bg-neutral-900"
+              onSubmit={onSubmit}
+              config={{ mode: 'onBlur' }}
+            >
+              <div className="prompt  rounded-lg  text-center dark:bg-neutral-800">
+                <div className=" w-full rounded-t-lg  border-black bg-emerald-200 p-2 text-center text-xl font-bold text-neutral-900">
+                  <p className="m-2 text-2xl font-bold">{prompt.title}</p>
+                  <h2 className="text-sm font-bold">{prompt.date}</h2>
+                </div>
+                <p className="p-5 text-xl">{prompt.body}</p>
               </div>
-              <p className="p-5 text-xl">{prompt.body}</p>
-            </div>
-            <Label
-              name="response"
-              className="mt-2 w-11/12 rounded-t-lg bg-emerald-200 p-2 text-center text-xl font-bold text-neutral-900"
-              errorClassName="mt-2 w-11/12 rounded-t-lg bg-emerald-200 p-2 text-center text-xl font-bold text-red-900"
-            >
-              Your answer:
-            </Label>
-            <div className="relative m-0 flex w-full justify-center">
-              <TextAreaField
-                className=" w-11/12 resize-none rounded-b-lg bg-neutral-100 pt-2 pl-2 dark:bg-neutral-800"
-                name="body"
-                rows="8"
-                id="responseBody"
-                validation={{ required: true }}
-                errorClassName=" w-11/12 resize-none rounded-b-lg shadow-error dark:bg-stone-900"
-                onChange={handleKeyPress}
-              />
-              <p className="absolute bottom-0 right-4 rounded-md bg-emerald-200 p-2 opacity-60 dark:text-neutral-900">
-                {500 - state.charCount}
-              </p>
-            </div>
-            <FieldError name="response" className="text-red-900" />
-            <Submit
-              className="m-2 flex items-center justify-center rounded-lg  p-2 shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500"
-              // disabled={loading}
-            >
-              <i className="fa-solid fa-send   hover:text-gray-500"></i>
-            </Submit>
-          </Form>
+              <Label
+                name="response"
+                className="mt-2 w-full rounded-t-lg bg-emerald-200 p-2 text-center text-xl font-bold text-neutral-900"
+                errorClassName="mt-2 w-11/12 rounded-t-lg bg-emerald-200  text-center text-xl font-bold text-red-900"
+              >
+                Your answer:
+              </Label>
+              <div className="relative m-0 flex w-full justify-center">
+                <TextAreaField
+                  className=" w-full resize-none rounded-b-lg pt-2 pl-2 dark:bg-neutral-800"
+                  name="body"
+                  rows="8"
+                  id="responseBody"
+                  validation={{ required: true }}
+                  errorClassName=" w-11/12 resize-none rounded-b-lg shadow-error dark:bg-stone-900"
+                  onChange={handleKeyPress}
+                />
+                <p className="absolute bottom-0 right-4 rounded-md bg-emerald-200 p-2 opacity-60 dark:text-neutral-900">
+                  {500 - state.charCount}
+                </p>
+              </div>
+              <FieldError name="response" className="text-red-900" />
+              <Submit
+                className="m-2 flex items-center justify-center rounded-lg  p-2 shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500"
+                // disabled={loading}
+              >
+                <i className="fa-solid fa-send   hover:text-gray-500"></i>
+              </Submit>
+            </Form>
+          </div>
         </div>
       </div>
-    </div>
+    </CSSTransition>
   )
 }
 
