@@ -7,7 +7,7 @@ import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
 const CREATE_USERSUB_MUTATION = gql`
   mutation CreateUsersubInput($input: CreateUsersubInput!) {
     createUsersub(input: $input) {
-      # id
+      id
       userId
       topicId
     }
@@ -25,6 +25,7 @@ const HomePageTopics = ({ topic, user }) => {
   }
 
   const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
+
 
   const renderCards = (topic) => {
     const cardStore = []
@@ -110,8 +111,10 @@ const HomePageTopics = ({ topic, user }) => {
         </article>
       </div>
       <button
-        // userId to identify user model list and add subscribed topic to subscribedTopic list
-        className="p2 hover:bg-violet100 z-10 m-4  mx-auto flex w-min rounded-lg bg-slate-100 shadow hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+
+        // userId to identify user model list and add subscribed topic to subscriptions list
+        className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
+
         onClick={() => {
           const topicId = topic.id
           const userId = currentUser.id
