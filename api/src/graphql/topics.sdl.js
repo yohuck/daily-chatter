@@ -2,7 +2,7 @@ export const schema = gql`
   type Topic {
     id: Int!
     title: String!
-    subscribedUser: [User]!
+    subscribedUser: [Usersub]!
     userId: Int
     prompts: [Prompt]!
   }
