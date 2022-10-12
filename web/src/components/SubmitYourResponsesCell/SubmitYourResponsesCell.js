@@ -29,17 +29,23 @@ export const Failure = ({ error }) => (
 export const Success = ({ prompts }) => {
   const { currentUser } = useAuth()
 
-  const filterTest = (prompt) => {
-    return prompt.responses.every(
-      (response) => response.userId != currentUser.id
-    )
+  console.log(prompts)
+
+  if (currentUser) {
+    const filterTest = (prompt) => {
+      return prompt.responses.every(
+        (response) => response.userId != currentUser.id
+      )
+    }
+
+    const filteredPrompts = prompts.filter((prompt) => filterTest(prompt))
+
+    return filteredPrompts.map((prompt) => (
+      <div key={prompt.id} className="flex justify-center">
+        <PromptInput prompt={prompt} />
+      </div>
+    ))
+  } else {
+    return <div> please login</div>
   }
-
-  const filteredPrompts = prompts.filter((prompt) => filterTest(prompt))
-
-  return filteredPrompts.map((prompt) => (
-    <div key={prompt.id} className="flex justify-center">
-      <PromptInput prompt={prompt} />
-    </div>
-  ))
 }
