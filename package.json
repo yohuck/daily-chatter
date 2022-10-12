@@ -24,6 +24,7 @@
   },
   "packageManager": "yarn@3.2.3",
   "dependencies": {
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "redwoodjs-stripe": "^0.1.0-rc.1"
   }
 }

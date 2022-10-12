@@ -21,6 +21,7 @@ const Routes = () => {
   const { currentUser } = useAuth()
   return (
     <Router>
+      <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />
       <Private admin="true" unauthenticated="home">
         <Set wrap={UsersubsLayout}>
           <Route path="/admin/usersubs/new" page={UsersubNewUsersubPage} name="newUsersub" />
