@@ -9,6 +9,8 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
+import UsersubsLayout from 'src/layouts/UsersubsLayout'
+
 import MainLayout from 'src/layouts/MainLayout'
 import PromptsLayout from 'src/layouts/PromptsLayout'
 import ResponsesLayout from 'src/layouts/ResponsesLayout'
@@ -18,6 +20,12 @@ import UsersLayout from 'src/layouts/UsersLayout'
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={UsersubsLayout}>
+        <Route path="/usersubs/new" page={UsersubNewUsersubPage} name="newUsersub" />
+        <Route path="/usersubs/{id:Int}/edit" page={UsersubEditUsersubPage} name="editUsersub" />
+        <Route path="/usersubs/{id:Int}" page={UsersubUsersubPage} name="usersub" />
+        <Route path="/usersubs" page={UsersubUsersubsPage} name="usersubs" />
+      </Set>
       <Set wrap={ResponsesLayout}>
         <Route path="/responses/new" page={ResponseNewResponsePage} name="newResponse" />
         <Route path="/responses/{id:Int}/edit" page={ResponseEditResponsePage} name="editResponse" />
