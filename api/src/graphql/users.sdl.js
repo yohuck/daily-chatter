@@ -8,7 +8,7 @@ export const schema = gql`
     resetToken: String
     resetTokenExpiresAt: DateTime
     admin: Boolean!
-    subscribedTopics: [Topic]!
+    subscriptions: [Usersub]!
     responses: [Response]!
   }
 

@@ -4,7 +4,7 @@ import { useMutation } from '@redwoodjs/web'
 import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
 const CREATE_USERSUB_MUTATION = gql`
   mutation CreateUsersubInput($input: CreateUsersubInput!) {
-   createUsersub(input: $input) {
+    createUsersub(input: $input) {
       id
       userId
       topicId
@@ -15,7 +15,6 @@ const CREATE_USERSUB_MUTATION = gql`
 const HomePageTopics = ({ topic, user }) => {
   const { currentUser } = useAuth()
   const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
-
 
   const renderCards = (topic) => {
     const cardStore = []
@@ -86,7 +85,7 @@ const HomePageTopics = ({ topic, user }) => {
         </article>
       </div>
       <button
-        // userId to identify user model list and add subscribed topic to subscribedTopic list
+        // userId to identify user model list and add subscribed topic to subscriptions list
         className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
         onClick={() => {
           const topicId = topic.id

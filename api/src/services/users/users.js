@@ -30,8 +30,8 @@ export const deleteUser = ({ id }) => {
 }
 
 export const User = {
-  subscribedTopics: (_obj, { root }) => {
-    return db.user.findUnique({ where: { id: root?.id } }).subscribedTopics()
+  subscriptions: (_obj, { root }) => {
+    return db.user.findUnique({ where: { id: root?.id } }).subscriptions()
   },
   responses: (_obj, { root }) => {
     return db.user.findUnique({ where: { id: root?.id } }).responses()
