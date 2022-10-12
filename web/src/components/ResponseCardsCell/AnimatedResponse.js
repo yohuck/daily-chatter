@@ -76,7 +76,7 @@ const AnimatedResponse = ({ response }) => {
           classNames="report"
           unmountOnExit
         >
-          <div className="maxy cardwidth relative m-3 flex flex-col justify-between rounded-lg p-8 shadow dark:border-emerald-300 dark:bg-zinc-900">
+          <div className="maxy cardwidth relative m-3 flex flex-col justify-between rounded-lg bg-slate-100 p-8 shadow dark:border-emerald-300 dark:bg-zinc-900">
             <div className="absolute  bottom-0 left-0 m-1 rounded bg-emerald-200 px-2 opacity-75 dark:text-zinc-900">
               {userTotalUpVotes(response)}
             </div>
@@ -161,7 +161,7 @@ const AnimatedResponse = ({ response }) => {
                   setShowMessage(!showMessage)
                   updateResponse({ variables: { id, input } })
                 }}
-                className="rou nded-lg m-2 flex items-center p-2  shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
                 <div className=" flex flex-col">
                   <i className="fa-duotone fa-do-not-enter fa-2x p-1 text-amber-500"></i>

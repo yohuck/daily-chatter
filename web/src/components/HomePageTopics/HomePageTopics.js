@@ -1,3 +1,5 @@
+import { useDebugValue, useEffect, useState } from 'react'
+
 import { useAuth } from '@redwoodjs/auth'
 import { useMutation } from '@redwoodjs/web'
 
@@ -14,7 +16,16 @@ const CREATE_USERSUB_MUTATION = gql`
 
 const HomePageTopics = ({ topic, user }) => {
   const { currentUser } = useAuth()
+  const [subbed, setSubbed] = useState('Subscribe')
+  if (currentUser) {
+    const userIdCheck = currentUser.id
+    useEffect(() => {
+      isSubbed(userIdCheck, topic)
+    }, [])
+  }
+
   const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
+
 
   const renderCards = (topic) => {
     const cardStore = []
@@ -28,6 +39,21 @@ const HomePageTopics = ({ topic, user }) => {
       cardStore.push(card)
     }
     return cardStore
+  }
+
+  const isSubbed = (userId, topic) => {
+    console.log('hello')
+    console.log(userId)
+    console.log(topic.subscribedUser)
+    console.log(
+      topic.subscribedUser.filter((user) => user.userId == userId).length
+    )
+
+    if (
+      topic.subscribedUser.filter((user) => user.userId == userId).length > 0
+    ) {
+      setSubbed('Subscribed')
+    } else return false
   }
 
   const allTopicUpvotes = (topic) => {
@@ -63,7 +89,7 @@ const HomePageTopics = ({ topic, user }) => {
       key={topic.id}
       dataclassname="card  max-w-11/12 relative mb-5 flex flex-col items-center justify-center rounded-lg   lg:m-2 lg:block  xl:w-11/12"
     >
-      <div className="p2 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg shadow">
+      <div className="p2 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg bg-slate-100 shadow dark:bg-neutral-900">
         <p className="text-2xl font-extrabold ">{topic.title}</p>
         <div className="flex w-11/12 justify-between gap-1">
           <i className="fa-duotone fa-user p-1 "></i>{' '}
@@ -85,8 +111,10 @@ const HomePageTopics = ({ topic, user }) => {
         </article>
       </div>
       <button
+
         // userId to identify user model list and add subscribed topic to subscriptions list
         className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
+
         onClick={() => {
           const topicId = topic.id
           const userId = currentUser.id
@@ -95,9 +123,10 @@ const HomePageTopics = ({ topic, user }) => {
             topicId,
           }
           usersub({ variables: { input } })
+          setSubbed('Subscribed')
         }}
       >
-        <p className="font-bold">Subscribe</p>
+        <p className="font-bold ">{subbed}</p>
       </button>
     </div>
   )
