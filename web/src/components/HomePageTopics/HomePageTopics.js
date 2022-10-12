@@ -2,6 +2,7 @@ import { useDebugValue, useEffect, useState } from 'react'
 
 import { useAuth } from '@redwoodjs/auth'
 import { useMutation } from '@redwoodjs/web'
+import { toast, Toaster } from '@redwoodjs/web/toast'
 
 import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse.js'
 const CREATE_USERSUB_MUTATION = gql`
@@ -25,7 +26,6 @@ const HomePageTopics = ({ topic, user }) => {
   }
 
   const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
-
 
   const renderCards = (topic) => {
     const cardStore = []
@@ -110,20 +110,24 @@ const HomePageTopics = ({ topic, user }) => {
           {renderCards(topic)}
         </article>
       </div>
+      <Toaster />
       <button
-
         // userId to identify user model list and add subscribed topic to subscriptions list
         className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
-
         onClick={() => {
-          const topicId = topic.id
-          const userId = currentUser.id
-          const input = {
-            userId,
-            topicId,
+          console.log(currentUser)
+          if (currentUser) {
+            const topicId = topic.id
+            const userId = currentUser.id
+            const input = {
+              userId,
+              topicId,
+            }
+            usersub({ variables: { input } })
+            setSubbed('Subscribed')
+          } else {
+            toast('You need to be logged in to subscribe.')
           }
-          usersub({ variables: { input } })
-          setSubbed('Subscribed')
         }}
       >
         <p className="font-bold ">{subbed}</p>
