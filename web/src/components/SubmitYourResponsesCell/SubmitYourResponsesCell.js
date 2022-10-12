@@ -1,3 +1,5 @@
+import { useAuth } from '@redwoodjs/auth'
+
 import PromptInput from '../PromptInput/PromptInput'
 
 export const QUERY = gql`
@@ -8,6 +10,10 @@ export const QUERY = gql`
       body
       topicId
       date
+      responses {
+        id
+        userId
+      }
     }
   }
 `
@@ -21,8 +27,20 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ prompts }) => {
+  const { currentUser } = useAuth()
+
   console.log(prompts)
-  return prompts.map((prompt) => (
+
+  const filterTest = (prompt) => {
+    return prompt.responses.every(
+      (response) => response.userId != currentUser.id
+    )
+  }
+
+  const filteredPrompts = prompts.filter((prompt) => filterTest(prompt))
+
+
+  return filteredPrompts.map((prompt) => (
     <div key={prompt.id} className="flex justify-center">
       <PromptInput prompt={prompt} />
     </div>

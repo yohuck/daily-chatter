@@ -48,7 +48,7 @@ const LoginPage = () => {
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
         <div className="">
           <div className="mt-10">
-            <header className="rounded-t-lg shadow bg-emerald-500">
+            <header className="rounded-t-lg bg-emerald-500 shadow">
               <h2 className=" p-2 font-bold dark:bg-emerald-500 dark:text-black">
                 Login
               </h2>
@@ -111,7 +111,9 @@ const LoginPage = () => {
                   <FieldError name="password" className="rw-field-error" />
 
                   <div className="rw-button-group">
-                    <Submit className=" m-2 flex  items-center rounded-lg bg-white p-2 shadow hover:bg-emerald-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">Login</Submit>
+                    <Submit className=" m-2 flex  items-center rounded-lg bg-white p-2 shadow hover:bg-emerald-100 dark:border-emerald-400  dark:bg-neutral-900 dark:hover:bg-neutral-800">
+                      Login
+                    </Submit>
                   </div>
                 </Form>
               </div>
