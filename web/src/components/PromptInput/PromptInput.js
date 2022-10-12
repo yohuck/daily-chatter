@@ -9,16 +9,6 @@ import {
 } from '@redwoodjs/forms'
 import { MetaTags, useMutation } from '@redwoodjs/web'
 
-// export const QUERY = gql`
-//   query CreateResponse($id: Int!, $promptId: Int!, $body: String!) {
-//     response: response(id: $id, promptId: $promptId, body: $body) {
-//       id
-//       promptId
-//       userId
-//       body
-//     }
-//   }
-// `
 const CREATE_RESPONSE_MUTATION = gql`
   mutation CreateResponseMutationtwo($input: CreateResponseInput!) {
     createResponse(input: $input) {
