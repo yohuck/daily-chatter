@@ -168,21 +168,23 @@ const MainLayout = ({ children }) => {
         >
           {children}
           <footer>
-            <div className="flex items-center space-x-2.5">
+            <div className="flex items-center space-x-2.5" target="_blank">
               <a href="https://github.com/yohuck/daily-chatter">
                 <i
                   href="https://github.com/yohuck/daily-chatter"
-                  target="_blank"
                   className="fa-brands fa-github fa-1.5x"
                   rel="noreferrer"
                 >
                   Main Repo For
                 </i>
               </a>
-              <a href="https://github.com/yohuck">
+              <a
+                href="https://github.com/yohuck"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i
                   href="https://github.com/yohuck"
-                  target="_blank"
                   className="fa-brands fa-github fa-1.5x"
                   rel="noreferrer"
                 >
@@ -190,10 +192,13 @@ const MainLayout = ({ children }) => {
                   Erics
                 </i>
               </a>
-              <a href="https://github.com/jgood13">
+              <a
+                href="https://github.com/jgood13"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i
                   href="https://github.com/jgood13"
-                  target="_blank"
                   className="fa-brands fa-github fa-1.5x"
                   rel="noreferrer"
                 >
@@ -201,10 +206,13 @@ const MainLayout = ({ children }) => {
                   Joes
                 </i>
               </a>
-              <a href="https://github.com/itsmejustino">
+              <a
+                href="https://github.com/itsmejustino"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i
                   href="https://github.com/itsmejustino"
-                  target="_blank"
                   className="fa-brands fa-github fa-1.5x"
                   rel="noreferrer"
                 >
@@ -212,10 +220,13 @@ const MainLayout = ({ children }) => {
                   Justins
                 </i>
               </a>
-              <a href="https://github.com/MichaelFisher-01/">
+              <a
+                href="https://github.com/MichaelFisher-01/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i
                   href="https://github.com/MichaelFisher-01/"
-                  target="_blank"
                   className="fa-brands fa-github fa-1.5x"
                   rel="noreferrer"
                 >
@@ -223,10 +234,13 @@ const MainLayout = ({ children }) => {
                   Michaels
                 </i>
               </a>
-              <a href="https://github.com/Jaajarbinks">
+              <a
+                href="https://github.com/Jaajarbinks"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i
                   href="https://github.com/Jaajarbinks"
-                  target="_blank"
                   className="fa-brands fa-github fa-1.5x"
                   rel="noreferrer"
                 >
