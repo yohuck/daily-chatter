@@ -51,7 +51,7 @@ const HomePageTopics = ({ topic }) => {
       <div className="p2 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg shadow">
         <p className="text-2xl font-extrabold ">{topic.title}</p>
         <div className="flex w-11/12 justify-between gap-1">
-          <i className="fa-duotone fa-user p-1 "></i>{' '}
+          <i className="fa-duotone fa-user p-1 "></i>
           {topic.subsrcibedUser || 0}
         </div>
         <div className="flex w-11/12 justify-between gap-1">
@@ -59,7 +59,7 @@ const HomePageTopics = ({ topic }) => {
         </div>
       </div>
       <h1 className="m-x-auto mb-3 mt-5 p-2 text-center text-3xl  font-bold">
-        {topic.prompts[0].title}{' '}
+        {topic.prompts[0].title}
       </h1>
       <p className="m-x-auto text-2x1 text-1x1 mb-3 mt-5 p-2 text-center font-bold">
         {topic.prompts[0].body}
