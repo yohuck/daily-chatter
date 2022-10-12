@@ -2,7 +2,9 @@ import { useState } from 'react'
 
 import { CSSTransition } from 'react-transition-group'
 
+import { useAuth } from '@redwoodjs/auth'
 import { useMutation } from '@redwoodjs/web'
+import { toast, Toaster } from '@redwoodjs/web/toast'
 
 const UPDATE_VOTE_MUTATION = gql`
   mutation UpdateResponseMutationtwo($id: Int!, $input: UpdateResponseInput!) {
@@ -17,6 +19,7 @@ const UPDATE_VOTE_MUTATION = gql`
 `
 
 const AnimatedResponse = ({ response }) => {
+  const { currentUser } = useAuth()
   const [showMessage, setShowMessage] = useState(true)
   const [showTrashMessage, setShowTrashMessage] = useState(true)
   const [showReportMessage, setShowReportMessage] = useState(true)
@@ -77,6 +80,7 @@ const AnimatedResponse = ({ response }) => {
           unmountOnExit
         >
           <div className="maxy cardwidth relative m-3 flex flex-col justify-between rounded-lg bg-slate-100 p-8 shadow dark:border-emerald-300 dark:bg-zinc-900">
+            <Toaster />
             <div className="absolute  bottom-0 left-0 m-1 rounded bg-emerald-200 px-2 opacity-75 dark:text-zinc-900">
               {userTotalUpVotes(response)}
             </div>
@@ -99,13 +103,17 @@ const AnimatedResponse = ({ response }) => {
             <div className=" mt-3 flex w-full justify-center">
               <button
                 onClick={() => {
-                  const id = response.id
-                  let downvote = response.downvotes + 1
-                  const input = {
-                    downvotes: downvote,
+                  if (currentUser) {
+                    const id = response.id
+                    let downvote = response.downvotes + 1
+                    const input = {
+                      downvotes: downvote,
+                    }
+                    updateResponse({ variables: { id, input } })
+                    setShowTrashMessage(!showMessage)
+                  } else {
+                    toast('You need to be logged in to vote.')
                   }
-                  updateResponse({ variables: { id, input } })
-                  setShowTrashMessage(!showMessage)
                 }}
                 className="m-2 flex items-center rounded-lg p-2 shadow transition-shadow hover:bg-gray-100 hover:ring hover:ring-gray-500 focus:bg-gray-100 focus:ring focus:ring-gray-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
@@ -115,13 +123,17 @@ const AnimatedResponse = ({ response }) => {
               </button>
               <button
                 onClick={() => {
-                  const id = response.id
-                  let upvote = response.upvotes + 1
-                  const input = {
-                    upvotes: upvote,
+                  if (currentUser) {
+                    const id = response.id
+                    let upvote = response.upvotes + 1
+                    const input = {
+                      upvotes: upvote,
+                    }
+                    setShowMessage(!showMessage)
+                    updateResponse({ variables: { id, input } })
+                  } else {
+                    toast('You need to be logged in to vote.')
                   }
-                  setShowMessage(!showMessage)
-                  updateResponse({ variables: { id, input } })
                 }}
                 className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-indigo-100 hover:ring hover:ring-indigo-500 focus:bg-indigo-100 focus:ring focus:ring-indigo-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
@@ -133,14 +145,18 @@ const AnimatedResponse = ({ response }) => {
               <button
                 // data-id={response.id}
                 onClick={() => {
-                  const id = response.id
-                  let superUpVote = response.supervote + 1
-                  console.log(response.supervote)
-                  const input = {
-                    supervote: superUpVote,
+                  if (currentUser) {
+                    const id = response.id
+                    let superUpVote = response.supervote + 1
+                    console.log(response.supervote)
+                    const input = {
+                      supervote: superUpVote,
+                    }
+                    setShowMessage(!showMessage)
+                    updateResponse({ variables: { id, input } })
+                  } else {
+                    toast('You need to be logged in to vote.')
                   }
-                  setShowMessage(!showMessage)
-                  updateResponse({ variables: { id, input } })
                 }}
                 className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-green-100 hover:ring hover:ring-green-500 focus:bg-green-100 focus:ring focus:ring-green-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
@@ -151,15 +167,19 @@ const AnimatedResponse = ({ response }) => {
               <button
                 // data-id={response.id}
                 onClick={() => {
-                  const id = response.id
-                  console.log(response)
-                  let reported = response.reports + 1
-                  const input = {
-                    reports: reported,
+                  if (currentUser) {
+                    const id = response.id
+                    console.log(response)
+                    let reported = response.reports + 1
+                    const input = {
+                      reports: reported,
+                    }
+                    setShowReportMessage(!showReportMessage)
+                    setShowMessage(!showMessage)
+                    updateResponse({ variables: { id, input } })
+                  } else {
+                    toast('You need to be logged in to vote.')
                   }
-                  setShowReportMessage(!showReportMessage)
-                  setShowMessage(!showMessage)
-                  updateResponse({ variables: { id, input } })
                 }}
                 className="m-2 flex items-center rounded-lg p-2  shadow transition-shadow hover:bg-amber-100 hover:ring hover:ring-amber-500 focus:bg-amber-100 focus:ring focus:ring-amber-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               >
