@@ -62,14 +62,14 @@ const SignupPage = () => {
                 <Form onSubmit={onSubmit} className="flex max-w-md flex-col ">
                   <Label
                     name="email"
-                    className="rw-label"
+                    className=""
                     errorClassName="rw-label rw-label-error"
                   >
                     Email
                   </Label>
                   <TextField
                     name="email"
-                    className="rw-input"
+                    className=""
                     errorClassName="rw-input rw-input-error"
                     validation={{
                       required: {

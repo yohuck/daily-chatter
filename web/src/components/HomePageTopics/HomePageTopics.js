@@ -26,7 +26,6 @@ const HomePageTopics = ({ topic, user }) => {
 
   const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
 
-
   const renderCards = (topic) => {
     const cardStore = []
     for (let i = 0; i < topic.prompts[0].responses.length && i < 3; i++) {
@@ -111,10 +110,8 @@ const HomePageTopics = ({ topic, user }) => {
         </article>
       </div>
       <button
-
         // userId to identify user model list and add subscribed topic to subscriptions list
-        className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
-
+        className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg bg-slate-100 shadow dark:bg-neutral-900"
         onClick={() => {
           const topicId = topic.id
           const userId = currentUser.id
