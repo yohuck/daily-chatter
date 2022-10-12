@@ -18,19 +18,16 @@ model User {
   resetToken          String?
   resetTokenExpiresAt DateTime?
   admin               Boolean
-  subscribedTopics    Topic[]
+  subscriptions       subscriptions[]
   responses           Response[]
 }
 //Topics are categories
 model Topic {
   id             Int      @id @default(autoincrement())
   title          String
-  userSubscribed Boolean  @default(false)
-  subscribedUser User?    @relation(fields: [userId], references: [id])
-  userId         Int?
+  subscribedUser subscriptions[]
   prompts        Prompt[]
 
-  @@unique([userId])
 }
 
 // Post is within categories
@@ -59,6 +56,14 @@ model Response {
   userId        Int
   prompt        Prompt  @relation(fields: [promptId], references: [id])
   promptId      Int
+}
+
+model subscriptions {
+  id          Int @id @default(autoincrement())
+  user        User @relation(fields:[userId], references: [id])
+  userId      Int
+  topic       Topic @relation(fields:[topicId], references: [id])
+  topicId     Int
 }
 
 model Message {
