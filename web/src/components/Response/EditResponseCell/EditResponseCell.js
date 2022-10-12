@@ -56,7 +56,6 @@ export const Success = ({ response }) => {
   )
 
   const onSave = (input, id) => {
-    console.log(input)
     updateResponse({ variables: { id, input } })
   }
 

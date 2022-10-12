@@ -135,7 +135,6 @@ const AnimatedResponse = ({ response }) => {
                 onClick={() => {
                   const id = response.id
                   let superUpVote = response.supervote + 1
-                  console.log(response.supervote)
                   const input = {
                     supervote: superUpVote,
                   }
@@ -152,7 +151,6 @@ const AnimatedResponse = ({ response }) => {
                 // data-id={response.id}
                 onClick={() => {
                   const id = response.id
-                  console.log(response)
                   let reported = response.reports + 1
                   const input = {
                     reports: reported,

@@ -23,7 +23,5 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ singleTopic }) => {
-  console.log('Single Topic Console Log')
-  console.log(singleTopic)
   return <SingleTopic topic={singleTopic} />
 }
