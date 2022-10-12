@@ -1,4 +1,4 @@
-import { useDebugValue } from 'react'
+import { useDebugValue, useEffect, useState } from 'react'
 
 import { useAuth } from '@redwoodjs/auth'
 import { useMutation } from '@redwoodjs/web'
@@ -16,6 +16,12 @@ const CREATE_USERSUB_MUTATION = gql`
 
 const HomePageTopics = ({ topic, user }) => {
   const { currentUser } = useAuth()
+  const [subbed, setSubbed] = useState('Subscribe')
+  const userIdCheck = currentUser.id
+  useEffect(() => {
+    isSubbed(userIdCheck, topic)
+  }, [])
+
   const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
 
   const renderCards = (topic) => {
@@ -36,10 +42,14 @@ const HomePageTopics = ({ topic, user }) => {
     console.log('hello')
     console.log(userId)
     console.log(topic.subscribedUser)
-    console.log(topic.subscribedUser.filter((user) => user.id == userId).length)
+    console.log(
+      topic.subscribedUser.filter((user) => user.userId == userId).length
+    )
 
-    if (topic.subscribedUser.filter((user) => user.id == userId).length > 0) {
-      return true
+    if (
+      topic.subscribedUser.filter((user) => user.userId == userId).length > 0
+    ) {
+      setSubbed('Subscribed')
     } else return false
   }
 
@@ -108,11 +118,10 @@ const HomePageTopics = ({ topic, user }) => {
             topicId,
           }
           usersub({ variables: { input } })
+          setSubbed('Subscribed')
         }}
       >
-        <p className="font-bold ">
-          {isSubbed(currentUser.id, topic) ? 'Subscribed' : 'Subscribe'}
-        </p>
+        <p className="font-bold ">{subbed}</p>
       </button>
     </div>
   )

@@ -6,6 +6,7 @@ export const QUERY = gql`
       id
       title
       subscribedUser {
+        userId
         id
         topicId
       }
