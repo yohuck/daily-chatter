@@ -41,7 +41,7 @@ export const Success = ({ prompts }) => {
     const filteredPrompts = prompts.filter((prompt) => filterTest(prompt))
 
     return filteredPrompts.map((prompt) => (
-      <div key={prompt.id} className="flex justify-center">
+      <div key={prompt.id} className="flex justify-center relative">
         <PromptInput prompt={prompt} />
       </div>
     ))
