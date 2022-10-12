@@ -4,9 +4,9 @@ import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-const DELETE_TOPIC_MUTATION = gql`
-  mutation DeleteTopicMutation($id: Int!) {
-    deleteTopic(id: $id) {
+const DELETE_USERSUB_MUTATION = gql`
+  mutation DeleteUsersubMutation($id: Int!) {
+    deleteUsersub(id: $id) {
       id
     }
   }
@@ -45,11 +45,11 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const Topic = ({ topic }) => {
-  const [deleteTopic] = useMutation(DELETE_TOPIC_MUTATION, {
+const Usersub = ({ usersub }) => {
+  const [deleteUsersub] = useMutation(DELETE_USERSUB_MUTATION, {
     onCompleted: () => {
-      toast.success('Topic deleted')
-      navigate(routes.topics())
+      toast.success('Usersub deleted')
+      navigate(routes.usersubs())
     },
     onError: (error) => {
       toast.error(error.message)
@@ -57,8 +57,8 @@ const Topic = ({ topic }) => {
   })
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete topic ' + id + '?')) {
-      deleteTopic({ variables: { id } })
+    if (confirm('Are you sure you want to delete usersub ' + id + '?')) {
+      deleteUsersub({ variables: { id } })
     }
   }
 
@@ -67,33 +67,29 @@ const Topic = ({ topic }) => {
       <div className="rw-segment">
         <header className="rw-segment-header">
           <h2 className="rw-heading rw-heading-secondary">
-            Topic {topic.id} Detail
+            Usersub {usersub.id} Detail
           </h2>
         </header>
         <table className="rw-table">
           <tbody>
             <tr>
               <th>Id</th>
-              <td>{topic.id}</td>
-            </tr>
-            <tr>
-              <th>Title</th>
-              <td>{topic.title}</td>
-            </tr>
-            <tr>
-              <th>User subscribed</th>
-              <td>{checkboxInputTag(topic.subscribedUser.id)}</td>
+              <td>{usersub.id}</td>
             </tr>
             <tr>
               <th>User id</th>
-              <td>{topic.userId}</td>
+              <td>{usersub.userId}</td>
+            </tr>
+            <tr>
+              <th>Topic id</th>
+              <td>{usersub.topicId}</td>
             </tr>
           </tbody>
         </table>
       </div>
       <nav className="rw-button-group">
         <Link
-          to={routes.editTopic({ id: topic.id })}
+          to={routes.editUsersub({ id: usersub.id })}
           className="rw-button rw-button-blue"
         >
           Edit
@@ -101,7 +97,7 @@ const Topic = ({ topic }) => {
         <button
           type="button"
           className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(topic.id)}
+          onClick={() => onDeleteClick(usersub.id)}
         >
           Delete
         </button>
@@ -110,4 +106,4 @@ const Topic = ({ topic }) => {
   )
 }
 
-export default Topic
+export default Usersub

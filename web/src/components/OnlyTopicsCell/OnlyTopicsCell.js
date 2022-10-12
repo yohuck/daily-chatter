@@ -5,10 +5,6 @@ export const QUERY = gql`
     onlyTopics: topics {
       id
       title
-      subscribedUser {
-        id
-        username
-      }
       prompts {
         id
         title

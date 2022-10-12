@@ -4,11 +4,11 @@ import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import { QUERY } from 'src/components/Topic/TopicsCell'
+import { QUERY } from 'src/components/Usersub/UsersubsCell'
 
-const DELETE_TOPIC_MUTATION = gql`
-  mutation DeleteTopicMutation($id: Int!) {
-    deleteTopic(id: $id) {
+const DELETE_USERSUB_MUTATION = gql`
+  mutation DeleteUsersubMutation($id: Int!) {
+    deleteUsersub(id: $id) {
       id
     }
   }
@@ -53,10 +53,10 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const TopicsList = ({ topics }) => {
-  const [deleteTopic] = useMutation(DELETE_TOPIC_MUTATION, {
+const UsersubsList = ({ usersubs }) => {
+  const [deleteUsersub] = useMutation(DELETE_USERSUB_MUTATION, {
     onCompleted: () => {
-      toast.success('Topic deleted')
+      toast.success('Usersub deleted')
     },
     onError: (error) => {
       toast.error(error.message)
@@ -69,8 +69,8 @@ const TopicsList = ({ topics }) => {
   })
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete topic ' + id + '?')) {
-      deleteTopic({ variables: { id } })
+    if (confirm('Are you sure you want to delete usersub ' + id + '?')) {
+      deleteUsersub({ variables: { id } })
     }
   }
 
@@ -80,40 +80,38 @@ const TopicsList = ({ topics }) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Title</th>
-            <th>User subscribed</th>
             <th>User id</th>
+            <th>Topic id</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
-          {topics.map((topic) => (
-            <tr key={topic.id}>
-              <td>{truncate(topic.id)}</td>
-              <td>{truncate(topic.title)}</td>
-              <td>{checkboxInputTag(topic.subscribedUser)}</td>
-              <td>{truncate(topic.userId)}</td>
+          {usersubs.map((usersub) => (
+            <tr key={usersub.id}>
+              <td>{truncate(usersub.id)}</td>
+              <td>{truncate(usersub.userId)}</td>
+              <td>{truncate(usersub.topicId)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
-                    to={routes.topic({ id: topic.id })}
-                    title={'Show topic ' + topic.id + ' detail'}
+                    to={routes.usersub({ id: usersub.id })}
+                    title={'Show usersub ' + usersub.id + ' detail'}
                     className="rw-button rw-button-small"
                   >
                     Show
                   </Link>
                   <Link
-                    to={routes.editTopic({ id: topic.id })}
-                    title={'Edit topic ' + topic.id}
+                    to={routes.editUsersub({ id: usersub.id })}
+                    title={'Edit usersub ' + usersub.id}
                     className="rw-button rw-button-small rw-button-blue"
                   >
                     Edit
                   </Link>
                   <button
                     type="button"
-                    title={'Delete topic ' + topic.id}
+                    title={'Delete usersub ' + usersub.id}
                     className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(topic.id)}
+                    onClick={() => onDeleteClick(usersub.id)}
                   >
                     Delete
                   </button>
@@ -127,4 +125,4 @@ const TopicsList = ({ topics }) => {
   )
 }
 
-export default TopicsList
+export default UsersubsList

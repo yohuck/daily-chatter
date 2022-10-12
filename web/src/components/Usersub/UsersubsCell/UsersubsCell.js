@@ -1,16 +1,13 @@
 import { Link, routes } from '@redwoodjs/router'
 
-import Topics from 'src/components/Topic/Topics'
+import Usersubs from 'src/components/Usersub/Usersubs'
 
 export const QUERY = gql`
-  query FindTopics {
-    topics {
+  query FindUsersubs {
+    usersubs {
       id
-      title
-      subscribedUser {
-        id
-      }
       userId
+      topicId
     }
   }
 `
@@ -20,8 +17,8 @@ export const Loading = () => <div>Loading...</div>
 export const Empty = () => {
   return (
     <div className="rw-text-center">
-      {'No topics yet. '}
-      <Link to={routes.newTopic()} className="rw-link">
+      {'No usersubs yet. '}
+      <Link to={routes.newUsersub()} className="rw-link">
         {'Create one?'}
       </Link>
     </div>
@@ -32,6 +29,6 @@ export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error?.message}</div>
 )
 
-export const Success = ({ topics }) => {
-  return <Topics topics={topics} />
+export const Success = ({ usersubs }) => {
+  return <Usersubs usersubs={usersubs} />
 }
