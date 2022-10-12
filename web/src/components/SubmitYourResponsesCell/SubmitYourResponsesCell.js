@@ -29,8 +29,6 @@ export const Failure = ({ error }) => (
 export const Success = ({ prompts }) => {
   const { currentUser } = useAuth()
 
-  console.log(prompts)
-
   const filterTest = (prompt) => {
     return prompt.responses.every(
       (response) => response.userId != currentUser.id
@@ -38,7 +36,6 @@ export const Success = ({ prompts }) => {
   }
 
   const filteredPrompts = prompts.filter((prompt) => filterTest(prompt))
-
 
   return filteredPrompts.map((prompt) => (
     <div key={prompt.id} className="flex justify-center">

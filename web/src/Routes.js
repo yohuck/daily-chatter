@@ -9,13 +9,12 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
-import UsersubsLayout from 'src/layouts/UsersubsLayout'
-
 import MainLayout from 'src/layouts/MainLayout'
 import PromptsLayout from 'src/layouts/PromptsLayout'
 import ResponsesLayout from 'src/layouts/ResponsesLayout'
 import TopicsLayout from 'src/layouts/TopicsLayout'
 import UsersLayout from 'src/layouts/UsersLayout'
+import UsersubsLayout from 'src/layouts/UsersubsLayout'
 
 const Routes = () => {
   return (
@@ -57,6 +56,7 @@ const Routes = () => {
         <Route path="/choose-topic" page={ChooseTopicPage} name="chooseTopic" />
         <Route path="/choose-prompt/{id:Int}" page={ChoosePromptPage} name="choosePrompt" />
         <Route path="/responses-to-prompt/{id:Int}" page={ResponsesToPromptPage} name="responsesToPrompt" />
+        <Route path="/direct-prompt-response/{id:Int}" page={DirectPromptResponsePage} name="directPromptResponse" />
         <Route path="/submit-response" page={SubmitResponsePage} name="submitResponse" />
         <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />

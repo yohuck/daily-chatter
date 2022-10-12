@@ -26,6 +26,5 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ onlyTopics }) => {
-  console.log(onlyTopics)
   return onlyTopics.map((topic) => <AllTopics key={topic.id} topic={topic} />)
 }
