@@ -1,11 +1,11 @@
 import SinglePrompt from 'src/components/SinglePrompt'
-
 export const QUERY = gql`
   query FindResponsesUnderPromptQuery($id: Int!) {
     responsesUnderPrompt: prompt(id: $id) {
       id
       title
       body
+      topicId
       responses {
         id
         body
@@ -17,6 +17,9 @@ export const QUERY = gql`
         User {
           id
           username
+          subscriptions {
+            userId
+          }
           responses {
             id
             upvotes
@@ -28,15 +31,11 @@ export const QUERY = gql`
     }
   }
 `
-
 export const Loading = () => <div>Loading...</div>
-
 export const Empty = () => <div>Empty</div>
-
 export const Failure = ({ error }) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
-
 export const Success = ({ responsesUnderPrompt }) => {
   return (
     <SinglePrompt key={responsesUnderPrompt.id} prompt={responsesUnderPrompt} />

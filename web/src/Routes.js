@@ -18,7 +18,6 @@ import UsersLayout from 'src/layouts/UsersLayout'
 import UsersubsLayout from 'src/layouts/UsersubsLayout'
 
 const Routes = () => {
-  const { currentUser } = useAuth()
   return (
     <Router>
       <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />
