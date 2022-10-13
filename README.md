@@ -25,7 +25,7 @@ Talking Cents is a social platform to give your opinion on potentially controver
 
 ## Gif of Deployed Page
 
-![Screencapture of page](./web/public/ "Page GIF")
+![Screencapture of page](.web/public/img/screenshot.gif "Page GIF")
 
 ## Link(s) to Deployed Application
 
