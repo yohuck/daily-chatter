@@ -3,7 +3,6 @@ import { useDebugValue, useEffect, useState } from 'react'
 import { useAuth } from '@redwoodjs/auth'
 import { routes, Link } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
-import { toast, Toaster } from '@redwoodjs/web/toast'
 
 import AnimatedCard from 'src/components/ResponseCardsCell/AnimatedResponse'
 const CREATE_USERSUB_MUTATION = gql`
@@ -68,18 +67,14 @@ const SinglePrompt = ({ prompt, user }) => {
           // userId to identify user model list and add subscribed topic to subscriptions list
           className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
           onClick={() => {
-            if (currentUser) {
-              const topicId = prompt.topicId
-              const userId = currentUser.id
-              const input = {
-                userId,
-                topicId,
-              }
-              usersub({ variables: { input } })
-              setSubbed('Subscribed')
-            } else {
-              toast('You need to be logged in to subscribe.')
+            const topicId = prompt.topicId
+            const userId = currentUser.id
+            const input = {
+              userId,
+              topicId,
             }
+            usersub({ variables: { input } })
+            setSubbed('Subscribed')
           }}
         >
           <p className="font-bold ">{subbed}</p>
