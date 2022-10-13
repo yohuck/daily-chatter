@@ -18,9 +18,9 @@ import UsersLayout from 'src/layouts/UsersLayout'
 import UsersubsLayout from 'src/layouts/UsersubsLayout'
 
 const Routes = () => {
-  const { currentUser } = useAuth()
   return (
     <Router>
+
       <Private admin="true" unauthenticated="home">
         <Set wrap={UsersubsLayout}>
           <Route path="/admin/usersubs/new" page={UsersubNewUsersubPage} name="newUsersub" />
@@ -69,6 +69,7 @@ const Routes = () => {
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
         <Route path="/settings" page={SettingsPage} name="settings" />
+        <Route path="/stripe-demo" page={StripeDemoPage} name="stripeDemo" />
       </Set>
     </Router>
   )
