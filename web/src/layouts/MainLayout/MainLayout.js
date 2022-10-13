@@ -167,90 +167,99 @@ const MainLayout = ({ children }) => {
           }
         >
           {children}
-          <footer>
-            <div className="flex items-center space-x-2.5" target="_blank">
-              <a href="https://github.com/yohuck/daily-chatter">
-                <i
-                  href="https://github.com/yohuck/daily-chatter"
-                  className="fa-brands fa-github fa-1.5x"
-                  rel="noreferrer"
-                >
-                  Main Repo For
-                </i>
-              </a>
-              <a
-                href="https://github.com/yohuck"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i
-                  href="https://github.com/yohuck"
-                  className="fa-brands fa-github fa-1.5x"
-                  rel="noreferrer"
-                >
-                  {'  '}
-                  Erics
-                </i>
-              </a>
-              <a
-                href="https://github.com/jgood13"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i
-                  href="https://github.com/jgood13"
-                  className="fa-brands fa-github fa-1.5x"
-                  rel="noreferrer"
-                >
-                  {' '}
-                  Joes
-                </i>
-              </a>
-              <a
-                href="https://github.com/itsmejustino"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i
-                  href="https://github.com/itsmejustino"
-                  className="fa-brands fa-github fa-1.5x"
-                  rel="noreferrer"
-                >
-                  {'   '}
-                  Justins
-                </i>
-              </a>
-              <a
-                href="https://github.com/MichaelFisher-01/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i
-                  href="https://github.com/MichaelFisher-01/"
-                  className="fa-brands fa-github fa-1.5x"
-                  rel="noreferrer"
-                >
-                  {'   '}
-                  Michaels
-                </i>
-              </a>
-              <a
-                href="https://github.com/Jaajarbinks"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i
-                  href="https://github.com/Jaajarbinks"
-                  className="fa-brands fa-github fa-1.5x"
-                  rel="noreferrer"
-                >
-                  {'  '}
-                  Davids
-                </i>
-              </a>
-            </div>
-          </footer>
         </main>
+        <footer className="space-between flex w-screen">
+          <div
+            className="flex w-screen flex-wrap items-center justify-center gap-5 bg-emerald-500 p-5 dark:bg-neutral-900 dark:hover:text-neutral-400"
+            target="_blank"
+          >
+            <a
+              href="https://github.com/yohuck/daily-chatter"
+              className="flex items-center gap-1 hover:text-emerald-800 dark:text-emerald-500"
+            >
+              <i
+                href="https://github.com/yohuck/daily-chatter"
+                className="fa-brands fa-github fa-1.5x"
+                rel="noreferrer"
+              ></i>
+              Project Repo
+            </a>
+            <p>|</p>
+            <a
+              href="https://github.com/yohuck"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 hover:text-emerald-800 dark:text-emerald-500 dark:hover:text-neutral-400"
+            >
+              <i
+                href="https://github.com/yohuck"
+                className="fa-brands fa-github fa-1.5x "
+                rel="noreferrer"
+              ></i>
+              <p>Eric</p>
+            </a>{' '}
+            |
+            <a
+              href="https://github.com/jgood13"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 hover:text-emerald-800 dark:text-emerald-500 dark:hover:text-neutral-400"
+            >
+              <i
+                href="https://github.com/jgood13"
+                className="fa-brands fa-github fa-1.5x"
+                rel="noreferrer"
+              >
+                {' '}
+              </i>
+              <p> Joe</p>
+            </a>
+            |
+            <a
+              href="https://github.com/itsmejustino"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 hover:text-emerald-800 dark:text-emerald-500 dark:hover:text-neutral-400"
+            >
+              <i
+                href="https://github.com/itsmejustino"
+                className="fa-brands fa-github fa-1.5x"
+                rel="noreferrer"
+              >
+                {'   '}
+              </i>
+              <p> Justin</p>
+            </a>
+            |
+            <a
+              href="https://github.com/MichaelFisher-01/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 hover:text-emerald-800 dark:text-emerald-500 dark:hover:text-neutral-400"
+            >
+              <i
+                href="https://github.com/MichaelFisher-01/"
+                className="fa-brands fa-github fa-1.5x"
+                rel="noreferrer"
+              ></i>
+              <p>Michael</p>
+            </a>{' '}
+            |
+            <a
+              href="https://github.com/Jaajarbinks"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 hover:text-emerald-800 dark:text-emerald-500 dark:hover:text-neutral-400"
+            >
+              <i
+                href="https://github.com/Jaajarbinks"
+                className="fa-brands fa-github fa-1.5x"
+                rel="noreferrer"
+              ></i>
+              <p>David</p>
+            </a>
+          </div>
+        </footer>
       </div>
     </div>
   )
