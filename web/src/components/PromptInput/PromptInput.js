@@ -28,6 +28,7 @@ const PromptInput = ({ prompt }) => {
   const [showMessage, setShowMessage] = useState(true)
 
   const { currentUser } = useAuth()
+
   const [createResponse] = useMutation(CREATE_RESPONSE_MUTATION, {
     onComplted: () => {
       console.log('response created')
