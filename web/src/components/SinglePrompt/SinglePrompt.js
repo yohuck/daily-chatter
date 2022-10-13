@@ -58,7 +58,7 @@ const SinglePrompt = ({ prompt, user }) => {
       DataclassName="card  max-w-11/12 relative mb-5 flex flex-col items-center justify-center rounded-lg   lg:m-2 lg:block  xl:w-11/12"
     >
       <h1 className="m-x-auto mb-3 mt-5 p-2 text-center text-3xl  font-bold">
-        {prompt.title}{' '}
+        {prompt.title}
       </h1>
       <p className="m-x-auto text-2x1 text-1x1 mb-3 mt-5 p-2 text-center font-bold">
         {prompt.body}
