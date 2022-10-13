@@ -8,7 +8,7 @@ const promptCards = (prompts) => {
 
 const SingleTopic = (topic) => {
   return (
-    <li>
+    <div>
       <div
         key={topic.id}
         DataclassName="card  max-w-11/12 relative mb-5 flex flex-col items-center justify-center rounded-lg   lg:m-2 lg:block  xl:w-11/12"
@@ -20,7 +20,7 @@ const SingleTopic = (topic) => {
         </div>
       </div>
       {promptCards(topic.topic.prompts)}
-    </li>
+    </div>
   )
 }
 
