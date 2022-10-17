@@ -40,7 +40,7 @@ const AllTopics = ({ topic }) => {
         </Link>
         <div className="flex w-11/12 justify-between gap-1">
           <i className="fa-duotone fa-user p-1 "></i>{' '}
-          {topic.subsrcibedUser || 0}
+          {topic.subsrcibedUsers || 0}
         </div>
         <div className="flex w-11/12 justify-between gap-1">
           <i className="fa-duotone fa-coin p-1"></i> {allTopicUpvotes(topic)}
