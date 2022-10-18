@@ -29,6 +29,8 @@ const AllTopics = ({ topic }) => {
     }
   }
 
+  console.log(topic)
+
   return (
     <div
       key={topic.id}
