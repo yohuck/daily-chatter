@@ -150,7 +150,7 @@ const MainLayout = ({ children }) => {
         </header>
         <main
           className={
-            'min-h-screen  p-5 dark:bg-neutral-900 dark:text-emerald-400'
+            'util-max  min-h-screen p-5 dark:bg-neutral-900 dark:text-emerald-400'
           }
         >
           {children}
