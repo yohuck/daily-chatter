@@ -68,6 +68,16 @@ export const Success = ({ prompts }) => {
       </div>
     )
   } else {
-    return <div> please login</div>
+    return (
+      <div>
+        <p>
+          You need to be{' '}
+          <Link to={routes.login()} className="text-violet-500 underline">
+            logged in
+          </Link>{' '}
+          to answer prompts.
+        </p>
+      </div>
+    )
   }
 }

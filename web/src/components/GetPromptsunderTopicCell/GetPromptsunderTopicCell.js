@@ -13,7 +13,11 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => (
+  <div className="min-h-lg mt-36 grid place-items-center">
+    <i className="fa-duotone fa-loader spin fa-6x p-1 text-emerald-500"></i>
+  </div>
+)
 
 export const Empty = () => <div>Empty</div>
 

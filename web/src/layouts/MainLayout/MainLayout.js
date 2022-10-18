@@ -76,20 +76,7 @@ const MainLayout = ({ children }) => {
                   </div>
                 </div>
               </Link>
-              <Link to={routes.viewTopics()}>
-                <div className="  m-2 flex items-center rounded-lg  bg-slate-100 p-2 shadow   hover:bg-violet-100 hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:border-emerald-400  dark:bg-neutral-900  dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
-                  <div className=" flex flex-col">
-                    {/* <h1 className="m-2 text-4xl font-black text-black">Pennywrite</h1> */}
-                    <i
-                      className={
-                        path === '/view-topics'
-                          ? 'fa-duotone fa-messages-dollar  p-1 text-violet-500'
-                          : 'fa-duotone fa-messages-dollar  p-1 text-emerald-500'
-                      }
-                    ></i>
-                  </div>
-                </div>
-              </Link>
+
               <Link to={routes.submitResponse()}>
                 <div className=" m-2 flex items-center rounded-lg  bg-slate-100 p-2 shadow   hover:bg-violet-100 hover:ring hover:ring-violet-500 focus:bg-violet-100 focus:ring focus:ring-violet-500 dark:border-emerald-400  dark:bg-neutral-900  dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
                   <div className=" flex flex-col">
@@ -163,7 +150,7 @@ const MainLayout = ({ children }) => {
         </header>
         <main
           className={
-            'min-h-screen  p-5 dark:bg-neutral-900 dark:text-emerald-400'
+            'util-max  min-h-screen p-5 dark:bg-neutral-900 dark:text-emerald-400'
           }
         >
           {children}

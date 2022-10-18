@@ -66,7 +66,7 @@ const SinglePrompt = ({ prompt, user }) => {
       <div>
         <button
           // userId to identify user model list and add subscribed topic to subscriptions list
-          className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow"
+          className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg shadow bg-white hover:bg-emerald-100 dark:bg-neutral-900 dark:hover:bg-neutral-800"
           onClick={() => {
             if (currentUser) {
               const topicId = prompt.topicId
