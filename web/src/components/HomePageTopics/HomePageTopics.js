@@ -99,7 +99,7 @@ const HomePageTopics = ({ topic, user }) => {
         {topic.prompts[0].body}
       </p>
       <div className="container flex justify-center">
-        <article className="flex flex-wrap justify-center">
+        <article className="flex flex-wrap justify-center gap-3">
           {renderCards(topic)}
         </article>
       </div>
