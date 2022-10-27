@@ -127,3 +127,7 @@ max-width: 400px
         transform:rotate(360deg);
     }
 }
+
+.secret{
+width: 80vw;
+}

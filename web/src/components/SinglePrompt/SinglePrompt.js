@@ -28,13 +28,9 @@ const SinglePrompt = ({ prompt, user }) => {
     }, [])
   }
   const [usersub] = useMutation(CREATE_USERSUB_MUTATION)
-  console.log('Prompt CONSOLE LOG')
-  console.log(prompt.topicId)
+
   const isSubbed = (userId, topicArray) => {
-    console.log('Prompt CONSOLE LOG')
-    console.log(topicArray)
-    console.log('USER CONSOLE LOG')
-    console.log(userId)
+
     if (topicArray.filter((user) => user.userId == userId).length > 0) {
       setSubbed('Subscribed')
     } else return false

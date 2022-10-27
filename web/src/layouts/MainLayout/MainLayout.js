@@ -5,7 +5,6 @@ import { Link, routes } from '@redwoodjs/router'
 
 const MainLayout = ({ children }) => {
   const path = window.location.pathname
-  console.log(path)
   const [darkModeOver, setDarkModeOver] = useState('')
   const [inProp, setInProp] = useState(true)
 

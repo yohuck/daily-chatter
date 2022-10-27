@@ -109,7 +109,6 @@ const HomePageTopics = ({ topic, user }) => {
 
         className="p2 z-10 m-4 mx-auto  flex w-min rounded-lg bg-slate-100 shadow dark:bg-neutral-900"
         onClick={() => {
-          console.log(currentUser)
           if (currentUser) {
             const topicId = topic.id
             const userId = currentUser.id
