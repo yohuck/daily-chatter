@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 
 import { useAuth } from '@redwoodjs/auth'
-import { Link, routes, navigate } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
 import UserSubCell from 'src/components/UserSubsCell'
@@ -10,7 +9,6 @@ import SettingsRedir from './SettingsRedir'
 
 const SettingsPage = () => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
-  console.log(currentUser)
   return isAuthenticated ? (
     <div className='flex flex-col items-center'>
       <MetaTags title="Settings" description="Settings page" />

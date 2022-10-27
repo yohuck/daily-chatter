@@ -29,14 +29,12 @@ const AllTopics = ({ topic }) => {
     }
   }
 
-  console.log(topic)
-
   return (
     <div
       key={topic.id}
       className="card  max-w-11/12 relative mb-5 flex flex-col items-center justify-center rounded-lg   lg:m-2 lg:block  xl:w-11/12"
     >
-      <div className="p2 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg bg-white hover:bg-emerald-100 shadow dark:bg-neutral-900 dark:hover:bg-neutral-800">
+      <div className="p2 z-10 mx-auto flex  w-min items-center gap-4 rounded-lg bg-white shadow hover:bg-emerald-100 dark:bg-neutral-900 dark:hover:bg-neutral-800">
         <Link to={routes.choosePrompt({ id: topic.id })}>
           <p className="text-2xl font-extrabold ">{topic.title}</p>
         </Link>
